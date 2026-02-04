@@ -1,0 +1,40 @@
+<!-- Copyright (c) 2025 Artiom Gurduz
+SPDX-License-Identifier: LicenseRef-Proprietary
+Ownership remains with the author. Internal use by ART ROCKET is permitted. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LIBRARY</title>
+  <link rel="stylesheet" href="styles/global.css" />
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <img src="icons/logo.png" alt="ARLIB" class="logo" />
+
+    <div class="search-bar">
+      <input type="text" id="search-bar" class="search-input"
+             placeholder="Search modules..." oninput="handleSearch()" />
+      <img src="icons/icon_search.png" alt="Search" class="search-icon" onclick="handleSearch()" />
+    </div>
+  </div>
+
+  <!-- Primary nav -->
+  <div class="library-buttons">
+    <button onclick="switchLibrary('modules')" class="library-button active" id="btn-modules">Modules</button>
+    <!-- Вызов оставляем 'components', подпись меняем на Details -->
+    <button onclick="switchLibrary('components')" class="library-button" id="btn-components">Details</button>
+  </div>
+
+  <!-- Breadcrumbs: ниже и компактнее кнопок -->
+  <div id="breadcrumbs" class="breadcrumbs" role="navigation" aria-label="Breadcrumb"></div>
+
+  <div id="loading">Loading...</div>
+  <div class="grid" id="content"></div>
+
+  <script src="js/modules.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/global.js" defer></script>
+</body>
+</html>

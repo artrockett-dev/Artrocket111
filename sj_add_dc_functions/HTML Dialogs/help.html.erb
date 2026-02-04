@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="<%= Sketchup.get_locale %>">
+
+    <meta charset="UTF-8">
+    <title><%= NAME %></title>
+
+<head>
+
+    <link rel="stylesheet" href="./assets/help.css">
+    <script src="./assets/help.js"></script>
+
+</head>
+
+<body>
+
+    <div class="sj-header">
+
+        <h1 class="sj-header-title"><%= TRANSLATE['Functions list for dynamic components added by the plugin'] %></h1>
+        <img class="sj-header-logo" src="./assets/help.svg" width="50" height="50" title="<%= NAME %>">
+
+    </div>
+
+    <div class="sj-families">
+    
+        <% FunctionsFamilies.families.each do |family| %>
+
+            <div class="sj-family">
+
+                <h2 class="sj-family-title"><%= family.title %></h2>
+
+                <%
+                family.functions.each do |function|
+                %>
+
+                <div class="sj-function" data-function-name="<%= function.name %>">
+
+                    <button class="sj-expand-function-button" data-function-name="<%= function.name %>">
+                        <h3 class="sj-function-name"><%= function.name %></h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description"><%= function.description %></p>
+
+                        <code class="sj-function-signature"><%= function.signature %></code>
+                        <button class="sj-copy-function-button" data-function-name="<%= function.name %>">
+                            <%= TRANSLATE['Copy'] %>
+                        </button>
+        
+                        <h4 class="sj-function-parameters"><%= TRANSLATE['Parameter(s)'] %></h4>
+                        <ul>
+                        <%
+                        function.parameters.each do |parameter|
+                        %>
+                            <li>
+                                <span class="sj-function-parameter-name"><%= parameter[:name] %></span> : <%= parameter[:description] %>
+                            </li>
+                        <%
+                        end # each parameter
+                        %>
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                <%
+                end # each function
+                %>
+            </div><!-- .sj-family -->
+
+        <%
+        end # each family
+        %>
+    </div><!-- .sj-families -->
+
+</body>
+
+</html>

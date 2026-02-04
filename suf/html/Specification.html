@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="cont/style/styles_specification.css" type="text/css" />
+    <script type="text/javascript" src="cont/jquery.min.js"></script>
+    <script type="text/javascript" src="cont/html2canvas.js"></script>
+    <script type="text/javascript" src="cont/SUF_translate.js"></script>
+    <script type="text/javascript" src="cont/FileSaver.js"></script>
+    <script type="text/javascript" src="cont/FileSaver.min.js"></script>
+    <script src="cont/load_lang.js"></script>
+    <script type="text/javascript" src="cont/SUF_specification.js"></script>
+    <script type="text/javascript" src="cont/SUF_lists.js"></script>
+    <script type="text/javascript" src="cont/discount_list.js"></script>
+    <title>Specification</title>
+  </head>
+  <body>
+    <div id="p_prldr">
+      <div class="contpre">
+        <span class="svg_anm"></span>
+        <br>ART ROCKET<br>
+        <small>Calculating cost</small>
+      </div>
+    </div>
+
+    <div id="main">
+      <div id="popUp"></div>
+      <div id="overlay"></div>
+      <div id="specifications_table"></div>
+      <div id="tech_table"></div>
+    </div>
+
+    <div id="footer">
+      <input type="submit" class="footer_button" id="show_spec_button" value="Main Specification" onclick="show_spec();">
+      <input type="submit" class="footer_button" id="export_excel"        value="Export to Excel"      onclick="export_to_excel();">
+      <input type="submit" class="footer_button" id="export_layout"       value="Send to LayOut"        onclick="export_to_layout();">
+      <input type="submit" class="footer_button" id="show_tech_button"   value="Technical Specification" onclick="show_tech();">
+    </div>
+
+  </body>
+</html>
+
+    

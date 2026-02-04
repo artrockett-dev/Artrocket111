@@ -1,0 +1,28 @@
+body {
+  background-color: #FFFFFF;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: Arial;
+}
+#main { width:  100%; }
+
+button{
+  text-align: left;
+  width:68mm;
+  height:36mm;
+  cursor:pointer;
+}
+img {
+  width:64mm;
+  height:36mm;
+  border: 0;
+}
+.container div {
+  position: relative;
+  background-color: rgba(245, 245, 245, 0.58);
+  width: 63mm;
+  height: 6.4mm;
+  bottom: 10mm;
+  padding: 1mm;
+}

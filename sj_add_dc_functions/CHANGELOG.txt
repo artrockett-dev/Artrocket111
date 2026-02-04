@@ -1,0 +1,154 @@
+V.9.10 2022/11/09
+    Ajout de plusieurs nouvelles fonctions : 
+
+    Dans la catégorie Définition : 
+        GetPersistentId() Récupère l'identifiant persistant de l'instance.
+        GetAttribute_FromPersistentId("id", "Nom de l'attribut recherché", "Valeur par défaut si l'attribut n'est pas trouvé")
+    
+    Dans la catégorie Array :
+        ARRAY_RANDOM_FROM_STRING("texte","caractère de séparation","Nom de l'attribut créer par la fonction") Retourne un liste triée de manière aléatoire.
+        ARRAY_SORT_RANDOM("nom de l'attribut array") Retourne le meme array trié de manière aléatoire.
+    
+    Nouvelle Catégorie Suite Mathématique :
+        Suite_Fibonacci("index") retourne la valeur de l'index dans la suite de Suite_Fibonacci
+        Suite_Sum("index") retourne la somme de tout les entiers positifs entre 0 et le numéro de l'index
+        Suite_Factorial("index") Retourne le factoriel de l'index n!
+        Suite_Custom("index","fonction_f","f0") Fonction qui permet de trouver le résultat d'une fonction mathématique personnalisable, qui implique dans sa résolution le résultat de la même fonction pour l'entier précédent.
+
+
+    Corrections :
+       Fonction ARRAY FROM STRING   
+
+
+
+
+v.9.9 2022/10/04
+    Correction de la fonction Aire prend en compte la transformation de l'instance, l'ancienne version renvoyait la surface des faces de la définition, sans prendre en compte une mise à l'échelle de l'instance.
+    
+    Nouvelle fonction ProfilBuilder. Elle retourne la longueur d'extrusion du profil réalisée avec le plugin ProfilBuilder.
+    Vous paramétrez le nom de l'unité et le nombre de décimale.
+
+    Nouvelle fonction SetMaterialFacePlane. Permet d'appliquer une matière sur la face avant et une autre sur la face arrière, de toutes les faces coplanaires au plan passées en paramètres.
+    Très pratique pour modélisé une planche de menuiserie pour respecter le fil du bois, et le contre-fil, ou simuler des plaquages.
+
+
+
+v.9.8 2022/02/01
+    Ajout de traduction dans les retours de formules ou les messages d'erreurs. Il en reste encore quelques-unes à apporter
+
+    Ajout de fonctions dans la famille Définition :
+        OPTIONS_FROM_CSV(chemin, séparateur, attribut cible)
+        Créer une liste d'options pour l'attribut cible à partir des valeurs contenues dans le fichier CSV.
+
+        SWITCH_ACCESS_ATTRIBUT(condition, attribut cible, access true, access false)
+        Change l'affichage de l'attribut dans le panneau option des composants ( aucun, lecture seule, saisie, liste option)
+
+        SWITCH_ACCESS_ATTRIBUTE_BEGIN(condition, texte de recherche des noms d'attribut commençant par, access true, access false)
+        Change l'affichage des attributs qui commence par le texte recherché, dans le panneau option des composants ( aucun, lecture seule, saisie, liste option)
+
+        SWITCH_ACCESS_ATTRIBUTE_MULTI(condition , "attribut cible, access true, access false" { , "attribut cible, access true, access false", ...})
+        Change l'affichage de plusieurs attributs dans le panneau option des composants ( aucun, lecture seule, saisie, liste option)
+
+    Ajout de fonctions dans la famille Array
+        ARRAY_FROM_CSV (chemin, séparateur, attribut cible)
+        Crée un attribut au format array depuis un fichier csv. Le tableau peut avoir plusieurs colonnes
+
+        GRID_ARRAY(nombre colonnes, nombre rangées, préfixe)
+        Permet de rapidement construire une grille de sous composant
+        Créer 2 arrays avec le numéro de colonnes et de rangées pour chaque copy et l'attribut nombre de copies
+
+    Modification dans la famille Array
+        ARRAY_VALUE(array,index{,index2})
+        La fonction permet de saisir un troisième paramètre pour les tableaux à plusieurs colonnes.
+        Le premier index indique le numéro de la ligne en commençant à 0 et le second indique le numéro de la colonne en commençant par 0. 
+
+
+v.9.7 2022/01/22
+    Ajoute la famille de fonction Array/tableau
+
+    ARRAY(name,valeurs séparées par des virgules) créer 1 attribut array au format array avec la liste des valeurs passées en paramètre.
+
+    ARRAY_LENGTH(Array_name) retourne la longueur du tableau (nombre de valeurs)
+
+    ARRAY_VALUE(Array_name, Numero_index) retourne la valeur correspondant à l'index.
+
+    ARRAY_SUM (Array_name, Numéro_index) retourne la somme cumulée jusqua l'inex inclus.
+
+    DONNUT_ARRAY (rayon_interne, rayon_externe, angle, prefix, chemin) retourne 3 attributs array correspondant aux coordonnées X, Y et de rotation Z. Et un attribut nombre de copies.
+    Les attributs créés décrivent les coordonnées pour chaque copie d'un tronçon de donut.
+    Le chemin est représenté par une liste de 1 ou -1 séparés par des virgules. Indiquant le sens du tronçon courbe vers la droite ou vers la gauche. 
+
+v.9.6 2021/12/17
+    Un énorme travail de restructuration du code a été opéré par Samuel Tallet pour faciliter la maintenance du code et de sa traduction.
+    Mille mercis Samuel !
+    Harmonisation du plugin dans la collection SJ_DC_TOOLS (sj_add_dc_functions, sj_add_attribute, sj_redraw_dc_collection)
+    Fusion des menus SimJoubert qui se dupliquait en SimJoubert Tools.
+    Fusion de la barre d'outil avec les autre plugins de la collection 
+    L'ensemble du plugin est traduit automatiquement selon la langue de Sketchup
+    Fichier langue dispo Anglais, Français
+Le clic sur le bouton sélectionne la fonction avec sa liste et les copie dans le presse-papier.
+
+
+
+V.9.5 2021/11/23
+
+    Le code Ruby a été morcelé en plusieurs fichiers. Un fichier par famille de fonctions.
+
+    Ajout d'une barre outil et d'une entrée de menu. permet d'afficher la liste des fonctions et leur détails.
+    La liste de l'aide est affichable en français et en anglais en cliquant sur le drapeau. Merci JDD pour la traduction Anglaise et la correction orthographique.
+    Le clic sur le bouton sélectionne la fonction avec sa liste d'attribut il faut faire ensuite un copier-coller.
+
+    Ajout d'une fonction pour créer un sous composant texte dynamique avec son lot d'attributs (police, hauteur, gras extrusion...)
+    Create3dText("Nom du sous composant qui sera créer", "Texte à modéliser")
+    Bug Connu si le composant a subi une rotation de 90 sur son axe X les géométries disparaissent.
+
+    Ajout de la fonction complémentaire pour éditer le texte créer avec la fonction de Create3dText
+    Edit3dText("Texte", "Symbole retour de ligne" "Alignement", "Font", "Bold", "italic", "Hauteur", "tolérance arrondi courbe", "z décallage surface", "Remplissage", "hauteur extrusion", "Lock actualisation")
+    Bug connu il faut après l'édition faire un clic droit réinitialiser l'échelle
+
+    Ajout de fonctions pour paramétrer la visibilité des arrêtes et des faces non groupées à l'intérieur du composant.
+    Ajout de fonctions pour paramétrer la matières des arrêtes et des faces non groupées à l'intérieur du composant.
+
+V.9.4 2021/11/08
+
+    Ajout de la fonction pour réaliser l'opération booléenne de 2 sous-entités solides
+    GetBooleanChildren("lock","operator","name result","name volume 1","name volume 2","work on copy volume1","work on copy volume2")
+        lock = 1 réalise l'opération sinon la gèle
+        operator : union,substract ou intersect
+        name result : nom appliqué au group résultat
+        name volume 1 ou 2 : Nom du groupe ou nom de la définition du composant
+        work on copy = 1 l'opération sera réalisé sur une copie du volume source et il est ensuite masqué, sinon l'opération booleenne le detruit au profit du résultat.
+
+V.9.3 2021/11/03
+
+    Ajout des fonctions pour paramétrer les sources lumineuses Enscape
+    SetEnscapePointLight(Radius,Luminosity)
+    SetEnscapeSpotLight(Radius,Luminosity)
+    SetEnscapeLinearLight(Length,Luminosity)
+    SetEnscapeRectangularLight(Width,Length,Luminosity)
+    SetEnscapeDiskLight(Radius,Luminosity)
+
+    Ajout de la fonction SetMaterialKelvin(KelvinTemperature)
+    Elle applique et crée une matière selon la température Kelvin d'une source lumineuse
+    Algorithme de conversion Kelevin vers RGB trouvé sur le site https://tannerhelland.com/2012/09/18/convert-temperature-rgb-algorithm-code.html
+
+    Ajout de la fonction SetRotationOffset("Axe,"Angle","Verrou","Level","Offset")
+    Permet de faire une rotation d'un composant de niveau 0,1,ou 2 selon le point d'origine du composant de niveau 0,1 ou 2.
+    Le niveau d'offset ne peut pas être supérieur au Level cible
+
+    Ajout de la fonction SetNameDefinition("name")
+    Elle permet de renommer la définition du composant et de le rendre unique
+
+V0.9.2 2021/10/28
+
+    Ajout de la fonction SetRotation("Axe,"Angle","Verrou","Level")
+    Permet d'opérer une rotation selon l'origine du composant de niveau 0,1 ou 2 à savoir self, parent, grand parent.
+
+    Ajout de la fonction SetAttributRotation()
+    permet de créer rapidement des attribut de controle de la rotation
+
+V0.9.1 2021/06/22
+
+    Corrige la fonction OCCURRENCE il manquait un "R"
+    Ajout de fonction SetLayer("Nom du Calque/Balise") pour appliquer un calque au composant.
+    Ajout de la fonction SetMaterial("Nom de la matière") pour appliquer une matière au composant si le paramètre est vide retour la valeur par défaut, contrairement à l'attribut Material.

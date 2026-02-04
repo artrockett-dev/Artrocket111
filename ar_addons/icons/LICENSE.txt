@@ -1,0 +1,5 @@
+Copyright (c) 2025 Artiom Gurduz. All rights reserved.
+Assets in this directory are proprietary. Reuse outside ART ROCKET’s internal
+use is prohibited without the copyright holder’s written permission.
+
+SPDX-License-Identifier: LicenseRef-Proprietary

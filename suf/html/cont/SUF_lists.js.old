@@ -1,0 +1,992 @@
+const translateDB = window.translateFromDB;      // локальная «своя» функция
+
+// объединяем оба словаря: сначала ищем в БД, потом — в стандартном
+function tr(txt){
+    const fromDB = translateDB?.(txt);
+    if (fromDB !== undefined && fromDB !== null && fromDB !== '') return fromDB;
+    return window.translate ? window.translate(txt) : txt; // fallback
+}
+var currSelection = {
+    ListSection: [],
+}
+var currency_name = "р.";
+var currency_rate = [];
+var mat_currency = "";
+var profil_name_cost_arr = [];
+var pipe_name_cost_arr = [];
+var markup = 1;
+var markup_from_param = 1;
+var access_level = 1;
+var sep = ",";
+var digit_capacity = "0";
+var model_name = "";
+var panel_sizes = "Пильные без кромки";
+var all_mat_array = [];
+var visible_rows = [];
+var selected_panel_arr = [];
+var acc_group_hash = {};
+function lists_activate(){
+    window.scrollTo(0, 0);
+    $('#main').empty();
+    $('#main').append('<table id="table_mess"></table>');
+    let tableObj = [];
+    tableObj.push ('<td id="Logo"> <img id="image" src="" ></td>');
+    tableObj.push ('<td id="des_name">'+tr("Model")+'</td>');
+    $('#table_mess').append(tableObj);
+    $('#main').append('<legend id="description"></legend>');
+    $('#main').append('<div id="ListSections" ></div>')
+    $('#ListSections').append('<button id="Accessories" class="Listtablinks" data-name="Accessories" title="'+tr("Accessories/Fasteners")+'">'+tr("Acc/Fast")+'</button>');
+    $('#ListSections').append('<button id="Sheet" class="Listtablinks" data-name="Sheet" title="'+tr("Sheets")+'">'+tr("Sheets")+'</button>');
+    $('#ListSections').append('<button id="Linear" class="Listtablinks" data-name="Linear" title="'+tr("Linear")+'">'+tr("Linear")+'</button>');
+    $('#ListSections').append('<button id="Operations" class="Listtablinks" data-name="Operations" title="'+tr("Operations")+'">'+tr("Operations")+'</button>');
+    $('#ListSections').append('<button id="Cost" class="Listtablinks" data-name="Cost" title="'+tr("Cost")+'">'+tr("Cost")+'</button>');
+    $('#ListSections').append('<button id="Price" class="Listtablinks" data-name="Price" title="'+tr("Price list")+'"> </button>');
+    $('#main').append('<div id="lists_table" ></div>');
+    document.body.style.backgroundColor = "#FFFFFF";
+    document.getElementById('footer').style.display='block';
+	document.getElementById('add_accessories').title="Добавить в модель";
+	document.getElementById('panel_size').title="Размеры панелей: \n"+panel_sizes;
+    document.getElementById('submit_button').style.display='none';
+    document.getElementById('copy_button').style.display='block';
+    document.getElementById('copy_button').style.backgroundColor = "buttonface";
+    document.getElementById('copy_button').disabled = true;
+    document.getElementById('copy_button').value = tr("Copy the list");
+    document.getElementById('transfer_button').style.display='none';
+    document.getElementById('transfer_button').style.backgroundColor = "buttonface";
+    document.getElementById('transfer_button').disabled = true;
+    document.getElementById('transfer_button').value = tr("Transfer the list");
+}
+function cbr_xml_daily(str) {
+	currency_rate = str;
+	currency_name = str[0].split("=")[2];
+}
+function applyFilter(text) {
+	// пробегаем по ключам вашего единого словаря
+	for (let key in window.translationDB) {
+	  // экранируем RegExp-специальные символы в ключе, если надо
+	  let escKey = key.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+	  text = text.replace(new RegExp(escKey, 'g'), window.translationDB[key]);
+	}
+	return text;
+  }
+function cost_table(){
+	if (document.getElementById('lists_table')) {
+		$('#lists_table').empty();
+		profil_name_cost_arr = [];
+		pipe_name_cost_arr = [];
+		$.each( discount_content.discounts, function( key, val ) {  if (val.name == "Total markup") { markup_from_param = parseFloat(val.value.replace(",",".")); } });
+		let table_name = '<table class="acc_table" id="acc_table" ></table>';
+		$('#lists_table').append(table_name);
+		let	table = document.getElementById('acc_table');
+		tableAccHeader = '<th id="acc_number_header" >№</th><th >'+tr("provider")+'</th><th >'+tr("name")+'</th><th >'+tr("count")+'</th><th >'+tr("unit")+'</th><th >'+tr("price")+'</th>';
+		table.innerHTML = tableAccHeader;
+		document.getElementById('footer').style.display='block';
+		document.getElementById('copy_button').style.display='block';
+		document.getElementById('copy_button').style.backgroundColor = "buttonface";
+		document.getElementById('copy_button').disabled = false;
+
+		document.getElementById('transfer_button').style.display='block';
+		document.getElementById('transfer_button').style.backgroundColor = "buttonface";
+		document.getElementById('transfer_button').disabled = false;
+		document.getElementById('panel_size').style.display='none';
+	}
+}
+function cost_rows(s) {
+	let name = applyFilter(s[0]); // Применяем фильтр
+    let count = s[1];
+	let unit = s[2];
+	let cost = s[3];
+	let net_cost = s[4];
+	let work = s[5];
+	let provider = s[6];
+	let article = s[7];
+	let mat_currency = s[8];
+	let code = s[9];
+	let weight = s[10];
+	let link = s[11];
+	digit_capacity = s[12];
+	let spec = s[13];
+	if (mat_currency != currency_rate[0].split("=")[0]) {
+		for (let cur_rate of currency_rate) {
+			if (mat_currency == cur_rate.split("=")[0]){ 
+				cost = cost*parseFloat(cur_rate.split("=")[1]);
+				net_cost = net_cost*parseFloat(cur_rate.split("=")[1]);
+				work = work*parseFloat(cur_rate.split("=")[1]);
+				break; 
+				} else if ((mat_currency == "RUB") || (mat_currency == "р.") || (mat_currency == "р") || (mat_currency == "руб.") || (mat_currency == "руб")) { 
+				cost = cost/parseFloat(cur_rate.split("=")[1]);
+				net_cost = net_cost*parseFloat(cur_rate.split("=")[1]);
+				work = work*parseFloat(cur_rate.split("=")[1]);
+				break;
+			}
+		}
+	}
+	if (spec == true) {
+		//console.log(name,count,cost,work)
+		let elem_cost = count*(cost+work);
+		let	table = document.getElementById('acc_table');
+		if (table) {
+			let rowCount = table.rows.length;
+			row = table.insertRow(rowCount);
+			cell=row.insertCell(0);
+			cell.innerHTML='<td class="acc_number" id="acc_number" ><cost_number>'+rowCount+'</cost_number></td>';
+			cell=row.insertCell(1);
+			cell.innerHTML='<td class="acc_provider" id="acc_provider" ><label>'+provider+'</label></td>';
+			cell=row.insertCell(2);
+			cell.innerHTML='<td class="acc_name" id="acc_name" ><label>'+name+'</label></td>';
+			cell=row.insertCell(3);
+			cell.innerHTML='<td><cost_label class="acc_count" id="acc_count">'+count.toString().replace(".",sep)+' </cost_label></td>';
+			if (count == 0) { cell.style.backgroundColor = "red";}
+			cell=row.insertCell(4);
+			cell.innerHTML='<td><cost_label>'+unit+'</cost_label></td>';
+			cell=row.insertCell(5);
+			cell.innerHTML='<td><cost_label title="Unit price: '+priceSet(cost,digit_capacity)+'\nWork: '+priceSet(work,digit_capacity)+'" class="elem_cost" value="'+(elem_cost)+'">'+priceSet(elem_cost,digit_capacity)+'</cost_label></td>'; 
+			if (elem_cost == 0) { cell.style.backgroundColor = "red";}
+		}
+	}
+	return [cost,net_cost,work,provider,article,code,weight,link];
+}
+function priceSet(data,zero=0){
+    if (data != 0) {
+        data = rounding(data,digit_capacity);
+        let price = data.toString();
+        if (zero != 0) { 
+            for (let i = zero; i > 0; i--) {
+                price = price.slice(0,-i)+price.substr(-i).replace(/\d/,"0");
+			}
+		}
+        data = price.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1&nbsp;");
+	}
+    return data;
+}
+function roundSet(data){
+    if (data != 0) {
+        data = rounding(data,digit_capacity);
+	}
+    return data;
+}
+function rounding(cost,digit_capacity) {
+    if (digit_capacity == "0,00") { cost = Math.ceil(cost*100)/100 }
+    else if (digit_capacity == "0,0") { cost = Math.ceil(cost*10)/10 }
+    else { cost = Math.ceil(cost) }
+    return cost;
+}
+function total_cost(s){
+    let total = 0;
+    let volume = s[0];
+    let	table = document.getElementById('acc_table');
+	if (table) {
+		let rows = table.rows;
+		row = table.insertRow(rows.length);
+		cell=row.insertCell(0);
+		cell=row.insertCell(1);
+		cell.innerHTML='<td class="acc_name" id="acc_name" ><cost_label><b>'+tr("Total")+'</b></cost_label></td>';
+		cell=row.insertCell(2);
+		cell=row.insertCell(3);
+		cell=row.insertCell(4);
+		cell=row.insertCell(5);
+		let elem_cost = document.getElementsByClassName('elem_cost');
+        for (let i = 0; i < elem_cost.length; i++) { total += +elem_cost[i].getAttribute('value'); }
+		cell.innerHTML='<td ><cost_label><b>'+priceSet(total,digit_capacity)+'&nbsp;'+currency_name+'</b></cost_label></td>';
+		if (volume != "") { 
+			$('#lists_table').append('<p id="p_'+volume+'" style="margin-left: 20px;" ><b>'+tr("The volume of modules")+' '+volume+' '+tr("cub.m.")+'</b>');
+		}
+	}
+}
+function check_listtablinks() {
+    $('#lists_table').empty();
+    active = $('button.Listtablinks.active').attr('data-name');
+    str='list@'+active;
+    sketchup.get_data(str);
+}
+function clear_selection_list(show_list=true){
+	selected_panel_arr = [];
+    $('#lists_table').empty();
+    active = $('button.Listtablinks.active').attr('data-name');
+    str='list@'+active;
+    if (show_list) { sketchup.get_data(str); }
+    document.getElementById('des_name').innerHTML = tr("Model");
+    document.getElementById('description').innerHTML = "";
+document.getElementById('image').src = "";
+}
+function acc_table(s){
+    sep = s[1];
+    if (s[0]=="new_table") { $('#lists_table').empty(); }
+    if (s[2]) {
+		$('#lists_table').append('<table class="title_table acc_table" id="'+s[3]+'_title_table" style="margin-top: 5px;"></table>');
+        $(document.getElementById(s[3]+'_title_table')).append('<th id="p_'+s[3]+'" class="table_title_p" style="margin-top: 3px; margin-bottom: 3px;" ><b>'+s[2]+'</b></th>');
+        table_name = '<table class="acc_table" id="'+s[3]+'_acc_table" style="margin-top: -1px;"></table>';
+		table_id=s[3]+'_acc_table';
+	}
+    else {table_name = '<table class="acc_table" id="acc_table" style="margin-top: 5px;"></table>'; table_id='acc_table';}
+    $('#lists_table').append(table_name);
+    let	table = document.getElementById(table_id);
+    table.innerHTML = '<th id="acc_number_header">№</th><th>'+tr("name")+'</th><th>'+tr("count")+'</th><th>'+tr("unit")+'</th>';
+    document.getElementById('footer').style.display='block';
+    document.getElementById('copy_button').style.display='block';
+    document.getElementById('copy_button').style.backgroundColor = "buttonface";
+    document.getElementById('copy_button').disabled = false;
+	document.getElementById('panel_size').style.display='none';
+	document.getElementById('add_accessories').style.display='block';
+	document.getElementById('add_accessories').disabled = false;
+
+}
+
+function acc_rows(s) { //0-name, 1-count, 2-unit
+    let name = applyFilter(s[0].trim()); // Применяем фильтр перевода
+    name = name.replace("~","=");
+    name = name.replace(/\|/g,",");
+    name = name.replace(/плюс/g,"+");
+    name = name.replace("[","(");
+    name = name.replace("]",")");
+    let count = s[1];
+    let unit = s[2];
+    let label = "name_label";
+    let table_id='acc_table';
+    let title = "";
+    if (currSelection.ListSection!="Operations") {
+        title=tr("Select accessories");
+    }
+    if (s[3]) {
+        if (s[3].constructor === Array) {
+            if (s[3].length!=0) {
+                let group_arr = s[3];
+                label = "group_label";
+                title = "";
+                acc_group_hash[name] = group_arr;
+                for (let i = 0; i < group_arr.length; i++) {
+                    title += group_arr[i][0]+" - "+group_arr[i][1]+" "+group_arr[i][2]+"\n";
+                }
+            }
+        } else {
+            if (s[3]=="hole") {
+                title=tr("Сhange properties");
+            }
+            table_id=s[3]+'_acc_table';
+        }
+    }
+    let table = document.getElementById(table_id);
+    let rowCount = table.rows.length;
+    row = table.insertRow(rowCount);
+    cell=row.insertCell(0);
+    if (!s[4]) { cell.innerHTML='<td class="acc_number" id="acc_number" ><acc_label>'+rowCount+'</acc_label> </td>';}
+    cell=row.insertCell(1);
+    cell.innerHTML='<td class="acc_name" id="acc_name" ><'+label+' onkeyup="return searchKeyPress(event)" title="'+title+'">'+name+'</'+label+'> </td>';
+    cell=row.insertCell(2);
+    cell.innerHTML='<td ><acc_label class="acc_count" id="acc_count">'+count.toString().replace(".",sep)+'</acc_label> </td>';
+    cell=row.insertCell(3);
+    cell.innerHTML='<td ><acc_label>'+unit+'</acc_label> </td>';
+}
+function acc2_table(s){
+    $('#lists_table').append('<p id="p_'+s[0]+'" style="margin-bottom: 3px;" ><b>'+s[0]+'</b>');
+    let table_name = '<table class="acc2_table" id="acc2_table" ></table>';
+    $('#lists_table').append(table_name);
+    let	table = document.getElementById('acc2_table');
+    tableAccHeader = '<th id="acc_number_header" >№</th><th >'+tr("name")+'</th><th >'+tr("length")+'</th><th >'+tr("width")+'</th><th >'+tr("count")+'</th>';
+    table.innerHTML = tableAccHeader;
+    document.getElementById('footer').style.display='block';
+    document.getElementById('copy_button').style.display='block';
+	document.getElementById('copy_button').disabled = false;
+	document.getElementById('panel_size').style.display='none';
+	document.getElementById('add_accessories').style.display='block';
+	document.getElementById('add_accessories').disabled = false;
+}
+function acc2_rows(s){ //0-name, 1-width, 2-height,3-count,4-unit
+    let name = s[0];
+    name = name.replace("~","=");
+    name = name.replace(/\|/g,",");
+    name = name.replace(/плюс/g,"+");
+    let width = s[1];
+    let height = s[2];
+    let count = s[3];
+    let	table = document.getElementById('acc2_table');
+    let rowCount = table.rows.length;
+    row = table.insertRow(rowCount);
+    cell=row.insertCell(0);
+    cell.innerHTML='<td class="acc_number" id="acc_number"><acc_label>'+rowCount+'</acc_label></td>';
+    cell=row.insertCell(1);
+    cell.innerHTML='<td class="acc_name" id="acc_name"><label>'+name+'</label></td>';
+    cell=row.insertCell(2);
+    cell.innerHTML='<td ><acc_label class="acc_count" id="acc_count">'+width+'</acc_label></td>';
+    cell=row.insertCell(3);
+    cell.innerHTML='<td ><acc_label class="acc_count" id="acc_count">'+height+'</acc_label></td>';
+    cell=row.insertCell(4);
+    cell.innerHTML='<td ><acc_label class="acc_count" id="acc_count">'+count+tr("pc")+'</acc_label></td>';
+}
+function lists_list(s){
+	let table_new = s[0];
+    if (table_new == "new") {
+	    all_mat_array = [];
+		$('#lists_table').empty();
+		panel_sizes = s[1];
+		if (panel_sizes == "Готовые с кромкой") { document.getElementById('panel_size_input').checked = true; }
+		else { document.getElementById('panel_size_input').checked = false; }
+		document.getElementById('footer').style.display='block';
+		document.getElementById('copy_button').style.display='block';
+		document.getElementById('copy_button').style.backgroundColor = "buttonface";
+		document.getElementById('copy_button').disabled = false;
+		document.getElementById('add_accessories').style.display='none';
+		document.getElementById('panel_size').style.display='block';
+		document.getElementById('panel_size').disabled = false;
+		} else if (table_new == "new_table") {
+		all_mat_array.push(s);
+        //console.log(s)
+        let type = s[1];
+        let material_name = applyFilter(s[2]); // Применяем фильтр
+        let mat = s[3];
+        let back_mat = s[4];
+        let material_thickness = s[5];
+        let material_unit = s[6];
+        let material_src = s[7];
+        let material_area = s[8];
+        let edge = s[9];
+        let sheet_size = s[10];
+        let sheet_count = s[11];
+        let type_material = s[13];
+        let max_width_of_count = s[14];
+        $('#lists_table').append('<p id="p_'+mat+"/"+back_mat+"/"+material_thickness+'/'+material_unit+'/'+type_material+"/"+max_width_of_count+'" > ');
+        $('#lists_table').append('<table class="list_table" id="'+type+"="+mat+"="+back_mat+"="+material_thickness+'='+material_unit+'='+type_material+"="+max_width_of_count+'" ></table>');
+        tableListHeader = '<th align="left" colspan="6" <span><img class="texture_image" align="left" id="texture_image_'+ type+"="+mat+"="+back_mat+'='+material_thickness+'='+material_unit+'='+type_material+"="+max_width_of_count+'" title="'+tr("Collapse/expand the list")+'" src="'+material_src+'"></span> <span><text title="'+tr("Select all the details")+'" id="material_name">'+material_name+", "+material_thickness+' '+tr("mm")+' <br>'+material_area+' '+material_unit;
+        if (sheet_size != "") { tableListHeader = tableListHeader.concat (' ('+sheet_size+' - '+sheet_count+' '+tr("pc")+')');}
+        let strips = '';
+        if (edge[0]) {
+            let edge_type = edge[0][2];
+            let edge_count = Math.ceil(edge[0][3]);
+            if (edge[0][5]) {
+                if (edge[0][5].slice(-1) == "1") { strips = ' ('+edge[0][5]+' '+tr("strip")+')';}
+                else if ((edge[0][5].slice(-1) == "2") || (edge[0][5].slice(-1) == "3") || (edge[0][5].slice(-1) == "4")) { strips = ' ('+edge[0][5]+' '+tr("stripes")+')';}
+                else { strips = ' ('+edge[0][5]+' '+tr("strips")+')';}
+			}
+            if (edge_type[0] == "_") { tableListHeader = tableListHeader.concat ('<font color="red"><br>'+tr("Edge")+'_'+edge_type.slice(1,edge_type.length)+" - "+edge_count+' '+tr("m")+'</font>'); }
+            else { tableListHeader = tableListHeader.concat ('<br>'+tr("Edge")+'_'+edge_type+" - "+edge_count+' м'+strips); }
+		}
+        if (edge[1]) {
+            let edge_type = edge[1][2];
+            let edge_count = Math.ceil(edge[1][3]);
+            if (edge[1][5]) {
+                if (edge[1][5].slice(-1) == "1") { strips = ' ('+edge[1][5]+' '+tr("strip")+')';}
+                else if ((edge[1][5].slice(-1) == "2") || (edge[1][5].slice(-1) == "3") || (edge[1][5].slice(-1) == "4")) { strips = ' ('+edge[1][5]+' '+tr("stripes")+')';}
+                else { strips = ' ('+edge[1][5]+' '+tr("strips")+')';}
+			}
+            if (edge_type[0] == "_") { tableListHeader = tableListHeader.concat ('<font color="red"><br>'+tr("Edge")+'_'+edge_type.slice(1,edge_type.length)+" - "+edge_count+' '+tr("m")+'</font>'); }
+            else { tableListHeader = tableListHeader.concat ('<br>'+tr("Edge")+'_'+edge_type+" - "+edge_count+' м'+strips); }
+		}
+        if (edge[2]) {
+            let edge_type = edge[2][2];
+            let edge_count = Math.ceil(edge[2][3]);
+            if (edge[2][5]) {
+                if (edge[2][5].slice(-1) == "1") { strips = ' ('+edge[2][5]+' '+tr("strip")+')';}
+                else if ((edge[2][5].slice(-1) == "2") || (edge[2][5].slice(-1) == "3") || (edge[2][5].slice(-1) == "4")) { strips = ' ('+edge[2][5]+' '+tr("stripes")+')';}
+                else { strips = ' ('+edge[2][5]+' '+tr("strips")+')';}
+			}
+            if (edge_type[0] == "_") { tableListHeader = tableListHeader.concat ('<font color="red"><br>'+tr("Edge")+'_'+edge_type.slice(1,edge_type.length)+" - "+edge_count+' '+tr("m")+'</font>'); }
+            else { tableListHeader = tableListHeader.concat ('<br>'+tr("Edge")+'_'+edge_type+" - "+edge_count+' м'+strips); }
+		}
+        if (edge[3]) {
+            let edge_type = edge[3][2];
+            let edge_count = Math.ceil(edge[3][3]);
+            if (edge[3][5]) {
+                if (edge[3][5].slice(-1) == "1") { strips = ' ('+edge[3][5]+' '+tr("strip")+')';}
+                else if ((edge[3][5].slice(-1) == "2") || (edge[3][5].slice(-1) == "3") || (edge[3][5].slice(-1) == "4")) { strips = ' ('+edge[3][5]+' '+tr("stripes")+')';}
+                else { strips = ' ('+edge[3][5]+' '+tr("strips")+')';}
+			}
+            if (edge_type[0] == "_") { tableListHeader = tableListHeader.concat ('<font color="red"><br>'+tr("Edge")+'_'+edge_type.slice(1,edge_type.length)+" - "+edge_count+' '+tr("m")+'</font>'); }
+            else { tableListHeader = tableListHeader.concat ('<br>'+tr("Edge")+'_'+edge_type+" - "+edge_count+' м'+strips); }
+		}
+        tableListHeader = tableListHeader.concat ('</span></th><th width="28" >');
+        tableListHeader = tableListHeader.concat ('<img align="right" class="ocl_image" id="ocl_image_'+type+"="+mat+"="+back_mat+'='+material_thickness+'='+material_unit+'='+type_material+"="+max_width_of_count+'" src="cont/style/ocl.png" title="'+tr("Cutting details")+'" onclick="open_cut_list(this);">');
+        tableListHeader = tableListHeader.concat ('<img align="right" class="copy_image" id="copy_image_'+type+"="+mat+"="+back_mat+'='+material_thickness+'='+material_unit+'='+type_material+"="+max_width_of_count+'" src="cont/style/report.png" title="'+tr("Exporting a list")+'" onclick="export_list(this);">');
+        tableListHeader = tableListHeader.concat ('</th>');
+        //console.log(tableListHeader)
+        list_table = document.getElementById(type+"="+mat+"="+back_mat+"="+material_thickness+'='+material_unit+'='+type_material+"="+max_width_of_count);
+        list_table.innerHTML = tableListHeader;
+        } else if (table_new == "panel_count") {
+		all_mat_array.push(s);
+        let type = s[1];
+        let mat = s[3];
+        let back_mat = s[4];
+        let material_thickness = s[5];
+        let material_unit = s[6];
+        let panel_count = s[11];
+        let grain = s[12];
+        let type_material = s[13];
+        let max_width_of_count = s[14];
+        list_table = document.getElementById(type+"="+mat+"="+back_mat+"="+material_thickness+'='+material_unit+'='+type_material+"="+max_width_of_count);
+        let rowCount = list_table.rows.length;
+        row = list_table.insertRow(rowCount);
+        if (grain == "false") { grain_title = tr("Texture without direction"); grain_img = "░░"; }
+        else { grain_title = tr("Directional texture"); grain_img = "↕↕"; }
+        row.innerHTML='<td><list_first grain='+grain+' class="grain" title="'+grain_title+'"><b>'+grain_img+'</b></list_first></td><td><list_label><b>'+tr("Number of parts")+'</b></list_label></td><td></td><td></td><td></td><td></td><td><list_label><b>'+panel_count+tr("pc")+'</b></list_label></td>';
+        } else if (table_new == "total_panel_count") {
+		all_mat_array.push(s);
+        $('#lists_table').append('<p id="p_total_panel_count" >' );
+        $('#lists_table').append('<table class="list_table" id="total_panel_count" ></table>');
+        list_table = document.getElementById("total_panel_count");
+        list_table.innerHTML = '<tr><td></td><td><list_label><b>'+tr("Total number of parts")+': </b></list_label></td><td><list_label><b>'+s[1]+tr("pc")+'</b></list_label></td></tr>';
+        } else if (table_new == "total_hole_count") {
+		all_mat_array.push(s);
+        $('#lists_table').append('<p id="p_total_hole_count" >' );
+        $('#lists_table').append('<table class="list_table" id="total_hole_count" ></table>');
+        list_table = document.getElementById("total_hole_count");
+        content = '<tr id="total_hole_row" title="'+tr("List of holes")+'"><td>▼</td><td><hole_count_label><b>'+tr("Hole")+' </b></hole_count_label></td><td><hole_count_label><b>'+s[1]+tr("pc")+'</b></hole_count_label></td></tr>';
+        for (let i = 0; i < s[2].length; i++) {
+            //content += '<tr id="hole_count" style="display: none;"><td></td><td><hole_label><b>'+s[2][i][0]+'</b></hole_label></td><td><hole_label><b>'+s[2][i][1]+'шт</b></hole_label></td></tr>';
+            content += '<tr id="hole_count"><td></td><td><hole_label><b>'+s[2][i][0]+'</b></hole_label></td><td><hole_label><b>'+s[2][i][1]+tr("pc")+'</b></hole_label></td></tr>';
+		}
+        list_table.innerHTML = content;
+        } else {
+		all_mat_array.push(s);
+        let number = s[0];
+        let type = s[1]
+        let material_name = s[2];
+        let mat = s[3];
+        let back_mat = s[4];
+        let material_thickness = s[5];
+        let material_unit = s[6];
+        let name = s[7];
+        let item_code = s[8];
+        let width_panel = s[9];
+		let width_comp = s[10];
+		let height_panel = s[11];
+        let height_comp = s[12];
+        let count_comp = s[13];
+        let z1 = s[14];
+        let z1_texture = s[15];
+        let z2 = s[16];
+        let z2_texture = s[17];
+        let y1 = s[18];
+        let y1_texture = s[19];
+        let y2 = s[20];
+        let y2_texture = s[21];
+        let sel = s[22];
+        let rotate = s[23];
+        let type_material = s[24];
+        let max_width_of_count = s[25];
+        list_table = document.getElementById(type+"="+mat+"="+back_mat+"="+material_thickness+'='+material_unit+'='+type_material+"="+max_width_of_count);
+        let rowCount = list_table.rows.length;
+        add_list_row(rowCount,type,mat,back_mat,material_thickness,material_unit,type_material,max_width_of_count,name,item_code,width_panel,width_comp,height_panel,height_comp,count_comp,z1,z1_texture,z2,z2_texture,y1,y1_texture,y2,y2_texture,number,sel,rotate);
+	}
+}
+function add_list_row(k, type, mat, back_mat, material_thickness, material_unit, type_material, max_width_of_count, name, item_code, width_panel, width_comp, height_panel, height_comp, count_comp, z1, z1_texture, z2, z2_texture, y1, y1_texture, y2, y2_texture, number, sel, rotate) {
+    let row, cell;
+    let table = document.getElementById(type + "=" + mat + "=" + back_mat + "=" + material_thickness + '=' + material_unit + '=' + type_material + "=" + max_width_of_count);
+    
+    // Применяем фильтр к имени перед вставкой
+    let filtered_name = applyFilter(name);
+
+    row = table.insertRow(k);
+    cell = row.insertCell(0);
+    cell.innerHTML = `<td><number_label title="${tr("Turning in the cutting")}" id="number=${number}=${type}=${mat}=${back_mat}=${material_thickness}=${material_unit}=${type_material}=${max_width_of_count}"> ${number} </number_label></td>`;
+    
+    if (rotate == "1") { 
+        document.getElementById(`number=${number}=${type}=${mat}=${back_mat}=${material_thickness}=${material_unit}=${type_material}=${max_width_of_count}`).style.color = "red"; 
+    }
+    
+    cell = row.insertCell(1);
+    let content = `<td colspan="2" id="name_comp"><name_label onkeyup="return searchKeyPress(event)" title="${tr("Change the part name")}" item_code="${item_code}" id="number=${number}=${type}=${mat}=${back_mat}=${material_thickness}=${filtered_name}">${filtered_name}</name_label></td>`;
+    cell.innerHTML = content;
+    
+    cell = row.insertCell(2);
+    cell.innerHTML = `<td align="right"><list_label title="${tr("Select a part")}" size1="${width_comp}" size2="${height_comp}" id="${number}${filtered_name}${item_code}${width_comp}${height_comp}"> ${(panel_sizes == "Пильные без кромки" ? width_comp : width_panel)} </list_label></td>`;
+    
+    let td_width_comp = document.getElementById(`${number}${filtered_name}${item_code}${width_comp}${height_comp}`);
+    if ((z1 > 0) && (z1 < 0.8)) { td_width_comp.style.borderTop='1px green solid'; }
+    if ((z1 >= 0.8) && (z1 < 1.3)) { td_width_comp.style.borderTop='2px yellow solid'; }
+    if (z1 >= 1.3) { td_width_comp.style.borderTop='1px red solid'; }
+    if ((z2 > 0) && (z2 < 0.8)) { td_width_comp.style.borderBottom='1px green solid'; }
+    if ((z2 >= 0.8) && (z2 < 1.3)) { td_width_comp.style.borderBottom='2px yellow solid'; }
+    if (z2 >= 1.3) { td_width_comp.style.borderBottom='1px red solid'; }
+    if (((z1 != 0) && (mat.indexOf(z1_texture) == -1)) || ((z2 != 0) && (mat.indexOf(z2_texture) == -1))) { td_width_comp.style.color="red"; }
+	
+	cell=row.insertCell(3);
+    cell.innerHTML='<td ><list_label title="'+tr("Select a part")+'" id="comp"> x </list_label> </td>';
+	
+    cell=row.insertCell(4);
+    content='<td ><list_label title="'+tr("Select a part")+'" id="'+number+name+item_code+height_comp+width_comp+'"> ';
+    if ((y2 > 0) && (y2 < 0.8)) { content=content.concat("<font color=green><b>|</b></font>"); }
+    if ((y2 >= 0.8) && (y2 < 1.3)) { content=content.concat("<font color=yellow><b>|</b></font>"); }
+    if (y2 >= 1.3) { content=content.concat("<font color=red><b>|</b></font>"); }
+    content=content.concat((panel_sizes=="Пильные без кромки" ? height_comp : height_panel))
+    if ((y1 > 0) && (y1 < 0.8)) { content=content.concat("<font color=green><b>|</b></font>"); }
+    if ((y1 >= 0.8) && (y1 < 1.3)) { content=content.concat("<font color=yellow><b>|</b></font>"); }
+    if (y1 >= 1.3) { content=content.concat("<font color=red><b>|</b></font>"); }
+    content=content.concat(" </list_label> </td>");
+    cell.innerHTML=content;
+    let td_height_comp = document.getElementById(number+name+item_code+height_comp+width_comp);
+    if (((y1 != 0) && (mat.indexOf(y1_texture) == -1)) || ((y2 != 0) && (mat.indexOf(y2_texture) == -1))) { td_height_comp.style.color="red"; }
+	
+    cell=row.insertCell(5);
+    cell.innerHTML='<td ><list_label title="'+tr("Select a part")+'" id="comp"> </list_label> </td>';
+    cell=row.insertCell(6);
+    cell.innerHTML='<td ><list_label title="'+tr("Select a part")+'" id="count_comp">'+count_comp+tr("pc")+' </list_label></td>';
+    if (sel == 0) { $(row).hide(); }
+}
+function searchKeyPress(e){
+    e = e || window.event;
+    if (e.keyCode == 13) {
+        $('#edit').blur()
+        return false;
+	}
+    return true;
+}
+$(document).on( "click", "number_label", function() {
+    if (this.style.color=="red" ) { this.style.color="black"; rotate = 0; } 
+    else { this.style.color="red"; rotate = 1; }
+    sketchup.get_data("rotate/"+rotate+"/"+this.id);
+});
+$(document).on( "click", "name_label", function(e) {
+    let t = e.target || e.srcElement;
+    let row = t.parentNode.parentNode;
+    let elm_name = t.tagName.toLowerCase();
+    if(elm_name == 'input')	{return false;}
+    let current_val = $(this).text();
+    let old_val = current_val;
+    if (currSelection.ListSection=="Accessories") {
+		sketchup.get_data("select_accessories/"+old_val);
+	    } else if (currSelection.ListSection=="Operations") {
+		sketchup.get_data("select_holes/"+old_val);
+		} else {
+		let item_code = $(this).attr('item_code');
+		let prefix = "";
+		let suffix = "";
+		if (old_val.indexOf(item_code+" - ") != -1) { prefix += item_code+" - "; old_val = old_val.split(" - ")[1]; }
+		if ((old_val.indexOf("<") != -1) && (old_val.indexOf(">") != -1)) { prefix += old_val.split(">")[0]+">"; old_val = old_val.split(">")[1]; }
+		if (old_val.indexOf(" - "+item_code) != -1) { old_val = old_val.split(" - ")[0]; suffix = " - "+item_code;}
+		let id = $(this).attr('id');
+		$(this).empty().append('<input type="text" id="edit" value="'+old_val+'" />');
+		$('#edit').focus();
+		$('#edit').select();
+		$('#edit').blur(function()	{
+			let val = $(this).val();
+			if (old_val != val) {
+				$(this).parent().empty().html(prefix+val+suffix);
+				if(currSelection.ListSection=="Sheet"){
+					let new_id = id.split("=")[0]+"="+id.split("=")[1]+"="+id.split("=")[2]+"="+id.split("=")[3]+"="+id.split("=")[4]+"="+id.split("=")[5]+"="+val;
+					console.log(new_id)
+					$(this).attr('id',new_id);
+					sketchup.get_data("new_name/"+val+"/"+id);
+				}
+				} else {
+				$(this).parent().empty().html(current_val);
+			}
+		})
+	}
+});
+$(document).on( "click", "list_label", function(e) {
+    let t = e.target || e.srcElement;
+    let row = t.parentNode.parentNode;
+    let table = row.parentNode.parentNode;
+    let rows = table.rows;
+    let	tables = document.getElementsByClassName('list_table');
+    for (let i = 0; i < tables.length; i++) {
+        if (tables[i] != table) {
+            for (let j = 0; j < tables[i].rows.length; j++) {
+                tables[i].rows[j].classList.remove('selected_panel');
+			}
+		}
+	}
+	if (row.classList.contains('selected_panel')){ row.classList.remove('selected_panel'); }
+	else { row.classList.add('selected_panel'); }
+    let panel_arr = [];
+    for (let i = 1; i < rows.length; i++) {
+        if (rows[i].classList.contains('selected_panel')) {
+            panel_arr = panel_arr.concat(rows[i].cells[1].childNodes[0].id+"="+rows[i].cells[2].childNodes[0].getAttribute("size1")+"="+rows[i].cells[2].childNodes[0].getAttribute("size2"));
+		}
+	}
+    if (panel_arr != []) { sketchup.get_data("select_panel/"+panel_arr.join()); }
+});
+$(document).on( "click", "#material_name", function(e) {
+	let t = e.target || e.srcElement;
+	let row = t.parentNode.parentNode.parentNode;
+	let table = row.parentNode.parentNode;
+	let rows = table.rows;
+	if (!event.ctrlKey) {
+	    selected_panel_arr = [];
+		let	tables = document.getElementsByClassName('list_table');
+		for (let i = 0; i < tables.length; i++) {
+			if (tables[i] != table) {
+				for (let j = 0; j < tables[i].rows.length; j++) {
+					tables[i].rows[j].classList.remove('selected_panel');
+				}
+			}
+		}
+	}
+	for (let i = 1; i < rows.length-1; i++) {
+		if (rows[i].classList.contains('selected_panel')) {
+			rows[i].classList.remove('selected_panel');
+			let index = selected_panel_arr.indexOf(rows[i].cells[1].childNodes[0].id+"="+rows[i].cells[2].childNodes[0].getAttribute("size1")+"="+rows[i].cells[2].childNodes[0].getAttribute("size2"));
+			if (index !== -1) { selected_panel_arr.splice(index, 1); }
+			} else {
+			rows[i].classList.add('selected_panel');
+			selected_panel_arr = selected_panel_arr.concat(rows[i].cells[1].childNodes[0].id+"="+rows[i].cells[2].childNodes[0].getAttribute("size1")+"="+rows[i].cells[2].childNodes[0].getAttribute("size2"));
+		}
+	}
+	if (selected_panel_arr != []) { sketchup.get_data("select_panel/"+selected_panel_arr.join()); }
+});
+$(document).on( "click", ".grain", function(e) {
+	let t = e.target || e.srcElement;
+	let row = t.parentNode.parentNode.parentNode;
+	let table = row.parentNode.parentNode;
+	let grain = t.parentNode.getAttribute("grain");
+	if (grain == "false") { grain_title = tr("Directional texture"); grain_img = "↕↕"; grain = true; }
+	else { grain_title = tr("Texture without direction"); grain_img = "░░"; grain = false; }
+	row.cells[0].innerHTML = '<list_first grain='+grain+' class="grain" title="'+grain_title+'"><b>'+grain_img+'</b></list_first>';
+	sketchup.get_data("grain/"+grain+"/"+table.id);
+});
+$(document).on( "click", "#total_hole_row", function() {
+	table = document.getElementById('total_hole_count');
+	let rows = table.rows;
+	for (let i = 1; i < rows.length; i++) { 
+		if ($(rows[i]).is(':visible')) { $(rows[i]).hide(); }
+		else { $(rows[i]).show(); }
+	}
+});
+$(document).on( "click", "label", function(e) {
+	if ($(this).attr('id')!="panel_size") {
+		let t = e.target || e.srcElement;
+		let row = t.parentNode.parentNode;
+		let elm_name = t.tagName.toLowerCase();
+		if(elm_name == 'input')	{return false;}
+		let val = $(this).html();
+		$(this).empty().append('<input type="text" id="edit" value="'+val+'" />');
+		$('#edit').focus();
+		$('#edit').select();
+		$('#edit').blur(function()	{
+			let val = $(this).val();
+			$(this).parent().empty().html(val);
+			let cost_price = (+row.cells[6].innerText.replace(",","."))*(+row.cells[8].innerText.replace(",","."));
+			row.cells[9].innerHTML = '<cost_label>' + (Math.ceil(cost_price*100)/100).toString().replace(".",",") + '</cost_label>';
+			document.getElementById('save_button').disabled = false;
+			document.getElementById('save_button').style.backgroundColor = "red";
+		});
+	}
+});
+$(document).on( "change", "label", function(e) {
+	if ($(this).attr('id')=="panel_size") {
+		let panel_size_input = document.getElementById('panel_size_input');
+		if (panel_size_input.checked) { panel_sizes = "Готовые с кромкой"; }
+		else { panel_sizes = "Пильные без кромки"; }
+		document.getElementById('panel_size').title="Размеры панелей: \n"+panel_sizes;
+		sketchup.get_data("change_panel_size/"+panel_sizes);
+		new_all_mat_array = all_mat_array.slice();
+		all_mat_array = [];
+		lists_list(["new",panel_sizes]);
+		for (let i = 0; i < new_all_mat_array.length; i++) { 
+			lists_list(new_all_mat_array[i]);
+		}
+		for (let i = 0; i < visible_rows.length; i++) { 
+			table_id = visible_rows[i];
+			table = document.getElementById(table_id.slice(14,table_id.length));
+			let rows = table.rows;
+			for (let j = 1; j < rows.length-1; j++) { 
+				$(rows[j]).show();
+			}
+		}
+	}
+});
+$(document).on( "click", "#add_accessories", function(e) {
+	sketchup.get_data("add_accessories");
+});
+$(document).on( "click", ".texture_image", function() {
+	table_id = $(this).attr('id');
+	table = document.getElementById(table_id.slice(14,table_id.length));
+	let rows = table.rows;
+	if ($(rows[1]).is(':visible')) {visible_rows.splice(visible_rows.indexOf(table_id), 1);}
+	else { visible_rows.push(table_id); }
+	for (let i = 1; i < rows.length-1; i++) { 
+		if ($(rows[i]).is(':visible')) { $(rows[i]).hide(); }
+		else { $(rows[i]).show(); }
+	}
+});
+$(document).on( "click", ".Listtablinks", function() {
+	window.scrollTo(0, 0);
+	let name = $(this).attr('data-name');
+	if (name == "Price") {
+		sketchup.get_data("activate_price");
+		} else {
+		$(".Listtablinks").each(function () { $(this).removeClass("active"); });
+		if ($(this).hasClass("active")) {
+			$(this).removeClass("active");
+			currSelection.ListSection = currSelection.ListSection.filter(function (item) { return item !== name; });
+			} else {
+			$(this).addClass("active");
+			currSelection.ListSection = [];
+			currSelection.ListSection.push(name);
+			check_listtablinks();
+			sketchup.get_data("model_name");
+		}
+		document.getElementById('copy_button').value = tr("Copy the list");
+		document.getElementById('transfer_button').style.display='none'
+	}
+});
+function get_model_name(name) {
+	model_name=name;
+}
+function open_cut_list(e) {
+	let material = e.id;
+	sketchup.get_data('cut_list<=>'+material.replace("ocl_image_",""));
+}
+function export_list(e){ // оранжевая кнопка
+	let material = e.id;
+	copyToClipboard(material.replace("copy_image_",""))
+}
+function copyToClipboard(material,prog=null) {
+	focus_elem = document.activeElement;
+	if (prog == "Excel") {
+		let mat_a = material[0];
+		for (let mat = 1; mat < material.length; mat++) { mat_a = mat_a+"=>"+material[mat] }
+		str='copyToClipboard<=>'+mat_a+"<=>"+prog;
+	}
+	else { str='copyToClipboard<=>'+material; }
+	sketchup.get_data(str);
+	let elems = document.getElementsByClassName('copy_image');
+	for (let i = 0; i < elems.length; i++) { elems[i].src="cont/style/report.png";}
+}
+function copy_board(s) {
+	let all_array = s[0];
+	let prog = s[1];
+	if (prog != "Bazis") {
+		let mat = all_array[0][0];
+		let text_value = all_array[0][1].join('\r\n');
+		for (let mat = 1; mat < all_array.length; mat++){ 
+			let mat_array = all_array[mat][1];
+			mat_array.shift();
+			text_value += "\n\t\n"+mat_array.join('\r\n'); 
+		}
+		let copytext = document.createElement('textarea');
+		copytext.value = text_value;
+		document.body.appendChild(copytext);
+		copytext.select();
+		document.execCommand('copy');
+		document.body.removeChild(copytext);
+		if (prog != "Excel") {
+			let copy_image = document.getElementById('copy_image_'+mat);
+			copy_image.src = "cont/style/report_done.png";
+			focus_elem.focus();
+		}
+		$('#report_done_message').html(tr("The list is copied to the clipboard"));
+		$('#report_done_message').show();
+		$('#report_done_message').css('opacity', '100');
+		setTimeout(function(){
+			$('#report_done_message')
+			.animate({opacity: 0}, 490, 
+				function(){ 
+					$(this).css('display', 'none');
+				}
+			);
+		}, 2000);
+	}
+}
+$(document).on( "click", "#copy_button", function() { // нижняя кнопка
+	let active = $('button.Listtablinks.active').attr('data-name');
+	if (active){
+		if ((active == "Sheet") || (active == "Linear")) {
+			sketchup.get_data('export_list<=>'+active);
+			} else {
+			export_excel(active);
+		}
+		setTimeout(function(){ 
+			document.getElementById('copy_button').value = tr("Copy the list");
+			document.getElementById('copy_button').disabled = false;
+		}, 5000);
+	}
+});
+function export_excel(s) {
+	if ((s == "Accessories") || (s == "Cost")) {
+		let	table = document.getElementById('acc_table');
+		let	table2 = document.getElementById('acc2_table');
+		let rows = table.rows;
+		let content = ["\t"+model_name+"\n"];
+		let mat_array = [];
+		let all_array = [];
+		let number = 0;
+		for (let i = 0; i < rows.length; i += 1) {
+		    let value = "";
+		    if (acc_group_hash[rows[i].cells[1].innerText]) {
+				arr = acc_group_hash[rows[i].cells[1].innerText];
+				for (let k = 0; k < arr.length; k += 1) {
+					value += number+"\t"+arr[k][0]+"\t"+arr[k][1]+"\t"+arr[k][2];
+					if (k!=arr[k].length-1) { value += "\n"; }
+					number += 1;
+				}
+				} else {
+				for (let j = 0; j < rows[i].cells.length; j += 1) {
+					if ((i==0)&&(j==0)) { value += rows[i].cells[j].innerText+"\t"; }
+					else if (j==0) { value += number+"\t"; }
+					else { value += rows[i].cells[j].innerText+"\t"; }
+				}
+				number += 1;
+			}
+			content.push(value);
+		}
+		if (table2) {
+			content.push("\n\t"+tr("Frame facades"));
+			let rows = table2.rows;
+			for (let i = 0; i < rows.length; i += 1) {
+				let value = rows[i].cells[0].innerText;
+				for (let j = 1; j < rows[i].cells.length; j += 1) {
+					value += "\t"+rows[i].cells[j].innerText;
+				}
+				content.push(value);
+			}
+		}
+		mat_array.push([]);
+		mat_array.push(content);
+		all_array.push([mat_array]);
+		all_array.push("Excel");
+		copy_board(all_array);
+		
+		} else if (s == "Operations") {
+		let	tables = document.getElementsByClassName('acc_table');
+		let content = ["\t"+model_name];
+		for (let i = 0; i < tables.length; i += 1) {
+			let table = tables[i];
+			let rows = table.rows;
+			if (table.classList.contains("title_table")) {
+				content.push("\n\t"+table.innerText);
+				} else {
+				for (let j = 0; j < rows.length; j += 1) {
+					let row = rows[j];
+					let value = row.cells[0].innerText;
+					for (let k = 1; k < row.cells.length; k += 1) {
+						value += "\t"+row.cells[k].innerText;
+					}
+					content.push(value);
+				}
+			}
+		}
+		let mat_array = [];
+		let all_array = [];
+		mat_array.push([]);
+		mat_array.push(content);
+		all_array.push([mat_array]);
+		all_array.push("Excel");
+		copy_board(all_array);
+		
+		} else if ((s == "Sheet") || (s == "Linear")) {
+		let list_tables = document.getElementsByClassName('list_table');
+		let mat = [];
+		for (let list_table of list_tables) { if (list_table.id!="total_panel_count") { mat.push(list_table.id); }}
+		copyToClipboard(mat,"Excel")
+	}
+	document.getElementById('copy_button').value = tr("The list is copied");
+	document.getElementById('copy_button').disabled = true;
+}
+$(document).on( "click", "#transfer_button", function() { // нижняя кнопка
+	let active = $('button.Listtablinks.active').attr('data-name');
+	if (active){
+		export_json(active);
+		setTimeout(function(){ 
+			document.getElementById('transfer_button').value = tr("Transfer the list");
+			document.getElementById('transfer_button').disabled = false;
+		}, 5000);
+	}
+});
+function export_json(s) {
+	if ((s == "Cost")) {
+		let	table = document.getElementById('acc_table');
+		let	table2 = document.getElementById('acc2_table');
+		let rows = table.rows;
+		let content = ["\t"+model_name+"\n"];
+		let mat_array = [];
+		let all_array = [];
+		let number = 0;
+		for (let i = 0; i < rows.length; i += 1) {
+		    let value = "";
+		    if (acc_group_hash[rows[i].cells[1].innerText]) {
+				arr = acc_group_hash[rows[i].cells[1].innerText];
+				for (let k = 0; k < arr.length; k += 1) {
+					value += number+"\t"+arr[k][0]+"\t"+arr[k][1]+"\t"+arr[k][2];
+					if (k!=arr[k].length-1) { value += "\n"; }
+					number += 1;
+				}
+				} else {
+				for (let j = 0; j < rows[i].cells.length; j += 1) {
+					if ((i==0)&&(j==0)) { value += rows[i].cells[j].innerText+"\t"; }
+					else if (j==0) { value += number+"\t"; }
+					else { value += rows[i].cells[j].innerText+"\t"; }
+				}
+				number += 1;
+			}
+			content.push(value);
+		}
+		if (table2) {
+			content.push("\n\t"+tr("Frame facades"));
+			let rows = table2.rows;
+			for (let i = 0; i < rows.length; i += 1) {
+				let value = rows[i].cells[0].innerText;
+				for (let j = 1; j < rows[i].cells.length; j += 1) {
+					value += "\t"+rows[i].cells[j].innerText;
+				}
+				content.push(value);
+			}
+		}
+		mat_array.push([]);
+		mat_array.push(content);
+		all_array.push([mat_array]);
+		all_array.push("JSON");
+		// copy_board(all_array);
+		TransferJson(all_array);
+		} else if (s == "Operations") {
+		let	tables = document.getElementsByClassName('acc_table');
+		let content = ["\t"+model_name];
+		for (let i = 0; i < tables.length; i += 1) {
+			let table = tables[i];
+			let rows = table.rows;
+			if (table.classList.contains("title_table")) {
+				content.push("\n\t"+table.innerText);
+				} else {
+				for (let j = 0; j < rows.length; j += 1) {
+					let row = rows[j];
+					let value = row.cells[0].innerText;
+					for (let k = 1; k < row.cells.length; k += 1) {
+						value += "\t"+row.cells[k].innerText;
+					}
+					content.push(value);
+				}
+			}
+		}
+		let mat_array = [];
+		let all_array = [];
+		mat_array.push([]);
+		mat_array.push(content);
+		all_array.push([mat_array]);
+		all_array.push("Excel");
+		copy_board(all_array);
+		} else if ((s == "Sheet") || (s == "Linear")) {
+		let list_tables = document.getElementsByClassName('list_table');
+		let mat = [];
+		for (let list_table of list_tables) { if (list_table.id!="total_panel_count") { mat.push(list_table.id); }}
+	}
+	document.getElementById('transfer_button').value = tr("The list is transfered");
+	document.getElementById('transfer_button').disabled = true;
+}
+
+function generateUUIDv4() {
+  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+  );
+}
+
+async function TransferJson(s) {
+                try {
+                  const response = await fetch("https://artrocket.ro/wp-json/ar/v1/projects", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json", "Authorization" : "Bearer OkifXtHTUjRKyVe5F09T6nSXsJqeBeEtNToApqtE" },
+                    body: JSON.stringify({ "registration_code": document.getElementById('registration_code').value,
+										   "project_id":  generateUUIDv4(),
+										   "title": document.getElementById('project_id').value,
+										   "data": s
+					 })
+                  });
+
+                  if (response.ok) {
+					  alert("Your project data has been transfered to your online account");
+                    } else {
+                      alert("Your project data has failed transfer to your online account");
+                    }
+                } catch (err) {
+                  console.error("Network error:", err);
+                  alert("⚠️ Could not reach activation server.");
+                }	
+              }

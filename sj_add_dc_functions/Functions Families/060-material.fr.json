@@ -1,0 +1,36 @@
+{
+    "Materials functions": "Fonctions Matières",
+
+    "materialName": "nomMatiere",
+    "Material name or \"default\" to return to the default material.": "Nom de la matière ou \"default\" pour revenir à la matière par défaut.",
+    "Applies the material passed in parameter to the component. The difference with the Material attribute is the possibility of reverting to the default material if the value is set to \"default\".": "Applique la matière passée en paramètre au composant. La différence avec l'attribut Material c'est la possibilité de revenir à la matière par défaut si la valeur vaut \"default\".",
+    "default material": "matière par défault",
+    "non-existent material": "matière inéxistante",
+
+    "temperature": "temperature",
+    "Value between 60 and 8000 K": "Valeur entre 60 et 8000 K",
+    "Create and apply the material corresponding to the kelvin temperature passed in parameter.<br>Converted the temperature in RGB value, Thanks to an algorithm.<br>Very useful for lighting scenes.<br>Returns the name of the material created.": "Crée et applique la matière correspondant à la température kelvin passée en paramètre.<br>Convertit la température en valeur RGB. Grâce à un algorithme.<br>Très utile pour l'éclairage des scènes.<br>Renvoie le nom de la matière créée.",
+
+    "frontMaterial": "matiereAvant",
+    "Front face Material name or \"default\" to return to the default material.": "Nom de la matière, pour les faces avant, pour retrouver la matière par défaut \"default\".",
+    "backMaterial": "matiereArriere",
+    "Back face Material name or \"default\" to return to the default material.": "Nom de la matière, pour les faces arrière, pour retrouver la matière par défaut \"default\".",
+    "Used to apply a material to the faces inside the component. <br>Parameters for each side of the face. <br>Useful for Boolean operations.": "Permet d'appliquer une matière sur les faces à l'intérieur du composant.<br>Paramètres pour chaque cotés de la face.<br>Pratique pour les opération booléennes.",
+
+    "Used to apply a material to the front faces inside the component.": "Permet d'appliquer une matière sur les faces avant à l'intérieur du composant.",
+    
+    "Used to apply a material to the back faces inside the component.": "Permet d'appliquer une matière sur les faces arrière à l'intérieur du composant.",
+    "Used to apply a material to the faces coplanar with the plane passed as a parameter, inside the component. <br>Settings for each side of the face. Can be useful in carpentry to apply a plating material on a field, or simply respect the grain, the grain and the cross grain of the wood. <br>If no valid plane is defined, the material is applied to all faces. <br>If the material is not found, returns the default material." :"Permet d'appliquer un matériau sur les faces coplanaires au plan passé en paramètre, à l'intérieur du composant. <br>Paramètres pour chaque côté du visage. Peut être utile en menuiserie pour appliquer un matériau de placage sur un champ, ou tout simplement respecter le fil, le grain et le contre-fil du bois. <br>Si aucun plan valide n'est défini, le matériau est appliqué à toutes les faces. <br>Si le matériau est introuvable, renvoie le matériau par défaut.",
+    
+    "Allows to apply a material to the segments inside the component! <br> Practical for Boolean operations.": "Permet d'appliquer une matière les segments à l'intérieur du composant !<br> Pratique pour les opérations booléennes.",
+    
+    "Material name target":"Nom de la matiere ciblée",
+    "Path folder that contain textures":"Chemin du dossier contenant la texture",
+    "file name with extention":"nom du fichier texture avec son extenssion",
+    "Allows to change the texture of the target material. Very useful to have different textures for one material.":"Permet de changer la texture d'une matière, tres pratique pour avoir plusieurs textures pour une même matière",
+    "Material not find":"Matière non trouvée",
+    "Path directory not valid":"Chemin d'accès au dossier non valide",
+    "Texture file not find":"Fichier texture non trouvé"
+
+
+}

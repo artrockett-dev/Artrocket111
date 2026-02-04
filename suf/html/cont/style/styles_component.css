@@ -1,0 +1,196 @@
+#CompSections {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-wrap: wrap;             /* перенос строк */
+  align-items: center;
+  gap: 3px 4px;                /* уменьшили вдвое */
+  padding: 3.5px 4px;            /* уменьшили вдвое */
+  background-color: #2d2d2d;
+  border-top:    inset 0 -1px 0 rgba(255,255,255,0.1); 
+  border-bottom: inset 0 -1px 0 rgba(255,255,255,0.1); 
+  border: none;
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.1);
+  width: 100%;
+  z-index: 7;
+  box-sizing: border-box;
+  overflow: visible;
+}
+#CompSections button {
+  flex: 0 0 auto;
+  margin: 2px 4px 2px 0;        /* уменьшили вдвое */
+  padding: 3px 6px;            /* уменьшили вдвое */
+  font-size: 16px;             /* чуть меньше, чтобы уместилось */
+  background-color: #434343;
+  color: #f5f5f5;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+  transition: background-color .3s, box-shadow .3s;
+}
+#CompSections button:hover {
+  background-color: #01033E;
+  box-shadow: 0 0 5px 1px #F7931E;
+}
+#CompSections button.active {
+  background-color: #01033E;
+}
+
+#comp_vendors-wrap {
+  position: sticky;
+  top:  sixty-two px; /* если нужен прежний отступ, оставьте 82px */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 10px;
+  padding: 8px 12px;            /* уменьшили вдвое */
+  background-color: #2d2d2d;
+  border: none;
+  width: 100%;
+  z-index: 5;
+  box-sizing: border-box;
+}
+#comp_vendors-wrap > button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 6px 10px !important;
+  min-height: 20px !important;
+  height: auto !important;
+  max-height: 35px !important;
+}
+.comp_vendors {
+  background-color: #434343;
+  color: #f5f5f5;
+  padding: 2px 4px;            /* уменьшили вдвое */
+  font-size: 12px;             /* чуть меньше */
+  border: none;                /* убрали рамку */
+  border-radius: 3px;
+  transition: background-color .3s, color .3s;
+}
+.comp_vendors:hover {
+  background-color: #f5f5f5;
+  color: #434343;
+}
+.comp_vendors.active {
+  background-color: #01033E;
+  color: #f5f5f5;
+}
+
+
+/* === 3) Продукты (синяя зона) – сетка с минимум 3 колонками === */
+#components-wrap {
+  display: grid;
+  /* три минимума: если окно узкое – 1/3 ширины, иначе до 180px */
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(90px, calc(100%/3)), 1fr));
+  gap: 12px;
+  padding: 8px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.components {
+  width: 100%;
+  aspect-ratio: 1/1;           /* адаптивный квадрат */
+  max-width: 180px;
+  padding: 4px 4px 12px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #434343;
+  border-radius: 6px;
+  transition: background-color .3s, box-shadow .3s;
+  cursor: pointer;
+  text-align: center;
+  font-size: 10px;
+  color: #f5f5f5;
+  word-break: normal;
+   position: relative;
+  /* вместо overflow: hidden */
+  clip-path: inset(0 round 6px);
+  /* остальные ваши стили, в т.ч. aspect-ratio, padding и т.д. */
+}
+.components img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 6px;  /* освобождаем «полосу» под подпись */
+}
+.components:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0 0 3px 1px #F7931E;
+}
+.components.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;       /* старт за левой границей */
+  width: 300%;       /* полоса блика */
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0)   0%,
+    rgba(255,255,255,0.4) 50%,
+    rgba(255,255,255,0)   100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 1.2s ease-in-out 1 forwards;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* анимация без изменений */
+@keyframes shine {
+  0%   { left: -150%; }
+  100% { left:  150%; }
+}
+/* === подписи под карточкой – белые → чёрные при hover === */
+.components .caption {
+  position: absolute;
+  bottom: 20px;
+  left: 4px;
+  right: 4px;
+  font-size: 10px;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+  white-space: normal;        /* разрешаем перенос строк */
+  word-break: keep-all;       /* не ломать слова */
+  overflow-wrap: break-word;  /* если слово длиннее контейнера — переносить целиком */
+  hyphens: none;              /* без дефисов/расщепления */
+
+  text-overflow: ellipsis;
+  transition: color .3s;
+}
+.components:hover{
+  background-color: #7B7B7B;    /* остаётся светлый фон */
+  box-shadow:0 0 3px 1px #F7931E;
+  color: #f5f5f5;               /* ТЕПЕРЬ текст тёмный и читаемый */
+
+}
+
+/* === правое контекст-меню (не изменялось) === */
+.components .right-menu {
+  display: none;
+  width: 90px;
+  background-color: transparent;
+}
+.right-menu button {
+  position: absolute;
+  left: 11px;
+  bottom: 8px;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 2px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+.right-menu button:hover {
+  background-color: #ddd;
+}

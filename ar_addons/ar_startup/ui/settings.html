@@ -1,0 +1,47 @@
+<!-- Copyright (c) 2025 Artiom Gurduz
+SPDX-License-Identifier: LicenseRef-Proprietary
+Ownership remains with the author. Internal use by ART ROCKET is permitted. -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>LangBridge · Startup Settings</title>
+  {{STYLE}}
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <img class="logo-img" src="{{LOGO_URL}}" alt="ART ROCKET"
+           onerror="this.remove();document.getElementById('logo-fallback').style.display='block'">
+      <div id="logo-fallback" class="logo-fallback">LangBridge · Startup Settings</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="row">
+        <div>
+          <label for="lang" data-i18n="choose_lang">Choose your language</label>
+          <select id="lang">
+            <option value="en">English</option>
+            <option value="ro">Română</option>
+            <option value="ru">Русский</option>
+          </select>
+        </div>
+        <div>
+          <label for="coef" data-i18n="markup_coef">Markup coefficient</label>
+          <input id="coef" type="text" placeholder="1.10" inputmode="decimal">
+          <div class="hint" data-i18n="coef_hint">Format: 1.10 · Minimum: 1.00</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" id="cancel" data-i18n="cancel">Cancel</button>
+        <button class="btn btn-primary" id="save" data-i18n="save">Save</button>
+      </div>
+    </div>
+  </div>
+
+  {{SCRIPT}}
+</body>
+</html>

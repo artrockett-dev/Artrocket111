@@ -1,0 +1,26 @@
+{
+    "Rotation functions": "Fonctions rotation",
+
+    "axis": "axe",
+    "Axis letter, X, Y or Z.": "Lettre de l'axe, X, Y ou Z.",
+    "angle": "angle",
+    "Value of the angle of rotation in degrees. Can be positive or negative.": "Valeur de l'angle de rotation en degrés. Peut être positif ou négatif.",
+    "lock": "verrou",
+    "If lock = 1, the rotation takes place, otherwise it is not performed.": "Si verrou = 1, la rotation a lieu, sinon elle est n'est pas réalisée.",
+    "level": "niveau",
+    "The rotation can be on the component that calls the function level = 0, or on its parent component level = 1, or the grand parent level = 2.": "La rotation peut être sur le composant qui appelle la fonction niveau = 0, ou sur son composant parent niveau = 1, ou le grand parent niveau = 2.",
+    "Allows incremental rotation of the component's existing transformation. The rotation takes place around the point of origin of the component targeted by the level attribute.<br> , Useful when called by the OnClic attribute.<br> , Example OnClic : Set(\"rot_result\",SetRotation(\"z\",90,1,1)<br> , Performs on a click, the rotation of the parent component around its Z axis by 90 degrees.": "Permet une rotation en incrément de la transformation existante du composant. La rotation à lieu autour du point d'origine du composant ciblé par l'attribut level.<br> , Pratique quand elle est appelée par l'attribut OnClic.<br> , Exemple OnClic : Set(\"rot_result\",SetRotation(\"z\",90,1,1)<br> , Réalisé sur un clic, la rotation du composant parent autour de son axe Z de 90 degrés.",
+
+    "offset": "offset",
+    "The center of the rotation can be the origin point of the calling component offset = 0, of the parent component offset = 1, or of the grand parent offset = 2. The value of the offset cannot be greater than the value of the level.": "Le centre de la rotation peut-être le point d'origine du composant appelant offset = 0, du composant parent offset = 1, ou du grand parent offset = 2. <strong>La valeur de l'offset ne peut pas être supérieure à la valeur du niveau.</strong>",
+    "Allows incremental rotation of the component's existing transformation. The rotation takes place around the origin point of the component targeted by the offset attribute. The rotation is performed on the component targeted by the Level attribute. Useful when it is called by the OnClic attribute, OnClic<br>Example: Set (\"rot_result\", SetRotation (\"z\", 90,1,1,0)<br>Performs on a click, the rotation of the parent component on its Z axis of 90 degrees with the origin of the component calling the function at the center of rotation).": "Permet une rotation en incrément de la transformation existante du composant. La rotation a lieu autour du point d'origine du composant ciblé par l'attribut offset. La rotation est réalisée sur le composant ciblé par l'attribut niveau. Pratique quand elle est appelée par l'attribut OnClic<br>Exemple OnClic : Set(\"rot_result\",SetRotation(\"z\",90,1,1,0)<br>Réalisé sur un clic, la rotation du composant parent sur son axe Z de 90 degrés avec en centre de rotation l'origine du composant appelant de la fonction).",
+
+    "0 the component, 1 the parent, 2 the grandparent.": "0 le composant, 1 le parent, 2 le grand-parent.",
+    "Create dynamic attributes to control a rotation when clicking on a child component.<br> , This function must be called from an attribute named \"rot_ini\".<br> , It creates 5 attributes: rot_x_angle, rot_y_angle, rot_z_angle, rot_view, rot_lock, then erases the formula of rot_ini and returns the message \"Attributes created\".<br> , If level = 0, the attributes are only created in the component, if level = 1, the attributes are created in the component and the parent component, with a return by formula of the values of the parent in the component.<br> , If level = 2 then ditto but on 3 level.": "Créer les attributs dynamiques pour piloter une rotation lors d'un clic sur un composant enfant.<br> , Cette fonction doit être appelée depuis un attribut nommé \"rot_ini\".<br> , Elle crée 5 attributs : rot_x_angle, rot_y_angle, rot_z_angle, rot_view, rot_lock, puis efface la formule de rot_ini et renvoie le message \"Attributs créés\".<br> , Si niveau = 0, les attributs ne sont créés que dans le composant, si niveau = 1, les attributs sont créés dans le composant et le composant parent, avec un retour par formule des valeurs du parent dans le composant.<br> , Si niveau = 2, alors idem mais sur 3 niveaux.",
+    "of the parent component": "du composant parent",
+    "of the grandparent component": "du composant grand parent",
+    "Rotation Locked": "Rotation vérouillée",
+    "component": "composant",
+    "of the component": "du composant",
+    "center of rotation origin of": "centre de rotation origine de"
+}

@@ -1,0 +1,190 @@
+:root{
+  /* A4 landscape в окне — строгие пропорции */
+  --page-w: 980px;
+  --page-h: calc(var(--page-w) * 210 / 297);
+
+  --toolbar-h: 28px;
+  --toolbar-gap: 12px;
+
+  --pad-x: 16px;
+  --pad-y: 12px;
+  --foot-h: 26px;
+
+  --fs-base: 12px;
+  --fs-head: 12px;
+
+  --row-pad: 3px;
+  --head-h: 56px;
+  --logo-w: 220px;
+  --logo-h: var(--head-h);
+  --sum-w: 260px;
+
+  --arlib-accent:#F7931E;
+  --ink:#1f1f1f;
+  --sub:#5d6470;
+  --brd:#e1e1e6;
+  --bkg-2:#f7f7f8;
+}
+
+html,body{height:100%}
+body{
+  margin:0;background:var(--bkg-2);
+  font-family:Arial, Helvetica, sans-serif;color:var(--ink);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  font-size:var(--fs-base);
+}
+
+.stage{position:fixed;inset:0;display:grid;place-items:center;padding:12px}
+
+/* Страница */
+.page{
+  width:var(--page-w);height:var(--page-h);
+  background:#fff;border-radius:12px;overflow:hidden;position:relative;
+  box-shadow:0 12px 38px rgba(0,0,0,.18);
+  display:flex;flex-direction:column;
+}
+#pages-root{display:flex;gap:18px;align-items:center;justify-content:center}
+
+/* Toolbar */
+.toolbar{
+  position:absolute;left:12px;right:12px;top:12px;height:var(--toolbar-h);
+  display:flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.9);
+  border:1px solid var(--brd);border-radius:10px;
+  padding:2px 8px;box-shadow:0 1px 4px rgba(0,0,0,.05);
+  z-index:2;backdrop-filter:saturate(180%) blur(4px);
+}
+.toolbar-spacer{flex:1}
+.btn{appearance:none;border:1px solid var(--brd);background:#fff;border-radius:8px;padding:2px 8px;cursor:pointer;font-size:11px;line-height:18px}
+.btn:hover{border-color:#cfd3e0}
+
+/* Центрированный статус */
+.toolbar-status{
+  position:absolute;left:50%;transform:translateX(-50%);
+  font-size:12px;color:#7a8190;pointer-events:none;user-select:none;
+}
+
+/* Контент */
+.inner{
+  display:flex;flex-direction:column;gap:6px;
+  padding:calc(var(--toolbar-h) + var(--toolbar-gap) + 6px) var(--pad-x)
+          calc(var(--pad-y) + var(--foot-h));
+  flex:1;min-height:0;
+}
+
+/* Шапка */
+.doc-head{
+  display:grid;
+  grid-template-columns:var(--logo-w) 1fr var(--sum-w);
+  gap:10px;
+  align-items:center;
+  margin-bottom:6px;
+}
+.logo-box{width:var(--logo-w);height:var(--logo-h);display:flex;align-items:center;justify-content:flex-start}
+.logo{width:100%;height:100%;object-fit:contain;display:block}
+.inputs-wrap{align-self:stretch; display:flex}
+.inputs-grid{
+  padding-top:2px;
+  display:grid; grid-template-columns: 1fr 150px;
+  gap:6px 12px; align-items:end; width:100%;
+}
+.field{display:flex;flex-direction:column;gap:3px;min-width:0;line-height:1.15}
+.label{font-size:11px;color:var(--sub)}
+.input{border:none;border-bottom:1px solid #cfd3e0;outline:none;padding:2px 1px;font-size:var(--fs-head);min-width:0}
+.input:focus{border-bottom-color:var(--arlib-accent)}
+
+/* Итого */
+.sum-box{
+  display:flex;flex-direction:column;align-items:flex-end;justify-content:center;
+  gap:2px;border:1px solid var(--brd);border-radius:12px;background:#fff;padding:6px 10px;
+  height:var(--head-h);
+}
+.sum-cap{font-size:11px;color:var(--sub);margin:0}
+.sum-val{
+  display:flex;align-items:baseline;gap:6px;margin:0;
+  font:400 16px/1.1 Arial, Helvetica, sans-serif;
+  font-variant-numeric:tabular-nums;
+}
+.sum-val .sum-num, .sum-val .sum-curr{font:inherit;line-height:inherit}
+
+/* Таблицы */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1;min-height:0}
+table.spec{
+  align-self:start;
+  width:100%;border-collapse:collapse;table-layout:fixed;background:#fff;
+  border:1px solid #e7e7ea;border-radius:10px;overflow:hidden;font-size:11px;
+}
+table.spec colgroup col:nth-child(1){width:32px}
+table.spec colgroup col:nth-child(3){width:36px}
+table.spec colgroup col:nth-child(4){width:50px}
+thead th{background:#f5f6fb;border-bottom:1px solid #e7e7ea;text-align:left;padding:4px 6px;font-weight:700}
+tbody td{padding:var(--row-pad) 6px;border-bottom:1px solid #f3f3f6;vertical-align:top;word-break:break-word}
+tbody tr:nth-child(odd) td{background:#fcfcfe}
+.col-num{color:#4b5563;text-align:right}
+.col-unit{color:#4b5563}
+.col-qty{text-align:right}
+thead th.col-unit, thead th.col-qty, tbody td.col-unit, tbody td.col-qty{ padding-left:4px; padding-right:4px }
+thead th.col-unit, tbody td.col-unit{ padding-right:2px }
+thead th.col-qty,  tbody td.col-qty { padding-left:2px }
+
+/* Нижний info: прибит к низу в окне */
+.client-info{
+  position:absolute;left:var(--pad-x);right:var(--pad-x);
+  bottom:calc(var(--pad-y) + var(--foot-h) + 4px);
+  border:1px solid var(--brd);border-radius:8px;padding:8px 10px;background:#fff;
+  display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:12px;
+}
+.client-info .row{display:flex;gap:8px;align-items:center}
+.client-info .lbl{
+  color:var(--sub);font-size:11px;flex:0 0 auto;min-width:110px;
+  user-select:none;pointer-events:none;cursor:default;
+}
+.client-info .val{
+  border:none;border-bottom:1px solid #d8dbe6;height:18px;flex:1;outline:none;padding:0 2px;font-size:12px;
+}
+.client-info .val:focus{border-bottom-color:var(--arlib-accent)}
+
+/* Нижняя панель навигации */
+.page-foot{
+  position:absolute;left:0;right:0;bottom:var(--pad-y);
+  display:flex;align-items:center;gap:10px;justify-content:center;min-height:var(--foot-h)
+}
+
+/* Скрытый lists host */
+.lists-host{position:absolute!important;left:-9999px!important;top:-9999px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
+
+/* Печать/экспорт — идентичная геометрия и сбалансированные поля */
+@media print{
+  /* равные поля 8 мм — поднимаем контент выше */
+  @page{size:A4 landscape;margin:8mm}
+  body{background:#fff;font-size:12px}
+  .toolbar, .page-foot{display:none !important}
+
+  /* каждая .page = 1 печатная страница */
+  .page{
+    box-shadow:none;border-radius:0;
+    width:281mm;                 /* 297 - 2*8 */
+    height:194mm;                /* 210 - 2*8 */
+    break-after:page;
+  }
+
+  /* ещё чуть выше: меньше верхний отступ */
+  .inner{
+    padding:4mm 0 0 0;           /* было 6mm */
+    margin:0 8mm 3mm 8mm;        /* ровные боковые = 8mm, низ компактнее */
+  }
+
+  /* info в потоке, минимальный зазор от таблиц */
+  .client-info{
+    position:static;
+    margin:2mm 8mm 0 8mm;        /* ближе к таблицам и нижнему краю */
+  }
+
+  table.spec{font-size:12px}
+  thead th{padding:5px 6px}
+  tbody td{padding:4px 6px}
+}
+
+/* При подготовке к печати показываем все страницы колонкой */
+body.printing #pages-root{display:block !important}
+body.printing #pages-root .page{display:block !important}

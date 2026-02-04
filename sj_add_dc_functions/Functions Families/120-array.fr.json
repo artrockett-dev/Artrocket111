@@ -1,0 +1,62 @@
+{
+    "Array functions": "Fonctions array",
+    "name":"nom",
+    "Name of the new attribute that will contain the array in array format.":"Nom du nouvel attribut qui contiendra l'array au format array.",
+    "string": "texte",
+    "Comma separated values text.": "Texte des valeurs séparées par des virgules.",
+    "Create an array from the values passed as parameters, separated by commas. The result is stored in an attribute in Array format.":"Créez un tableau à partir des valeurs passées en paramètres, séparées par des virgules. Le résultat est stocké dans un attribut au format Array.",
+    
+    "String of values separated with a special char":"Chaîne de valeurs séparées par un caractère spécial",
+    "index_special_char":"index_caractère_special",    
+    "Index of the special character. 0 for comma, 1 for semicolon, 2 for tabulation, 3 for spip.":"Index du caractère spécial. 0 pour virgule, 1 pour point-virgule, 2 pour tabulation, 3 pour spip.",
+    "Converts a text string to an array. The special char serves as the separator. The result is stored in an attribute in Array format.": "Convertit une chaîne de texte en array. Le caractère spécial sert de séparateur. Le résultat est stocké dans un attribut au format Array.",
+
+    "path":"Chemin",
+    "File path":"Chemin du fichier",
+    "Create an array from a CSV file. The result is stored in an attribute in array format.":"Créez un array à partir d'un fichier CSV. Le résultat est stocké dans un attribut au format array.",
+    "ERROR File doesn't existe":"ERREUR le fichier n'éxiste pas",
+    "ERROR The file doesn't contain a value or is unreadable":"ERREUR le fichier ne contient pas de données ou est illisible",
+    "from the csv file has been created":"a été créé à partir du fichier csv",
+
+
+    "array_name": "nom_array",
+    "Array name attribute.": "Nom d'un attribut array.",
+    "Calculates the length of the array. Returns the number of values contained in the array.": "Calcule la longueur de l'array. Renvoie le nombre de valeurs contenues dans le tableau",
+
+    "index": "index",
+    "Index number, be careful the count of values starts at 0.": "Numéro de l'index, attention le décompte des valeurs commence à 0.",
+    "Calculates the cumulative sum of the array up to and including the index value.": "Calcule la somme cumulée de l'array jusqu'à la valeur de l'index comprise.",
+    
+    "index2":"index2",
+    "OPTIONAL, second index number to query the value of a nested array. Be careful the numbering starts at 0 !":"FACULTATIF, second numéro d'index pour interroger la valeur d'un tableau imbriqué. Attention la numérotation commence à 0 !",
+    "Returns the value of an array corresponding to the index. For nested arrays you can fill in the index of the sub array.": "Renvoie la valeur d'un array correspondant à l'index. Pour les arrays imbriqués vous pouvez renseigner l'index du sous tableau.",
+
+    "Returns the value corresponding to the index of a string list delimited by a special char.":"Renvoie la valeur correspondant à l'index d'une liste de chaînes délimitée par un caractère spécial.",
+
+    "internal_radius": "rayon_interne",
+    "Internal radius": "Rayon interne",
+    "outer_radius": "rayon_externe",
+    "Outer radius": "Rayon externe",
+    "angle":"angle",
+    "Angle described by curvature.": "Angle décrit par la courbure",
+    "prefix":"préfixe",
+    "Prefix of the names of the arrays that will be created.": "Préfixe des noms des arrays qui seront créés.",
+    "The path is composed by the ordered list of the junction direction of the sub-components (1 or -1) separated by commas.": "Le chemin est composé par la liste ordonnée du sens de jonction des sous composants (1 ou -1) séparé par des virgules.",
+    "Create 4 attributes describing the coordinates of each copy of the donut's subcomponents. An array for X, Y coordinates, Z axis rotation and number of copies.": "Créer 4 attributs décrivant les coordonnées de chaque copie des sous-composants du beignet. Un tableau pour les coordonnées X, Y, la rotation de l'axe Z et le nombre de copies.",
+
+    
+    "created from":"créé à partir de",
+
+    "nbr_columns":"nbr_colonnes",
+    "Number of grid columns":"Nombre de colonnes de la grille",
+    "nbr_rows":"nbr_rangées",
+    "Number of grid rows":"Nombre de rangées de la grille",
+    "Allows you to quickly model a sub-component grid. Returns 2 arrays with column and row number for each copy. As well as the number of copies. Each attribute name created is prefixed by the text passed as a parameter.":"Permet de modéliser rapidement une grille de sous composant. Retourne 2 arrays avec le numéro de colonne et de rangée pour chaque copie. Ainsi que le nombre de copies. Chaque nom d'attribut crée est préfixé par le texte passé en paramètre.",
+    "Grid":"Grille",
+    "Arrays have been created":"Les Arrays ont été créés",
+    "has been created":"a été créé",
+    "has been created from":"a été créé à partir de",
+
+    "Converts a text string to an array. The special character serves as a separator. The result is stored in an attribute in Array format. The board is randomized.":"Convertit une chaîne de texte en tableau. Le caractère spécial sert de séparateur. Le résultat est stocké dans un attribut au format Array. Le tableau est randomisé.",
+    "Renvoie le tableau randomisé":"Renvoie le tableau randomisé"
+}

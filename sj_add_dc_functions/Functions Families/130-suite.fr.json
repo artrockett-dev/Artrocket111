@@ -1,0 +1,15 @@
+{
+    "Math suite functions" : "Suite mathématique",
+
+    "The index of the suite to be calculated":"L'index de la suite à calculer",
+
+    "Return the result of the Fibonacci suite for the index pass in parameter":"Renvoie le résultat de la suite de Fibonacci pour l'indice passé en paramètre",
+    "Return the result of the sum  of the integer between 0 and the terme pass in parameter":"Retourne le résultat de la somme entre 0 et le terme passé en paramètre",
+
+    "The factorial of an integer is the product of all integers that are less than or equal to the integer.<br>Return the factorial of the index pass in parameter.":"Le factoriel d'un entier est le produit de tous les entiers qui lui sont inférieurs ou égaux.<br>Renvoie le factoriel de l'index passé en paramètre.",
+
+    
+    "The literal calculation of the function f(n) to be evaluated. <br>You will use the symbol <b>n</b> for the value of the term,<br>the symbol <b>fm</b> for the result of f(n-1).<br>Example: (n+5)/(fm-1)":"Le calcul littéral de la fonction f(n) à évaluer. <br>Vous utiliserez le symbole <b>n</b> pour la valeur du terme,<br>le symbole <b>fm</b> pour le résultat de f(n-1).<br>Exemple : (n+5)/(fm-1)",
+    "The result for f(0)":"Le résultat pour f(0)",
+    "Function that allows finding the result of a customizable mathematical function, which involves in its resolution the result of the same function for the previous integer.":"Fonction qui permet de trouver le résultat d'une fonction mathématique personnalisable, qui implique dans sa résolution le résultat de la même fonction pour l'entier précédent."
+}

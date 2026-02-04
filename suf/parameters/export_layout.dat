@@ -1,0 +1,17 @@
+kitchen_scenes=Нет
+specification=Нет
+all_panel_list=Нет
+panel_size=Готовые с кромкой
+accessories_list=Нет
+send_module=Нет
+module_count=1
+module_export=Отдельными компонентами
+drawing=Нет
+panel_count=1
+hole_table=Да
+panel_dim=Да
+cut_dim=Да
+panel_texture=Да
+render_mode=RASTER
+designer=
+save_type=Весь документ

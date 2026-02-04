@@ -1,0 +1,17 @@
+{
+    "Dimension functions": "Fonctions dimensions",
+
+    "unit": "unité",
+    "Possible units are: pc3, m3, dm3, cm3, l, dl, cl, ml, dam3, hm3 and km3.": "Les unités possibles : pc3, m3, dm3, cm3, l,dl,cl,ml,dam3,hm3 et km3.",
+    "valueIfNotSolid": "valeurSiNonSolide",
+    "Return value if the volume could not be defined, because the component is not solid. Maybe text or a number.": "Valeur de retour si le volume n'a pas pu être défini, car le composant n'est pas solide. Peut-être du texte ou un nombre.",
+    "rounded": "arrondi",
+    "Number of decimal places.": "Nombre de chiffres après la virgule.",
+    "Returns the volume of the solid component, converted and rounded.<br> , If the component is not solid, the value of the \"valueIfNotSolid\" parameter is returned.": "Retourne le volume du composant solide, converti et arrondi.<br> , Si le composant n'est pas solide, c'est la valeur du paramètre \"valeurSiNonSolide \" qui est renvoyée.",
+
+    "Possible units are: pc2, m2, dm2, cm2, mm2, dam2, hm2 and km2.": "Les unités possibles : pc2, m2, dm2, cm2, mm2, dam2, hm2 et km2.",
+    "rounding": "arrondi",
+    "Calculation of the area of the component faces.": "Calcul de l'aire des faces du composant.",
+    "Possible units are: pc, m, dm, cm, mm, dam, hm and km.": "Les unités possibles : pc, m, dm, cm, mm, dam, hm et km.",
+    "Calculation of the length of the profil make with Profil Builder plugin.":"Calcul la longueur du profil construit avec le plugin Profil Builder"
+}

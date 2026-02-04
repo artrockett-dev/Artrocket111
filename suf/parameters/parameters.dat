@@ -1,0 +1,142 @@
+Общие=menu_row=0
+Папка для снимков экрана и экспорта в LayOut=work_path=D:/YandexDisk/Users/Asus/Desktop=INPUT
+Копировать снимки экрана в буфер обмена=screenshot_clipboard=no=SELECT=&no^Нет&yes^Да
+Кнопки панели инструментов плагина появляются=toolbar_activation=yes=SELECT=&yes^При запуске программы&no^При нажатии кнопки активации
+Профиль настроек=param_profile=Default=SELECT=&New^New&Default^Default
+Папка с настройками=temp_path=По умолчанию=INPUT
+Папка с библиотекой=lib_path=По умолчанию=INPUT
+Файл логотипа=logo_file=По умолчанию=INPUT
+Активация вкладки при запуске=activate_item=Attributes=SELECT=&no^Нет&Components^Компоненты&Attributes^Атрибуты&Materials^Материалы&Lists^Списки
+Делать компоненты уникальными при выделении=make_unique=true=SELECT=&false^Нет&true^Да
+Режим редактирования атрибутов=att_mode=advanced=SELECT=&base^Базовый&advanced^Расширенный
+Окно выбора петель при замене петель и ручек=hinge_select=no=SELECT=&yes^Да&no^Нет
+При изменении ItemCode модуля записывать его в Имя модуля=itemcode_to_name=no=SELECT=&no^Нет&yes^Да
+Менять толщину панелей Фасад при размещении в модель (16 по умолчанию)=thickness_frontal=no=SELECT=&no^Нет&10^10&16^16&18^18&19^19&21^21&22^22
+Менять толщину панелей Каркас при размещении в модель (16 по умолчанию)=thickness_carcass=no=SELECT=&no^Нет&10^10&15^15&16^16&18^18&19^19&21^21&22^22
+Менять толщину панелей Задняя стенка при размещении в модель (4 по умолчанию)=thickness_back=no=SELECT=&no^Нет&3^3&4^4&5^5&6^6&7^7&8^8&9^9&10^10&16^16
+Названия панелей выбором из списка=name_list=true=SELECT=&true^Да&false^Нет
+Удалять скрытые компоненты из модулей=delete_hidden=no=SELECT=&no^Нет&yes^Да
+Чистить модель от неиспользуемых компонентов=purge_unused=yes=SELECT=&no^Нет&yes^Да
+Автоматическое проставление размеров модулей до стен=auto_dimension=yes=SELECT=&no^Нет&yes^Да
+Автоматическое включение редактирования опций панелей=auto_option=no=SELECT=&no^Нет&yes^Да
+Сохранение копии модели после каждого изменения=auto_save=no=SELECT=&no^Нет&yes^Да
+Интервал времени для сохранения копии (мин)=save_time=15=INPUT
+Скрывать пласть панелей при редактировании опций панелей=hide_face=yes=SELECT=&no^Нет&yes^Да
+Подсветка пересечений компонентов=intersect=no=SELECT=&no^Нет&yes^Да
+Хаотичное расположение текстуры на панелях=random_texture=yes=SELECT=&no^Нет&yes^Да
+Менять кромку при покраске панелей=edge_mat=false=SELECT=&false^Нет&true^Да
+Окно выбора видимости новых объектов в сценах=pages_properties=no=SELECT=&no^Нет&yes^Да
+Шрифт для надписей=text_font=Arial=INPUT
+Language=language=ro-RO=SELECT=&ro-RO^Română&ru-RU^Русский&en-EN^English
+Стиль кнопок плагина на панели инструментов=icon_style=style1=SELECT=&style1^style1&style2^style2
+Максимальный размер модуля с Metabox (мм)=metabox_max=900=INPUT
+Максимальный размер модуля с Tandembox (мм)=tandembox_max=1200=INPUT
+Максимальный размер модуля с Legrabox (мм)=legrabox_max=1400=INPUT
+Спецификация=menu_row=1
+Телефон клиентского отдела=client_service_phone=+=INPUT
+Срок изготовления мебели (рабочих дней)=production_time=60=INPUT
+Предоплата=prepayment=70%=INPUT
+Стоимость установки=install_cost=0%=INPUT
+Количество замен последних чисел стоимости нулями=last_zero=1=INPUT
+Минимальная стоимость доставки=min_delivery_cost=1800=INPUT
+Стоимость доставки за км=delivery_distance=27=INPUT
+Минимальная стоимость подъема=min_lifting_furniture=0=INPUT
+Стоимость подъема модулей=lifting_module=60=INPUT
+Стоимость подъема столешниц=lifting_worktop=0=INPUT
+Длина+ширина негабарита (мм)=oversize=3200=INPUT
+Стоимость установки мойки=install_sink=0=INPUT
+Стоимость подключения мойки=connection_sink=0=INPUT
+Стоимость установки смесителя=install_mixer=0=INPUT
+Стоимость подключения смесителя=connection_mixer=0=INPUT
+Стоимость установки ПММ=install_PMM=0=INPUT
+Стоимость подключения ПММ=connection_PMM=0=INPUT
+Стоимость установки вытяжки=install_hood=0=INPUT
+Стоимость подключения вытяжки (за м)=connection_hood=0=INPUT
+Стоимость установки варочной панели=install_hob=0=INPUT
+Стоимость подключения варочной панели=connection_hob=0=INPUT
+Стоимость установки ДШ=install_DS=0=INPUT
+Стоимость подключения ДШ=connection_DS=0=INPUT
+Стоимость установки СВЧ=install_SVH=0=INPUT
+Стоимость подключения СВЧ=connection_SVH=0=INPUT
+Стоимость установки холодильника=install_fridge=0=INPUT
+Стоимость подключения холодильника=connection_fridge=0=INPUT
+Стоимость установки стиральной машины=install_washer=0=INPUT
+Стоимость подключения стиральной машины=connection_washer=0=INPUT
+Ссылка на Google таблицу для экспорта данных=google_sheet==INPUT
+Разделитель целой и дробной части для экспорта спецификации в Excel=sep=,=INPUT
+Названия для категории материалов=mat_name=Wall profiles,Frontals,Edge,Fațade,Worktop,Panel,PAL,HDF,Margine,Фасады,МДФ,ДСП,ХДФ,Кромка,Столешница,Угловой элемент,Фартук,Стеновая панель,Glass,Еврозапил,Склейка=INPUT
+Коэффициент=cost_coef=1.00=INPUT
+Присадка=menu_row=2
+Установка крепежа:=fastener_position=symmetrical=SELECT=&symmetrical^Симметрично&back^От заднего торца&front^От переднего торца
+Установка размеров:=fastener_dimension=yes1=SELECT=&no^Нет&yes1^Везде&yes2^Только в высоту&yes3^Только в глубину
+База для размеров:=dimension_base=2side=SELECT=&1side^От одного края&2side^От двух краев
+Тип в названии отверстия:=type_hole=yes=SELECT=&no^Нет&yes^Да
+Шаблон=menu_row=3
+Петли=menu_row=4
+Направляющие=menu_row=5
+Фурнитура=menu_row=6
+Пазы=menu_row=7
+Красить паз:=groove_material=DSP=SELECT=&DSP^DSP&no^Нет (цвет панели)
+Расширение паза, если он проходит через торец:=groove_offset=1=SELECT=&0^0мм&0.5^0.5мм&1^1мм&1.5^1.5мм&2^2мм
+Кромки=menu_row=8
+Тип кромки (нельзя использовать символ / )=edge_header=Подрезать=Прифуговка=Символ
+(1) 0=edge_trim0=0=0=no=0
+(2) 0.5=edge_trim0_4=0.5=0.5=1,228,1=/
+(3) 1=edge_trim0_4trim=0.5=1=0,200,200=/
+(4) 1=edge_trim1=1=1=240,240,0=/
+(5) 1=edge_trim1trim=1=1=240,150,0=/
+(6) 2=edge_trim2=2=2=255,0,0=/
+(7) 2=edge_trim2trim=2=2=128,0,0=/
+Толщина материала=edge_width_header=Ширина кромки
+0=edge_width1=17=19
+18=edge_width2=18=22
+19=edge_width3=22=25
+25=edge_width4=28=29
+29=edge_width5=34=35
+35=edge_width6=99=45
+99=edge_width7=99=99
+Производитель=edge_vendor_header=Размер листа=Кромка корпуса=Кромка фасадов=Кромка склейки
+CLEAF=edge_vendor=2800x2070=1=1=1
+EGGER=edge_vendor=2800x2070=1=1=1
+KASTAMONU=edge_vendor=2800x2070=1=1=1
+KRONOSPAN=edge_vendor=2800x2070=1=1=1
+SM`ART=edge_vendor=2800x2070=1=1=1
+SWK=edge_vendor=2800x2070=1=1=1
+HDF=edge_vendor=2800x2070=1=1=1
+MDF=edge_vendor=2800x2070=1=1=1
+COLOR=edge_vendor=2800x2070=1=1=1
+PLASTIC=edge_vendor=2800x2070=5=5=5
+EGGER_WorkTop=edge_vendor=10000=1=1=1
+HPL_WorkTop=edge_vendor=10000=1=1=1
+KASTAMONU_WorkTop=edge_vendor=10000=1=1=1
+KRONOSPAN_WorkTop=edge_vendor=10000=1=1=1
+QUARTZ_WorkTop=edge_vendor=10000=1=1=1
+Раскрой=menu_row=9
+Программа раскроя при нажатии на кнопку в Списках=cutting_program=OCL=SELECT=&OCL^OCL&SUF cutting^SUF cutting&SUF nesting^SUF nesting
+Расстановка позиций панелей=panel_positions=1=SELECT=&1^Отдельно для каждой таблицы&2^Для каждого материала с учетом толщины&3^Для каждого материала без учета толщины&4^Для всех панелей в модели подряд
+Коэффициент отходов кромки=edge_waste=10%=INPUT
+Припуск кромки по длине (для каждой полосы в мм)=edge_stock=0=INPUT
+Отображение в списках количества накленных полос кромки=edge_strips=no=SELECT=&no^Нет&yes^Да
+Добавлять в название детали обозначение=name_prefix=1=SELECT=&0^Нет&1^Паз&2^Паз с длиной стороны&3^Паз с указанием стороны стрелкой
+Обозначение паза в название детали=place_prefix=0=SELECT=&0^Перед названием детали&1^За названием детали
+Коэффициент отходов плитных материалов=sheet_waste=15%=INPUT
+Расчет количества плитных материалов=sheet_count=m2=SELECT=&m2^кв.м&1^1 лист&0.5^0.5 листа&0.25^0.25 листа
+Расчет количества фасадов (кроме лдсп и лмдф)=frontal_count=m2=SELECT=&m2^кв.м&1^1 лист&0.5^0.5 листа&0.25^0.25 листа
+Коэффициент отходов длинномеров=linear_waste=10%=INPUT
+Расчет количества длинномеров=linear_count=m=SELECT=&m^метр&1^1 шт&0.5^0.5 шт&0.25^0.25 шт
+Обпил листа с каждой стороны (мм)=sheet_trim=10=INPUT
+Ширина режущей части (мм)=saw_thickness=4=INPUT
+Минимальный размер остатков для отображения на карте раскроя (мм)=min_leftover_size=100=INPUT
+Запас размеров деталей на подрезку после склейки (мм)=trim_stock=20=INPUT
+Группировать панели внутри модулей в списках=panel_group=yes=SELECT=&no^Нет&yes^Да
+ItemCode в названии детали=ItemCode=3=SELECT=&1^- за названием&2^Перед названием -&3^Перед названием.
+Программа раскроя по умолчанию=cut_prog=Bazis=SELECT=&Astra^Astra&Cutting2^Cutting2&Cutting3^Cutting3&Список фасадов^Список фасадов&ВиЯр^ВиЯр&Excel^Excel&Bazis^Bazis&GibLab^GibLab&DXF^DXF
+Надпись на детали при экспорте в DXF=dxf_number=0=SELECT=&0^Номер детали&1^Код изделия.Номер детали&2^Номер детали.Код изделия&3^Код изделия
+Отступ паза от края панели при экспорте в DXF (мм)=groove_padding=3=INPUT
+Радиус на внутренних вырезах при экспорте в Базис (0 - без радиуса)=milling_cutter_radius=6=INPUT
+Передавать позиции панелей при экспорте в Базис=export_position=yes=SELECT=&no^Нет&yes^Да
+Отступ паза от края панели с кромкой при экспорте в Базис (мм) (0 - без отступа)=edge_groove_padding=3=INPUT
+Списки=menu_row=10
+Текст=menu_row=11
+Окно=menu_row=12
+Валюта=display_currency=MDL=SELECT=&MDL^MDL&EUR^€&USD^$&RON^RON

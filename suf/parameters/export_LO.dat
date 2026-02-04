@@ -1,0 +1,34 @@
+{
+  "last_selected_preset": "Default",
+  "presets": {
+    "Default": {
+      "layout_template": "su_template_A4",
+      "kitchen_scenes": "Нет",
+      "send_scenes": "Все",
+      "specification": "Таблица",
+      "all_panel_list": "Список по материалам и модулям",
+      "panel_size": "Готовые с кромкой",
+      "accessories_list": "Да",
+      "table_font": "Arial",
+      "size_font": "11",
+      "designer": "",
+      "send_module": "Все",
+      "style_for_modules": "Цветные края",
+      "hide_frontal": "Нет",
+      "module_count": "2 (1 проекция каждого модуля)",
+      "module_separate_page": "Да",
+      "module_panels_list": "Да",
+      "module_accessories_list": "Нет",
+      "module_export": "Отдельными компонентами",
+      "module_panel_labels": "Да",
+      "module_render_mode": "RASTER",
+      "drawing": "Вырезы, Пазы, Присадка",
+      "panel_count": "1",
+      "hole_table": "Да",
+      "panel_dim": "Да",
+      "cut_dim": "Да",
+      "panel_texture": "Да",
+      "panel_render_mode": "RASTER"
+    }
+  }
+}

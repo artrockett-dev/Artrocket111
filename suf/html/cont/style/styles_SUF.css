@@ -1,0 +1,80 @@
+body::-webkit-scrollbar {
+  width: 5px; /* Без изменений */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #f5f5f5; /* Темный скроллбар */
+}
+body::-webkit-scrollbar-track {
+  border: 1px solid #f5f5f5; /* Без изменений */
+}
+
+body {
+  background-color: #f5f5f5; /* Темный фон оставляем */
+  margin: 0; /* Без изменений */
+  box-sizing: border-box; /* Без изменений */
+  overflow-x: hidden; /* Без изменений */
+  font-family: "Open Sans", Arial, sans-serif; /* Обновлен шрифт */
+}
+
+#main_menu {
+  position: sticky; /* Без изменений */
+  overflow: hidden; /* Без изменений */
+  background-color: #333333  ; /* Оставим цвет, чтобы сохранялась контрастность */
+  width: 100%; /* Без изменений */
+  height: 35px; /* Без изменений */
+  top: 0px; /* Без изменений */
+  z-index: 9; /* Без изменений */
+  border-bottom: 1px solid #f5f5f5; /* Добавим тонкую границу для отделения */
+}
+
+#main_menu button {
+  display: table; /* Без изменений */
+  background-color: transparent; /* Без изменений */
+  float: left; /* Без изменений */
+  border: 1px; /* Без изменений (хотя тут изначально не задан цвет) */
+	outline: none; /* Без изменений */
+  cursor: pointer; /* Без изменений */
+  padding: 6px 4px; /* Без изменений */
+  margin: 1px; /* Без изменений */
+	color: #f5f5f5; /* Без изменений */
+  font-size: 17px; /* Без изменений */
+  transition: background-color 0.5s, color 0.3s; /* Плавная смена фона и цвета */
+  border-radius: 3px; /* Легкое скругление */
+}
+
+#main_menu button:hover {
+  background-color: #f5f5f5; /* Без изменений */
+  box-shadow: 0 0 5px 1px #01033E;
+  color: #434343; /* Оставляем белый текст */
+}
+
+#main_menu button.active {
+  background-color: #01033E; /* Без изменений */
+  color: #fff; /* Белый текст для активной кнопки */
+}
+
+#main {
+  width: 100%; /* Без изменений */
+}
+
+.new_version_text {
+  color: #FFFFFF; /* Без изменений */
+}
+
+.center {
+  text-align: center; /* Без изменений */
+}
+
+.update {
+  width:100px; height:30px; /* Без изменений */
+  background-color: #F7931E; /* Без изменений */
+  cursor:pointer; /* Без изменений */
+  border: 1px solid transparent; /* Без изменений */
+  color: #fff; /* Белый цвет текста для контраста */
+  border-radius: 3px; /* Легкое скругление */
+  transition: background-color 0.3s;
+}
+.update:hover {
+  background-color: #c46500; /* Без изменений */
+}
+

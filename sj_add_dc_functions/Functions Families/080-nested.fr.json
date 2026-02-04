@@ -1,0 +1,20 @@
+{
+    "Parent/child attribute functions": "Fonctions attributs parents/enfants",
+
+    "attribute": "attribut",
+    "Name of the searched attribute.": "Nom de l'attribut recherché.",
+    "Realizes the sum of the components / child groups on the attribute passed in parameter. Only child entities with this attribute are summed.": "Réalise la somme des composants / groupes  enfants sur l'attribut passé en paramètre. Seules les entités enfants possédant cet attribut sont sommées.",
+
+    "Name of the attribute that will be summed, if the comparison is true.": "Nom de l'attribut qui sera sommé, si la comparaison est vrai.",
+    "conditionalAttribute": "attributConditionnel",
+    "Name of the child attribute on which a comparison will be performed.": "Nom de l'attribut enfant sur lequel une comparaison sera réalisée.",
+    "operator": "opérateur",
+    "Comparison operator: <strong>e</strong> for equal, <strong>i</strong>for less, <strong>s</strong> for greater and <strong>d</strong> for different. By composition <strong>ie</strong> for less than or equal and <strong>se</strong> for greater or equal.": "Opérateur de comparaison : <strong>e</strong> pour égal, <strong>i</strong> pour inférieur, <strong>s</strong> pour supérieur et <strong>d</strong> pour différent. Par composition <strong>ie</strong> pour inférieur ou égale et  <strong>se</strong> pour supérieur ou égal.",
+    "value": "valeur",
+    "Comparison value. If it is a text only the operators <strong>e</strong> and <strong>d</strong> are authorized.": "Valeur de comparaison. Si c'est un texte seul les opérateurs <strong>e</strong> et <strong>d</strong> sont autorisés.",
+    "Sum of the components / child groups on the attribute passed in parameters. For each child entities, if the conditional attribute / value comparison is true then the attribute is summed, otherwise 0.<br> , Example: Sum of the LenX attribute if the material is red.<br> , ChildrenSumSiAttribut (\"LenX\", \"Material\", \"e\", \"Red\")<br> , Example: Sum of the LenX attribute if the LenZ height greater than 3.<br> , ChildrenSumSiAttribute (\"LenX\", \"LenZ\", \"s\", 3)": "Somme des composants / groupes enfants sur l'attribut passé en paramètres. Pour chaque entité enfant, si la comparaison attribut conditionnel / valeur est vrai alors l'attribut est sommé, sinon 0.<br> , Exemple: Somme de l'attribut LenX si la matière est rouge.<br> , ChildrenSumSiAttribut(\"LenX\",\"Material\",\"e\",\"Red\")<br> , Exemple: Somme de l'attribut LenX si la hauteur LenZ supérieur à 3.<br> , ChildrenSumSiAttribut(\"LenX\",\"LenZ\",\"s\",3)",
+    
+    "mode": "mode",
+    "Two possible modes \"path\" or \"value\".": "Deux modes possibles \"path\" ou \"value\".",
+    "Returns the value or the path of a parent attribute according to the chosen mode.<br>It is convenient to replace the parent component name reference so that you can copy the subcomponent to another parent without error in calculations.": "Retourne la valeur ou le chemin d'un attribut parent selon le mode choisi<br> , Il est pratique de remplacer la référence du nom du composant parent pour pouvoir copier le sous-composant dans un autre parent sans erreur dans les calculs."
+}

@@ -1,0 +1,5 @@
+Камень=>Blat 12,; ;material
+Антарес=>name; ;length<->3000<->4200;*;width<->600<->1200;*;thickness; ;material
+Antares=>name; ;length<->3000<->4200;*;width<->600<->1200;*;thickness; ;material
+Slotex=>name; ;length<->3000<->4200;*;width<->600<->1200;*;thickness; ;material
+Duropal=>name; ;length<->4100;*;width<->600<->1200;*;thickness; ;material

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>AR Specification</title>
+
+  <!-- базовые стили SUF -->
+  <link rel="stylesheet" href="cont/style/styles_SUF.css" type="text/css"/>
+  <link rel="stylesheet" href="cont/style/styles_list.css" type="text/css"/>
+
+  <!-- стили спецификации -->
+  <link rel="stylesheet" href="cont/style/ar_specification.css" type="text/css"/>
+</head>
+<body class="tab-lists">
+
+  <!-- скрытый Lists/Cost как источник данных -->
+  <div class="lists-host" id="lists-host">
+    <div id="main"></div>
+    <div id="ListSections"><button class="Listtablinks active" data-name="Cost">Cost</button></div>
+    <div id="lists_table"></div>
+    <div id="footer" style="display:block;">
+      <input type="submit" id="copy_button" value="Copy the list" disabled="disabled">
+      <input type="submit" id="submit_button" value="START" disabled="disabled" style="display:none;">
+    </div>
+    <button id="add_accessories" style="display:none"></button>
+    <label id="panel_size" class="panel_size_switch" style="display:none">
+      <input id="panel_size_input" type="checkbox"><span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="stage">
+    <!-- шаблон страницы -->
+    <template id="page-tpl">
+      <div class="page">
+        <div class="toolbar">
+          <button class="btn back-btn">← Back</button>
+
+          <div class="toolbar-status" id="calc-progress" aria-live="polite"></div>
+
+          <div class="toolbar-spacer"></div>
+          <button class="btn export-btn">Export →</button>
+        </div>
+
+        <div class="inner">
+          <div class="doc-head">
+            <div class="logo-box">
+              <img class="logo" src="cont/style/AR_logo.png" alt="AR">
+            </div>
+
+            <div class="inputs-wrap">
+              <div class="inputs-grid">
+                <div class="field">
+                  <div class="label">Specificație la contract №</div>
+                  <input class="input inp-contract" placeholder="">
+                </div>
+                <div class="field">
+                  <div class="label">Data</div>
+                  <input class="input inp-date" placeholder="">
+                </div>
+              </div>
+            </div>
+
+            <div class="sum-box">
+              <div class="sum-cap">Sumă totală</div>
+              <div class="sum-val"><span class="sum-num">0</span><span class="sum-curr"></span></div>
+            </div>
+          </div>
+
+          <div class="cols">
+            <table class="spec col-left">
+              <colgroup><col><col><col><col></colgroup>
+              <thead>
+                <tr>
+                  <th class="col-num">№</th>
+                  <th class="col-name">Denumire</th>
+                  <th class="col-unit">Unit.</th>
+                  <th class="col-qty">Cant.</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+
+            <table class="spec col-right">
+              <colgroup><col><col><col><col></colgroup>
+              <thead>
+                <tr>
+                  <th class="col-num">№</th>
+                  <th class="col-name">Denumire</th>
+                  <th class="col-unit">Unit.</th>
+                  <th class="col-qty">Cant.</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <!-- нижний инфо-блок -->
+          <div class="client-info">
+            <label class="row"><div class="lbl">Client</div><input class="val inf-client" placeholder=""></label>
+            <label class="row"><div class="lbl">Produs</div><input class="val inf-product" placeholder=""></label>
+            <label class="row"><div class="lbl">Adresă</div><input class="val inf-addr2" placeholder=""></label>
+            <label class="row"><div class="lbl">Etaj / Lift</div><input class="val inf-eld" placeholder=""></label>
+            <label class="row"><div class="lbl">Distanță</div><input class="val inf-distance" placeholder=""></label>
+            <label class="row"><div class="lbl">Designer</div><input class="val inf-designer" placeholder=""></label>
+          </div>
+
+          <div class="page-foot">
+            <button class="btn nav-prev">←</button>
+            <div class="page-xofy">Page <span class="p-idx">1</span> / <span class="p-all">1</span></div>
+            <button class="btn nav-next">→</button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <div id="pages-root"></div>
+  </div>
+
+  <!-- libs -->
+  <script src="cont/jquery.min.js"></script>
+  <script src="cont/SUF_translate.js"></script>
+  <script src="cont/discount_list.js"></script>
+  <script src="cont/SUF_lists.js"></script>
+  <script src="cont/load_lang.js"></script>
+
+  <!-- логика спецификации -->
+  <script src="cont/ar_specification.js"></script>
+</body>
+</html>

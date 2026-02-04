@@ -1,0 +1,232 @@
+/* По-умолчанию — dark main */
+#main {
+  background-color: #fff;
+}
+
+/* На вкладке Attributes (при наличии класса attributes-active на body) — main и att_table белые */
+body.attributes-active #main,
+body.attributes-active #att_table {
+  background-color: #fff !important;
+}
+
+/* ===== остальной CSS ===== */
+body {
+    background-color: #383838; /* Без изменений */
+    margin: 0; /* Без изменений */
+    box-sizing: border-box; /* Без изменений */
+    overflow-x: hidden; /* Без изменений */
+    font-family: "Open Sans", Arial, sans-serif; /* Без изменений */
+}
+
+/* Шапка навигации остаётся тёмной */
+#main_menu,
+#report_done_message {
+    background-color: #fff;
+}
+
+/* Основной контейнер с содержимым */
+#main {
+    width: 100%;
+    /* background-color теперь управляется через правила выше */
+}
+
+/* Сохраняем стиль полосы таблицы сообщений */
+#table_mess {
+    position: sticky;
+    top: 0px;
+    padding: 3px;
+    font-size: 18px;
+    width: 100%;
+    background-color: #e2ded7;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    color: #333;
+    border-radius: 3px;
+}
+
+#Logo {
+    padding: 0;
+    width: 110px;
+}
+
+#image {
+    border: 1px solid gray;
+    width: 100px;
+    height: 80px;
+    border-radius: 3px;
+}
+
+#des_name {
+    font-weight: bold;
+    vertical-align: top;
+    color: #333;
+}
+
+legend {
+    padding: 5px;
+    width: 100%;
+    font-size: 12px;
+    background: #f0f0f0;
+    border-radius: 3px;
+    color: #333;
+}
+
+#att_table {
+    padding: 5px;
+    font-size: 12px;
+    padding-bottom: 40px;
+    color: #333;
+    background-color: #fff; /* Белый фон всегда */
+}
+
+#attribute_table {
+    padding: 2px;
+    font-size: 12px;
+    background-color: #e2ded7;
+    border: 1px solid gray;
+    border-radius: 3px;
+    color: #333;
+}
+
+#attribute_table td {
+    width: 100%;
+    text-align: right;
+    padding: 2px;
+}
+
+#attribute_table input {
+    font-size: small;
+    width: 114px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 2px;
+    text-align: right;
+    color: #333;
+}
+
+#attribute_table .delete_section {
+    width: 17px;
+    padding: 0;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+#attribute_table .delete_section:hover {
+    opacity: 0.8;
+}
+
+#attribute_table select {
+    width: 122px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background: #fff;
+    padding: 1px;
+    color: #333;
+    font-size: inherit;
+}
+
+#attribute_table .view,
+#attribute_table .edit {
+    width: 122px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background: #fff;
+    font-size: inherit;
+    color: #333;
+}
+
+#attribute_table .edit:hover {
+    background-color: #ddd;
+}
+
+#c1 {
+    width: 20px;
+}
+
+#include_table {
+    font-size: 14px;
+    color: #333;
+}
+
+#attribute2_table {
+    padding: 2px;
+    font-size: 12px;
+    background-color: #e2ded7;
+    border: 1px solid gray;
+    display: none;
+    border-radius: 3px;
+    color: #333;
+}
+
+#attribute2_table td {
+    width: 100%;
+    text-align: right;
+    padding: 2px;
+}
+
+#attribute2_table input {
+    font-size: small;
+    width: 118px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    text-align: right;
+    padding: 2px;
+    color: #333;
+}
+
+#attribute2_table select {
+    width: 122px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background: #fff;
+    color: #333;
+    font-size: inherit;
+    padding: 1px;
+}
+
+#attribute2_table .view {
+    width: 122px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background: #fff;
+    color: #333;
+    font-size: inherit;
+}
+
+#att_form {
+    width: 100%;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    line-height: 20px;
+    text-align: center;
+    border-top: 1px solid gray;
+    background-color: #e2ded7;
+    padding: 3px;
+    display: none;
+    color: #333;
+    font-size: 12px;
+}
+
+#submit_button {
+    position: relative;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #f0f0f0;
+    padding: 2px 5px;
+    font-size: 12px;
+    color: #333;
+    transition: background-color 0.3s;
+}
+#submit_button:hover {
+    cursor: pointer;
+    background-color: #ddd;
+}
+
+

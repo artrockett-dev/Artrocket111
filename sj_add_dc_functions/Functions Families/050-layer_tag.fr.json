@@ -1,0 +1,7 @@
+{
+    "Layers/Tags functions": "Fonctions Calques/Balises",
+
+    "layerName": "nomDuCalque",
+    "Place the instance on the layer passed as a parameter.<br>Copies of a component obtained with the copies attribute are placed by Sketchup on layer0 or without tag, even if the original component is on another layer.<br>This function will force the copies to be placed on the layers of your choice.<br>If the layer / tag does not exist, the function generates it for you!": "Place l'instance sur le calque passé en paramètre.<br>Les copies d'un composant obtenu avec l'attribut copies, sont placées par Sketchup sur le calque0 ou sans balise, même si le composant originel est sur un autre calque.<br>Cette fonction forcera les copies à se placer sur le calque de vo",
+    "Type target layer name or type default to place on Layer0 - no tag":"Saisissez le nom du calque cible ou saisissez défaut pour placer sur Calque0 - pas de balise"
+}

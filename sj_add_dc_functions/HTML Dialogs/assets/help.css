@@ -1,0 +1,104 @@
+/**
+ * Add DC Functions plugin for SketchUp.
+ */
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+}
+
+*:focus {
+    outline: none;
+}
+
+.sj-header {
+    padding: 20px;
+    background-color: #5092d3;
+    color: rgb(247, 247, 247);
+}
+
+.sj-header-title {
+    display: inline;
+    font-weight: normal;
+}
+
+.sj-header-logo {
+    position: relative;
+    top: 15px;
+}
+
+.sj-families {
+    margin: 20px;
+}
+
+.sj-family-title {
+    font-weight: normal;
+    border-bottom-width: thin;
+    border-top-width: thick;
+    border-bottom-style: solid;
+}
+
+.sj-expand-function-button {
+    padding: 0;
+    border: none;
+    border-bottom: thin solid rgb(195, 195, 195);
+    position: relative;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.4s;
+    background-color: rgb(238, 238, 238);
+    color: rgb(68, 68, 68);
+}
+
+.sj-expand-function-button:hover,
+.sj-function.expanded .sj-expand-function-button {
+    background-color: #5092d3;
+    color: rgb(247, 247, 247);
+}
+
+.sj-expand-function-button .sj-function-name {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.sj-expand-function-button .sj-up,
+.sj-expand-function-button .sj-down {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+}
+
+.sj-expand-function-button .sj-up,
+.sj-function.expanded .sj-expand-function-button .sj-down {
+    display: none;
+}
+
+.sj-function.expanded .sj-expand-function-button .sj-up {
+    display: inline-block;
+}
+
+.sj-function:not(.expanded) .sj-function-details {
+    display: none;
+}
+
+.sj-function-details {
+    margin-left: 30px;
+}
+
+.sj-function-signature {
+    color: #e83e8c;
+}
+
+.sj-copy-function-button {
+    padding: 5px;
+}
+
+.sj-function-parameters {
+    font-weight: normal;
+    padding: 10px;
+    background-color: rgb(125, 187, 247);
+}
+
+.sj-function-parameter-name {
+    font-weight: bold;
+}

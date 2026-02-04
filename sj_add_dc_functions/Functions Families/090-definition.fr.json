@@ -1,0 +1,52 @@
+{
+    "Definitions functions": "Fonctions de définitions",
+
+    "newName": "nouveauNom",
+    "New name for the definition.": "Nouveau nom pour la définition.",
+    "Makes a component instance unique and gives it a new name passed as a parameter.": "Rend une instance de composant unique et lui attribue un nouveau nom passé en paramètre.",
+
+    "Allows you to reset the scale of the instance and return to scale 1:1. Can only be called from an OnClick.": "Permet de réinitialiser l'échelle de l'instance et revenir à l'échelle 1:1. Ne peut être appelé que depuis un OnClick.",
+    "Scale Reset":"Échelle réinitialisée",
+
+    "path":"Chemin",
+    "Path to file. Local access &quot; C:&#x2F;&#x2F;Folder&#x2F;File.csv &quot; or for network access &quot; &#x5C;&#x5C;Machine&#x5C;&#x5C;Folder&#x5C;&#x5C;File.csv&quot;":"Chemin d'accès au fichier. Accès locale &quot; C:&#x2F;&#x2F;Dossier&#x2F;Fichier.csv &quot; ou pour un accès réseau &quot; &#x5C;&#x5C;Machine&#x5C;&#x5C;Folder&#x5C;&#x5C;File.csv&quot;",
+    "index_special_char":"index_caractère_special",    
+    "Index of the special character that separates the values. 0 => comma, 1 => semicolon, 2 => tabulation, => for spip.":"Index du caractère spécial qui sépare les valeurs. 0 => virgule, 1 => point-virgule, 2 => tabulation, => pour spip.",
+    "attribute_name":"nom_attribut",
+    "Name of the target attribute that will receive the list of options":"Nom de l'attribut cible qui recevra la liste d'options",
+    "Create a list of options for the target attribute from the values contained in the CSV file. 1ʳᵉ column Options, 2ᵉ column Values. The file can have the extension .csv or .txt with carriage return. The values can be separated by commas, semicolons, tabs or spip":"Créer une liste d'options pour l'attribut cible à partir des valeurs contenues dans le fichier CSV. 1ʳᵉ colonne Options, 2ᵉ colonne Valeurs. Le fichier peut avoir l'extension .csv ou .txt avec retour de chariot. Les valeurs peuvent être séparées par des virgules, point-virgule, tabulation ou spip",
+    "ERROR File doesn't existe":"ERREUR le fichier n’existe pas",
+    "ERROR The file doesn't contain a value or is unreadable":"ERREUR le fichier ne contient pas de données ou est illisible",
+    
+    "Options for the attribute %{name} from the CSV file has been created":"Options pour l'attribut %{name} a été créé à partir du fichier CSV",
+
+    "condition":"condition",
+    "Formula that returns true or false":"Formule qui retourne vrai ou faux",
+    "Name of the target attribute, which will have its access meta-attribute modified":"Nom de l'attribut cible, dont le méta-attribut d'accès sera modifié",
+    "Index of the access property if the condition is true. In the list 0 => none, 1 => read only, 2 => entry, 3 => option list":"Index de la propriété access si la condition est vraie. Dans la liste 0 => aucun, 1 => lecture seule, 2 => saisie, 3 => liste d'option",
+    "Index of the access property if the condition is false. In the list 0 => none, 1 => read only, 2 => entry, 3 => option list":"Index de la propriété access si la condition est fausse. Dans la liste 0 => aucun, 1 => lecture seule, 2 => saisie, 3 => liste d'option",
+    "Modifies the _access meta-attribute of the conditional attribute. Allows you to modify the appearance of the attribute in the dynamic components option panel.":"Modifie le meta-attribut _access de l'attribut sous condition. Permet de modifier l'apparence de l'attribut dans le panneau option des composants dynamiques.",
+
+    "begin_attribute_name":"début_nom_attribut",
+    "Starting characters of the name of the targeted attributes, whose access meta-attributes will be modified":"Caractères de début du nom des attributs ciblés, dont les méta-attributs d'accès seront modifiés",
+    "Modifies the _access meta-attribute of attributes whose name begins with and according to a condition. Allows you to modify the appearance of the attribute in the option panel of dynamic components.":"Modifie le meta-attribut _access des attributs dont le nom commence par et selon une condition. Permet de modifier l'apparence de l'attribut dans le panneau option des composants dynamiques.",
+
+    "Group of 3 parameters, the whole is in quotes. &quot; attribute_name , access_true , access_false &quot;. Each group is separated by a comma. At least one group is expected.":"Groupe de 3 paramètres, l'ensemble est entre guillemet. &quot; attribute_name , access_true , access_false &quot;. Chaque groupe est séparé par une virgule. Au moins un groupe est attendu.",
+    "Modifies the _access meta-attribute of several attributes according to a common condition. Allows to modify the appearance of the attribute in the option panel of the dynamic components.":"Modifie le meta-attribut _access de plusieurs attributs selon une condition commune. Permet de modifier l'apparence de l'attribut dans le panneau option des composants dynamiques.",
+
+    "%{name} access mode %{access}":"%{name} mode d'accès %{access}",
+    "No attribute match":"Aucune correspondance d'attribut",
+    "%{fl} attribute begin by %{search_name} access mode %{access}":"%{fl} attributs commencent par %{search_name} mode d'accès %{access}",
+    "%{fl} attributes begin by %{search_name} access mode %{access}":"%{fl} attributs commencent par %{search_name} mode d'accès %{access}",
+    "No attribute access parameters":"Aucun paramètre d'accès aux attributs",
+    "%{success} attributes modifying access and %{error} errors on %{n}":"%{success} attributs modifiant l'accès et %{error} erreurs sur %{n}",
+
+    "Retrieves the persistent identifier of the instance":"Récupère l'identifiant persistant de l'instance",
+    "Name of the attribute sought":"Nom de l'attribut recherché",
+    "Default value, if attribute not found":"Valeur par défaut, si l'attribut n'est pas trouvé",
+    "Retrieves the attribute value of a model instance defined by its persistent identifier. Returns a default value, if the attribute is not found.":"Récupère la valeur de l'attribut d'une instance du modèle définie par son identifiant persistant. Renvoie une valeur par défaut, si l'attribut n'est pas trouvé.",
+
+    "The persistent identifier of the targeted instance":"L'identifiant persistant de l'instance ciblée"
+  
+
+}

@@ -1,0 +1,14 @@
+{
+    "Text functions": "Fonctions texte",
+    
+    "text": "texte",
+    "Text on which the search will be carried out.": "Texte sur lequel la recherche sera effectuée.",
+    "string": "chaîne",
+    "Character string to find.": "Chaîne de caractère(s) à trouver.",
+    "Allows you to obtain the number of occurrences of a character string(s) in a text.": "Permet d'obtenir le nombre d'occurrence d'une chaîne de caractère(s) dans un texte.",
+
+    "attributeName": "nomAttribut",
+    "Name of the attribute that called the function.": "Nom de l'attribut qui a appelé la fonction.",
+    "Adds a warning at the end of the component description visible in the dynamic component options panel and in the description of the skp file if you save the component. <br> , WARNING, this component uses non native Sketchup calculation functions !!! <br> , It requires the installation of the sj_AddDCFunctions plugin!": "Ajoute un avertissement en fin de description du composant visible dans le panneau options composant dynamique et dans la description du fichier skp si vous enregistrer le composant.<br> , Attention ce composant utilise des fonctions de calcul non natives de Sketchup !!!<br> , Il requiert l'installation du plugin sj_AddDCFunctions!",
+    "Warning note created":"Note d'avertissement créée"
+}

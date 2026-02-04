@@ -1,0 +1,6 @@
+LDSP=>PAL;thickness;material;supplier
+LMDF=>MDF;thickness;material;supplier
+MDF=>MDF;material;thickness;milling;patina
+SHPON=>MDF;material;thickness;milling;patina
+PLASTIC=>MDF;material;thickness;milling;patina
+COLOR=>МДФ в эмали;material;thickness;milling;patina

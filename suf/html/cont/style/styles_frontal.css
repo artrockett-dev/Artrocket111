@@ -1,0 +1,145 @@
+body {
+  background-color: #FFFFFF; /* Без изменений */
+  margin: 0; /* Без изменений */
+  box-sizing: border-box; /* Без изменений */
+  overflow-x: hidden; /* Без изменений */
+  font-family: "Open Sans", Arial, sans-serif; /* Обновлен шрифт, без изменения размеров */
+}
+
+#main {
+  width: 100%; /* Без изменений */
+}
+
+#frontal_preferences {
+  font-size: 14px; /* Без изменений */
+  border-bottom: 1px solid gray; /* Без изменений */
+  color: #333;
+}
+
+#frontal_table {
+  padding: 5px; /* Без изменений */
+  font-size: 12px; /* Без изменений */
+  color: #333;
+}
+
+#frontal_parameter_table {
+  width: 100%; /* Без изменений */
+  text-align: center; /* Без изменений */
+  font-size: 12px; /* Без изменений */
+  background-color: #e2ded7; /* Без изменений */
+  border: 1px solid gray; /* Без изменений */
+  border-radius: 3px;
+  color: #333;
+}
+
+#frontal_parameter_table input {
+  font-size: small; /* Без изменений */
+  width: 20px; height: 20px; /* Без изменений */
+  text-align: center; /* Без изменений */
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+#frontal_parameter {
+  text-align: center; /* Без изменений */
+  color: #333;
+}
+
+.frontal_rect_table {
+  text-align: center; /* Без изменений */
+  background-color: #e2ded7; /* Без изменений */
+  color: #333;
+  border-radius: 3px;
+}
+
+.del_hor, .del_ver, .add_hor, .add_ver {
+  cursor: pointer; /* Без изменений */
+  transition: opacity 0.3s;
+}
+.del_hor:hover, .del_ver:hover, .add_hor:hover, .add_ver:hover {
+  opacity: 0.8;
+}
+
+.frontal_rect {
+  width: 100px; /* Без изменений */
+  text-align: center; /* Без изменений */
+  border: 1px solid gray; /* Без изменений */
+  border-radius: 3px;
+}
+
+.frontal_rect input {
+  text-align: center; /* Без изменений */
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 2px;
+}
+
+.vertical_td {
+  margin: 0px; /* Без изменений */
+  writing-mode: vertical-lr; /* Без изменений */
+  transform: scale(-1); /* Без изменений */
+}
+
+.height_ver {
+  transform: rotate(-90deg); /* Без изменений */
+}
+
+#frontal_parameters_table {
+  width: 100%; /* Без изменений */
+  font-size: 12px; /* Без изменений */
+  background-color: #e2ded7; /* Без изменений */
+  border: 1px solid gray; /* Без изменений */
+  margin-bottom: 30px; /* Без изменений */
+  border-radius: 3px;
+  color: #333;
+}
+
+#frontal_parameters_table td {
+  width: 100%; /* Без изменений */
+  padding: 2px; /* Добавлен небольшой отступ для эстетики */
+}
+
+#frontal_parameters_table input {
+  font-size: small; /* Без изменений */
+  width: 120px; /* Без изменений */
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 2px;
+  color: #333;
+}
+
+#frontal_parameters_table select {
+  font-size: small; /* Без изменений */
+  width: 128px; /* Без изменений */
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 1px;
+  background: #fff;
+  color: #333;
+}
+
+#frontal_footer {
+  position: fixed; bottom: 0; left: 0; /* Без изменений */
+  width: 100%; height: 25px; line-height: 20px; /* Без изменений */
+  text-align: center; /* Без изменений */
+  border-top: 1px solid gray; /* Без изменений */
+  background-color: #e2ded7; /* Без изменений */
+  padding: 3px; /* Без изменений */
+  font-size: 12px; /* Не было указано, но не меняет логику */
+  color: #333;
+}
+
+#apply {
+  position: relative; margin:0 auto; color: #000000; /* Без изменений */
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #f0f0f0;
+  font-size: 12px; /* Не указано, но соответствует общему стилю */
+  padding: 2px 5px;
+  transition: background-color 0.3s;
+}
+
+#apply:hover {
+  cursor: pointer; /* Без изменений */
+  background-color: #ddd;
+}

@@ -1,0 +1,152 @@
+/* ===========================
+   LISTS — панель + таблицы
+   =========================== */
+
+/* панель вкладок */
+#ListSections{
+  position: sticky;
+  top: 127px;
+  padding-left: 5px;
+  overflow: hidden;
+  width: 100%;
+  z-index: 7;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+/* обычные табы (Acc/Fast, Sheets, Linear, Operations, Cost) */
+#ListSections .Listtablinks{
+  display: table;
+  float: left;
+  padding: 5px 8px;
+  font-size: 12px;
+  color: #000;
+  background-color: #f5f5f5;
+  border: 1px solid gray;
+  border-right: none;
+  outline: none;
+  cursor: pointer;
+  height: 26px; line-height: 16px;
+  border-top-left-radius: 4px; border-top-right-radius: 4px;
+  transition: background-color .2s, color .2s, border-color .2s, box-shadow .2s;
+}
+#ListSections .Listtablinks:hover{ background-color:#F7931E; color:#fff; }
+#ListSections .Listtablinks.active{ background-color:#F7931E; color:#fff; }
+#ListSections .Listtablinks:last-of-type{ border-right:1px solid gray; }
+
+/* —— маленькие икон-кнопки справа: общий стиль —— */
+#ListSections .ls-iconbtn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:30px; height:26px; margin-left:6px;
+  background:#fff !important;
+  border:1px solid gray; border-radius:6px;
+  padding:0; cursor:pointer; outline:none;
+  transition: background-color .2s, border-color .2s, box-shadow .2s, transform .06s;
+  background-image:none !important;     /* гасим старые фоновые спрайты */
+}
+#ListSections .ls-iconbtn:hover{
+  background:#fff; border-color:#F7931E;
+  box-shadow:0 0 0 2px rgba(247,147,30,.15);
+}
+#ListSections .ls-iconbtn:active{ transform:scale(.98); }
+#ListSections .ls-iconbtn img{
+  width:22px; height:22px; object-fit:contain; display:block; pointer-events:none;
+}
+
+/* одинаковые размеры иконок для spec и price */
+#ListSections .icon-spec img,
+#ListSections .icon-price img{ width:22px; height:22px; }
+
+/* плюс — та же высота, текст остаётся */
+#ListSections .icon-plus{ font-weight:700; font-size:16px; line-height:1; }
+
+/* !!! старое правило nth-child(6) УДАЛЕНО, чтобы не дублировать иконку price */
+
+/* ---------- остальной UI Lists ---------- */
+#lists_table{
+  padding:5px; font-size:12px; margin-bottom:34px; z-index:5;
+  font-family:"Open Sans", Arial, sans-serif; color:#333;
+}
+
+.texture_image{ border:1px solid gray; width:42px; height:42px; margin:0 5px 0 0;
+  cursor:pointer; border-radius:3px; transition: box-shadow .3s; }
+.texture_image:hover{ box-shadow:0 0 4px rgba(0,0,0,.2); }
+
+.ocl_image, .copy_image{ width:25px; height:25px; cursor:pointer;
+  vertical-align:top; padding-bottom:2px; transition: opacity .3s; }
+.ocl_image:hover, .copy_image:hover{ opacity:.8; }
+.copy_image{ vertical-align:bottom; }
+
+.grain{ cursor:pointer; border:1px solid gray; border-radius:2px; transition: box-shadow .3s; }
+.grain:hover{ box-shadow:0 0 3px rgba(0,0,0,.2); }
+
+#report_done_message{
+  top:168px; position:fixed; color:black; display:none; padding:10px; z-index:6;
+  background:#fff; border:1px solid #ccc; border-radius:3px; font-family:"Open Sans", Arial, sans-serif;
+}
+
+table.title_table{ width:100%; font-size:12px; background:#f5f5f5; border:1px solid gray;
+  color:#333; font-family:"Open Sans", Arial, sans-serif; }
+
+table.acc_table, table.acc2_table{
+  border-collapse:collapse; padding:5px; width:100%; font-size:12px;
+  background:#f5f5f5; border:1px solid gray; font-family:"Open Sans", Arial, sans-serif; color:#333;
+}
+table.acc_table th, table.acc2_table th{ border:1px solid gray; text-align:center; background:#f0f0f0; }
+table.acc_table td, table.acc2_table td{ border:1px solid gray; text-align:center; background:#fff; }
+table.acc_table td:nth-child(2), table.acc2_table td:nth-child(2){ text-align:left; }
+table.acc_table td:nth-child(5), table.acc2_table td:nth-child(5){ text-align:right; }
+
+table.add_table{ border-collapse:collapse; text-align:center; margin-bottom:5px;
+  font-family:"Open Sans", Arial, sans-serif; color:#333; }
+table.add_table th{ border:1px solid gray; background:#f0f0f0; }
+table.add_table td{ border:1px solid gray; background:#fff; }
+table.add_table td:nth-child(3){ width:100%; text-align:left; }
+table.add_table td:nth-child(4){ width:40px; }
+table.add_table td:nth-child(5){ width:40px; text-align:right; }
+table.add_table input{ width:20px; font-family:inherit; font-size:inherit; text-align:inherit; padding:0;
+  border:1px solid #ccc; border-radius:2px; }
+
+.category_name{ text-decoration:underline; color:#333; }
+
+table.price_table{ border-collapse:collapse; text-align:center; margin-bottom:5px;
+  font-family:"Open Sans", Arial, sans-serif; color:#333; }
+table.price_table th{ border:1px solid gray; background:#f0f0f0; }
+table.price_table td{ border:1px solid gray; background:#fff; }
+table.price_table td:nth-child(3){ width:100%; text-align:left; }
+table.price_table td:nth-child(4){ width:40px; }
+table.price_table td:nth-child(5){ width:40px; text-align:right; }
+table.price_table textarea{ width:100%; font-family:inherit; font-size:inherit; padding:0; border:none; }
+table.price_table input{ width:100%; font-family:inherit; font-size:inherit; text-align:inherit; padding:0;
+  border:1px solid #ccc; border-radius:2px; }
+
+.category{ margin:1px; margin-left:20px; cursor:pointer; color:#333; }
+table.category_table input{ width:100px; border:1px solid #ccc; border-radius:2px; }
+.new_category{ margin:1px; margin-left:20px; color:#333; }
+new_table{ cursor:pointer; } del_row{ cursor:pointer; } copy_row{ cursor:pointer; }
+number_label{ cursor:pointer; } name_label{ cursor:pointer; } list_label{ cursor:pointer; }
+#material_name{ cursor:pointer; } #total_hole_row{ cursor:pointer; }
+
+table.list_table{
+  padding:3px; width:100%; font-size:12px; background:#f5f5f5; border:1px solid gray; border-collapse:collapse;
+  font-family:"Open Sans", Arial, sans-serif; color:#333;
+}
+table.list_table tr{ height:22px; vertical-align: middle; }
+table.list_table tr:last-child td:nth-child(3){ padding-right:3px; }
+table.list_table tr.selected_panel{ background:#3399FF; color:#fff; }
+table.list_table .selected_panel td{ border:1px solid #3399FF; }
+table.list_table th{ padding:3px; vertical-align: top; background:#f0f0f0; }
+table.list_table td:nth-child(1){ text-align:center; width:20px; padding-left:3px; }
+table.list_table td:nth-child(2){ text-align:left; padding-left:3px; }
+table.list_table td:nth-child(3){ text-align:right; width:28px; }
+table.list_table td:nth-child(4){ width:6px; }
+table.list_table td:nth-child(5){ width:28px; }
+table.list_table td:nth-child(6){ width:1px; }
+table.list_table td:nth-child(7){ text-align:right; padding-right:3px; }
+
+#copy_button{
+  position:relative; margin:0 auto; color:#000; cursor:pointer;
+  background:#F7931E; border-radius:3px; padding:2px; transition: background-color .3s;
+}
+#copy_button:hover{ background-color:#c46500; }

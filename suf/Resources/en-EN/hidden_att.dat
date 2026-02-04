@@ -1,0 +1,83 @@
+a00_form_planka=>The design of the corner=>LIST=>&1=1&2=2&
+a0_niz_max=>Max. size of the lower base=>TEXTBOX=>&
+a0_niz_min=>Min. size of the lower base=>TEXTBOX=>&
+b1_p_thickness=>Panel thickness=>TEXTBOX=>&
+b1_b_thickness=>Back wall thickness=>TEXTBOX=>&
+a2_indent_size=>Facade overhang size=>TEXTBOX=>&
+groove=>Groove indent=>TEXTBOX=>&
+groove_thick=>Groove width=>TEXTBOX=>&
+groove_width=>Groove depth=>TEXTBOX=>&
+c2_shelves_count=>Number of shelves=>LIST=>&0=1&1=2&2=3&3=4&
+c2_shelves_fr=>Shelf indentation in front=>TEXTBOX=>&
+c4_top_depth=>Width of ties=>TEXTBOX=>&
+c5_back=>Back wall=>LIST=>&No=1&Invoice=2&Invoice=3&In the Groove=4&
+c6_back_up=>Trim the top from behind=>LIST=>&No=1&Yes=2&
+c7_naves=>Attachments=>LIST=>&No=1&Visible=2&Hidden=3&
+r0_indent=>Front indent=>TEXTBOX=>&
+a2_leg_indent=>Indent of legs=>TEXTBOX=>&
+hinge_type=>Loop type=>LIST=>&Invoices=3&Polunakladnye=2&Contribution=1&
+hinge_type2=>Loop type 2=>LIST=>&Invoices=3&Polunakladnye=2&Contribution=1&
+hinge_z=>The position of the hinges from the edge of the facade=>TEXTBOX=>&
+o1_middle_type=>The gap of the shelves at the edges=>TEXTBOX=>&
+d2_drawer1=>Bottom drawer Height=>TEXTBOX=>&
+d2_drawer2=>The height of the second box=>TEXTBOX=>&
+d2_drawer3=>Height of the third drawer=>TEXTBOX=>&
+d2_drawer4=>Height of the fourth box=>TEXTBOX=>&
+d5_virez_lenx=>Cutout width=>TEXTBOX=>&
+d5_virez_leny=>Cutout depth=>TEXTBOX=>&
+b3_handle_y=>The width of the cut under the profile handle=>TEXTBOX=>&
+b3_handle_z1=>The height of the cut under the upper profile =>TEXTBOX=>&
+b3_handle_z2=>The height of the cut under the middle profile=>TEXTBOX=>&
+point_x=>Point by thickness=>LIST=>&Left=1&Centered=2&Right=3&
+point_y=>Point by width=>LIST=>&Front=1&Center=2&Back=3&
+point_z=>Point by length=>LIST=>&Bottom=1&Centered=2&Top=3&
+trim_z1=>Top indent=>TEXTBOX=>&
+trim_z2=>Bottom indent=>TEXTBOX=>&
+d1_type_height=>Drawer height=>LIST=>&1=1&2=2&3=3&4=4&5=5&6=6&7=7&8=8&9=9&
+d1_type_in=>Inner box=>LIST=>&No=1&Yes=2&
+o1_bottom=>Bottom indentation right and left=>TEXTBOX=>&
+o1_bottom_bottom=>Bottom offset from bottom=>TEXTBOX=>&
+o2_back=>Back padding right and left=>TEXTBOX=>&
+o2_back_bottom=>Back offset from the bottom=>TEXTBOX=>&
+virez_y=>Cutout depth=>TEXTBOX=>&
+virez_z=>Cutout width=>TEXTBOX=>&
+z_max_thickness=>Max. thickness size=>TEXTBOX=>&
+z_max_width=>Max. width=>TEXTBOX=>&
+z_max_panel_width=>Max. panel size=>TEXTBOX=>&
+z_max_length=>Max. length size=>TEXTBOX=>&
+z_min_thickness=>Min. thickness size=>TEXTBOX=>&
+z_min_width=>Min. width size=>TEXTBOX=>&
+z_min_length=>Min. length size=>TEXTBOX=>&
+z_max_depth=>Max. depth size=>TEXTBOX=>&
+z_max_height=>Max. height size=>TEXTBOX=>&
+z_max_width_of_count=>Handle height-profile=>TEXTBOX=>&
+z_min_depth=>Min. depth size=>TEXTBOX=>&
+z_min_height=>Min. height size=>TEXTBOX=>&
+z_size_mat=>Change size when painting=>LIST=>&No=1&Yes=2&
+x_max_fix=>Max. size of the second side=>TEXTBOX=>&
+x_max_frontal=>Max. facade size=>TEXTBOX=>&
+x_min_fix=>Min. size of the second side=>TEXTBOX=>&
+x_min_frontal=>Min. facade size=>TEXTBOX=>&
+x_depth1=>Box depth of box 1=>TEXTBOX=>&
+x_depth2=>Box depth of drawer 2=>TEXTBOX=>&
+x_depth3=>The depth of the box box 3=>TEXTBOX=>&
+x_depth4=>The depth of the box box 4=>TEXTBOX=>&
+x_depth5=>Drawer box depth 5=>TEXTBOX=>&
+x_depth6=>The depth of the box box 6=>TEXTBOX=>&
+x_depth7=>Drawer box depth 7=>TEXTBOX=>&
+x_depth8=>The depth of the box box is 8=>TEXTBOX=>&
+x_depth9=>The depth of the box box 9=>TEXTBOX=>&
+x_depth91=>The depth of the box box is 10=>TEXTBOX=>&
+x_depth92=>The depth of the box box 11=>TEXTBOX=>&
+x_depth93=>The depth of the box box 12=>TEXTBOX=>&
+x_depth94=>The depth of the box box 13=>TEXTBOX=>&
+x_depth95=>Box box depth 14=>TEXTBOX=>&
+x_depth96=>The depth of the box box 15=>TEXTBOX=>&
+x_depth97=>The depth of the box box 16=>TEXTBOX=>&
+x_depth98=>The depth of the box box 17=>TEXTBOX=>&
+x_depth99=>The depth of the box box 18=>TEXTBOX=>&
+x_depth991=>Box box depth 19=>TEXTBOX=>&
+edge_z1=>Edge length1=>LIST=>&0=0&0.4=0.4&0.4 with pruning=0.4 with pruning&1=1&1 with pruning=1 with pruning&2=2&2 with pruning=2 with pruning&
+edge_z2=>Edge length2=>LIST=>&0=0&0.4=0.4&0.4 with pruning=0.4 with pruning&1=1&1 with pruning=1 with pruning&2=2&2 with pruning=2 with pruning&
+edge_y1=>Edge by width1=>LIST=>&0=0&0.4=0.4&0.4 with pruning=0.4 with pruning&1=1&1 with pruning=1 with pruning&2=2&2 with pruning=2 with pruning&
+edge_y2=>Edge by width2=>LIST=>&0=0&0.4=0.4&0.4 with pruning=0.4 with pruning&1=1&1 with pruning=1 with pruning&2=2&2 with pruning=2 with pruning&

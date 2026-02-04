@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="cont/style/styles_parameters.css" type="text/css" />
+    <script type="text/javascript" src="cont/jquery.min.js"></script>
+    <script type="text/javascript" src="cont/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="cont/SUF_translate.js"></script>
+    <script type="text/javascript" src="cont/SUF_parameters.js"></script>
+    <title>Parameters</title>
+  </head>
+  <body> 
+    
+    <div id="main">
+      <div id="parameters_table" >
+        <p id="preferences"><b>Настройки приложения</b></p>
+        <ul id="navbar">
+          <li><a class="param_menu" href="#">Общие</a></li>
+          <li><a class="param_menu" href="#">Спецификация</a></li>
+          <li><a class="param_menu" href="#">Присадка</a></li>
+          <li><a class="param_menu" href="#">Шаблон</a></li>
+          <li><a class="param_menu" href="#">Петли</a></li>
+          <li><a class="param_menu" href="#">Направляющие</a></li>
+          <li><a class="param_menu" href="#">Фурнитура</a></li>
+          <li><a class="param_menu" href="#">Пазы</a></li>
+          <li><a class="param_menu" href="#">Кромки</a></li>
+          <li><a class="param_menu" href="#">Раскрой</a></li>
+          <li><a class="param_menu" href="#">Списки</a></li>
+		  <li><a class="param_menu" href="#">Текст</a></li>
+		  <li><a class="param_menu" href="#">Окно</a></li>
+          <li><a class="param_menu" href="#">Инфо</a></li>
+        </ul>
+        <table id="parameter_table" ></table>
+      </div>  
+    </div>  
+    <div id="footer">
+      <input type="submit" id="apply" value="Изменения сохранены" disabled="disabled" onclick="save_changes();">
+      <input type="submit" id="export_parameters" value="Экспорт Параметров" >
+      <input type="submit" id="import_parameters" value="Импорт Параметров" >
+      <input type="submit" id="reset_parameters" value="Сбросить настройки" >
+	  <input type="submit" id="export_library" value="Экспорт библиотеки" >
+    </div>
+    
+  </body>
+</html>     

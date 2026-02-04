@@ -1,0 +1,49 @@
+Software License (Unilateral / Use = Acceptance)
+Version 1.0 — 2025-10-15
+
+Licensor: Artiom Gurduz (“Licensor”)
+Licensee: ART ROCKET S.R.L. (“Licensee”)
+
+By installing, copying, or using the Software, Licensee agrees to this License.
+
+1) Grant. Non-exclusive, non-transferable, non-sublicensable, revocable license
+   to use the Software (including source code if provided) solely for Licensee’s
+   internal business purposes by its employees and bound contractors.
+
+2) Ownership. All intellectual property rights in the Software remain with the
+   Licensor. No assignment, transfer of ownership, or work-for-hire is intended.
+
+3) Restrictions. No distribution, resale, public posting, or sublicensing.
+   No provision of the Software to third parties except bound contractors
+   with need-to-know and confidentiality obligations no less protective
+   than this License. Do not remove or alter copyright/proprietary notices.
+
+4) Source Code. If source code is provided, it may be used only for internal
+   evaluation/integration/maintenance. Public disclosure is prohibited.
+
+5) Modifications.
+   5.1 Choose ONE (delete the other before sharing):
+       (A) Ownership Retained by Licensor: Any modifications/derivatives created
+           by or for Licensee are owned by Licensor; Licensee receives a perpetual
+           internal-use license to such modifications; OR
+       (B) Ownership by Licensee with Back-License: If mandatory law vests authorship
+           in Licensee, Licensee grants Licensor a perpetual, worldwide, royalty-free,
+           irrevocable license to use, modify, and distribute such modifications.
+   5.2 If neither (A) nor (B) is removed, clause (A) applies by default.
+
+6) Confidentiality. The Software and any non-public materials are Confidential
+   Information of Licensor. Licensee shall protect them with reasonable care
+   and not publicly disclose them.
+
+7) Termination. Licensor may terminate upon material breach with notice.
+   Upon termination, Licensee shall cease use and delete copies (archival
+   backups retained for legal compliance are allowed but not for use).
+
+8) Warranty / Liability. The Software is provided “as is”. To the maximum
+   extent permitted by law: no warranties; liability limited to direct
+   damages capped by fees paid (if any) in the preceding 12 months; no
+   indirect, special, or consequential damages.
+
+9) Governing Law & Venue: [insert jurisdiction and venue]. The UN CISG does not apply.
+
+SPDX-License-Identifier: LicenseRef-Proprietary

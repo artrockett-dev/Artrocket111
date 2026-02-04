@@ -1,0 +1,27 @@
+Тип установки крепежа=type_fastener=symmetrical=SELECT=&current^Текущий&symmetrical^Симметрично&back^От заднего торца&front^От переднего торца
+Минимальная ширина детали для установки крепежа=min_width_panel=30=INPUT
+Минимальное расстояние от края детали для установки крепежа=min_indent=15=INPUT
+<b>Правило 1</b>: Минимально возможное положение крепежа от края, но не менее=template1=37=INPUT
+<b>Правило 2</b>: Положение крепежа от края равно (длина стыка-32)/2, но не менее=template2=15=INPUT
+<b>Правило 3</b>: Положение крепежа от края равно (длина стыка-32)/2 (1 крепеж), но не менее=template3=15=INPUT
+<b>Правило 4</b>: Положение крепежа от края равно половине длины стыка (1 крепеж), но не менее=template4=15=INPUT
+<b>Правило 5</b>: Положение крепежа симметрично от каждого края на расстоянии=template5=50=INPUT
+<b>Правило 6</b>: 1 крепеж на расстоянии=template6=50=INPUT
+<b>Правило 7</b>: Фиксированное положение крепежа от края, второе отверстие от другой стороны не менее=template7=27=INPUT
+Если длина стыка меньше, чем положение крепежа*2+32, то переключить на=auto1=template2=SELECT=&template2^Правило 2&template3^Правило 3&template4^Правило 4&template5^Правило 5&template6^Правило 6&template7^Правило 7
+Количество крепежа на длину стыка (если больше или равно этому значению)=third_fastener=600-3;900-4;1200-5;1500-6;1800-7;2100-8;2400-9=INPUT
+Если с другой стороны вертикальной есть полка, то=shelf_fastener=Eccentric screw 6.4х50=SELECT=fastener_list
+Сместить крепеж с другой стороны вертикальной дальше от края на=offset_fastener=16=INPUT
+Крепеж для видимой стороны (если есть сквозные отверстия)=visible_side_fastener=Eccentric screw 6.4х50=SELECT=fastener_list
+Устанавливать крепеж=place_fastener=in=SELECT=&out^Снаружи модуля&in^Внутри модуля&groove_out^Со стороны паза (снаружи без паза)&groove_in^Со стороны паза (внутри без паза)
+Если длина стыка меньше глубины сверления, то сменить крепеж на=check_depth=Eccentric screw 6.4х50=SELECT=fastener_list
+Название=horizontal_header=Cлева,Справа=Правило=Пол.=П З=Спереди,Сзади=Правило=Пол.=Л П
+Все Горизонтальные, кроме ↓=horizontal_common=Eccentric screw 6.4х50=template1=50=0====0
+Shelf VB=horizontal1=Rastex15 18мм + Rapid S DU 325 + Wooden dowel 8x30=template1=50=0====0
+Название=vertical_header=Cнизу,Сверху=Правило=Пол.=П З=Спереди,Сзади=Правило=Пол.=Н В
+Все Вертикальные, кроме ↓=vertical_common=Rastex15 18мм + Rapid S DU 325=template1=50=0====0
+Divider=vertical1=Wooden dowel 8x30=template1=50=0====0
+Название=frontal_header=Cлева,Справа=Правило=Пол.=Н В=Cнизу,Сверху=Правило=Пол.=Л П
+Все Фронтальные, кроме ↓=frontal_common=KINTAI=template1=37=0====0
+Front=frontal1==template4=15=0==template4=15=0
+Back=frontal6==template5=100=0====0

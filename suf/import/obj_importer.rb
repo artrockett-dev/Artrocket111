@@ -1,0 +1,249 @@
+require "sketchup.rb"
+
+module SU_Furniture
+  class ImportOBJ
+    def initialize()
+      start_time = Time.new
+      model = Sketchup.active_model
+      model.start_operation("Import OBJ", true)
+      @components = []
+      @instances = []
+      @holes = []
+      @vertices, @uvs, @nos = [], [], []
+      errors = Hash.new(0)
+
+      # Load hole component (PATH must be defined globally or replaced with a real path)
+      if Sketchup.version_number >= 2110000000
+        hole_comp = model.definitions.load(PATH + "/additions/hole.skp", allow_newer: true)
+      else
+        hole_comp = model.definitions.load(PATH + "/additions/hole.skp")
+      end
+      @holes << hole_comp
+
+      obj = UI.openpanel("Select .obj file", "", "*.obj")
+      return unless obj
+
+      obj = obj.tr("\\", "/")
+      obj_dir = File.dirname(obj)
+      main_component_name = File.basename(obj, ".obj")
+
+      encodings_to_try = ['UTF-8', 'Windows-1251', 'CP866']
+      lines = nil
+      encodings_to_try.each { |encoding|
+        begin
+          lines = IO.readlines(obj, encoding: encoding).map(&:chomp)
+          lines = lines.map { |line| line.encode('UTF-8') } unless encoding == 'UTF-8'
+          break
+        rescue Encoding::InvalidByteSequenceError, Encoding::UndefinedConversionError => e
+        end
+      }
+      unless lines
+        UI.messagebox("Не удалось определить кодировку файла: #{obj}")
+        return
+      end
+
+      scale = 1.0 / 25.4
+      lines.unshift("g OBJ\n") if lines.none? { |line| line.start_with?("g ") }
+
+      vs = vts = vns = 0
+      component_counter = 0
+      mesh = nil
+      current_component = nil
+      line_cnt = 0
+      holes_to_redraw = []
+
+      Sketchup.set_status_text("Process #{lines.length} lines")
+
+      while line_cnt < lines.size
+        line = lines[line_cnt]
+
+        if line.start_with?("#", "p", "c", "d")
+          line_cnt += 1
+          next
+        end
+
+        if line[0] == "h"
+          if !lines[line_cnt+1].start_with?("p") && !lines[line_cnt+2].start_with?("c") && !lines[line_cnt+3].start_with?("d")
+            line_cnt += 1
+            next
+          end
+
+          parameters = lines[line_cnt+1][2..-1].split.map(&:to_f).map { |c| c * scale }
+          coords = lines[line_cnt+2][2..-1].split.map(&:to_f).map { |c| c * scale }
+          transformed_v = [coords[0], -coords[2], coords[1]]
+
+          t = Geom::Transformation.translation transformed_v
+          hole_instance = model.entities.add_instance hole_comp, t
+          hole_instance.make_unique
+          @holes << hole_instance.definition
+          hole_instance.definition.name = "отв " + line[2..-1].strip
+          set_att(hole_instance,"hole_1_diameter",parameters[0])
+          set_att(hole_instance,"hole_2_depth",parameters[1])
+
+          direction = lines[line_cnt+3][2..-1].split.map(&:to_f).map { |c| c.round(2) }
+          transformed_d = [direction[0], -direction[2], direction[1]]
+          set_att(hole_instance,"hole_3_direction",direction_to_number(transformed_d))
+          holes_to_redraw << hole_instance
+          line_cnt += 3
+          next
+        end
+
+        case line[0]
+        when "g"
+          if current_component && mesh && !mesh.polygons.empty?
+            current_component.entities.fill_from_mesh(mesh, true, Geom::PolygonMesh::NO_SMOOTH_OR_HIDE)
+          end
+
+          panel = false
+          if line[1] == " "
+            cname = line[2..-1].strip
+          else
+            panel = true if line[1] == "p"
+            cname = line[3..-1].strip
+          end
+          component_counter += 1
+          if cname.empty?
+            cname = "#{main_component_name}##{component_counter}"
+          else
+            cname = "#{cname}##{component_counter}"
+          end
+
+          component_def = model.definitions.add(cname)
+          @components << component_def
+          mesh = Geom::PolygonMesh.new(500_000, 500_000)
+
+          vs = vts = vns = 0
+          @vertices.clear
+          current_component = component_def
+
+        when "v"
+          if line[1] == " "
+            coords = line[2..-1].split.map(&:to_f).map { |c| c * scale }
+            transformed_v = [coords[0], -coords[2], coords[1]]
+            @vertices << transformed_v
+            mesh.add_point(transformed_v) if mesh
+            vs += 1
+          elsif line[1] == "t"
+            @uvs << line[3..-1].split.map(&:to_f)
+            vts += 1
+          elsif line[1] == "n"
+            coords = line[3..-1].split.map(&:to_f)
+            @nos << [coords[0], -coords[2], coords[1]]
+            vns += 1
+          end
+
+        when "f"
+          face = line[2..-1].split.map do |v|
+            w0, w1, w2 = v.split("/").map(&:to_i)
+            w0 += vs + 1 if w0 < 0
+            w1 += vts + 1 if w1 && w1 < 0
+            w2 += vns + 1 if w2 && w2 < 0
+            w0
+          end
+          verts = face.map { |v| @vertices[v - 1] }
+          begin
+            mesh.add_polygon(verts) if mesh
+          rescue => e
+            puts "Error: #{e}"
+            errors[e.to_s] += 1
+            p line_cnt
+            return
+          end
+        end
+        line_cnt += 1
+      end
+
+      holes_to_redraw.each { |hole_instance|
+        Redraw_Components.redraw(hole_instance,false)
+      }
+
+      if current_component && mesh && !mesh.polygons.empty?
+        current_component.entities.fill_from_mesh(mesh, true, Geom::PolygonMesh::NO_SMOOTH_OR_HIDE)
+      end
+
+      @components.each { |component_def|
+        bbox = component_def.bounds
+        min_x = bbox.min.x rescue 0
+        min_y = bbox.min.y rescue 0
+        min_z = bbox.min.z rescue 0
+
+        origin_shift = Geom::Transformation.new([-min_x, -min_y, -min_z])
+        component_def.entities.transform_entities(origin_shift, component_def.entities.to_a)
+        component_def.insertion_point = Geom::Point3d.new(min_x, min_y, min_z)
+
+        instance = model.entities.add_instance(component_def, Geom::Point3d.new(min_x, min_y, min_z))
+        @instances << instance
+      }
+
+      edges_to_remove = []
+      @components.each { |component|
+        component.entities.grep(Sketchup::Edge).each { |e|
+          next unless e.valid? && e.faces.length == 2
+          face1, face2 = e.faces
+          edges_to_remove << e if face1.normal.dot(face2.normal) > 0.99999 || face1.plane == face2.plane
+        }
+      }
+      model.entities.erase_entities(edges_to_remove) unless edges_to_remove.empty?
+
+      unless @components.any?(&:valid?)
+        UI.beep
+        puts "Errors:\n"
+        errors.each { |k, v| puts "#{k}: #{v}" }
+        UI.messagebox("Error")
+        return nil
+      end
+
+      bbox = Geom::BoundingBox.new
+      @instances.each { |component_def| bbox.add(component_def.bounds) }
+      min = bbox.min
+
+      main_group = model.entities.add_group
+      all_components = @components+@holes
+      all_components.each { |component_def|
+        model.entities.grep(Sketchup::ComponentInstance).each { |instance|
+          next unless instance.definition == component_def
+          main_group.entities.add_instance(component_def, instance.transformation)
+          model.entities.erase_entities(instance)
+        }
+      }
+
+      shift = Geom::Transformation.new([-min.x, -min.y, -min.z])
+      main_group.entities.transform_entities(shift, main_group.entities.to_a)
+
+      main_component = main_group.to_component
+      main_component.definition.name = main_component_name
+
+      model.commit_operation
+      p "#{Time.new - start_time} seconds"
+      true
+    end
+
+    def direction_to_number(vector)
+      x, y, z = vector
+      max_val = [x.abs, y.abs, z.abs].max
+      case vector
+      when ->(v) { v[0] == max_val } then 1
+      when ->(v) { v[0] == -max_val } then 2
+      when ->(v) { v[1] == max_val } then 3
+      when ->(v) { v[1] == -max_val } then 4
+      when ->(v) { v[2] == max_val } then 5
+      when ->(v) { v[2] == -max_val } then 6
+      else
+        2
+      end
+    end
+
+    def set_att(e,att,value)
+      e.set_attribute('dynamic_attributes', att, value) if value
+      e.definition.set_attribute('dynamic_attributes', att, value) if value
+    end
+  end
+
+  # Register menu item safely
+  unless file_loaded?(__FILE__)
+    UI.menu("Plugins").add_item("Import OBJ Custom") {
+      ImportOBJ.new
+    }
+    file_loaded(__FILE__)
+  end
+end

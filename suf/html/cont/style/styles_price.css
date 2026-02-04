@@ -1,0 +1,168 @@
+#main {
+    font-family: "Open Sans", Tahoma, sans-serif; /* Обновлен шрифт без изменения размеров */
+    width: 100%; /* Без изменений */
+}
+
+#table_mess {
+    font-size: 14px; /* Без изменений */
+    height: 25px; /* Без изменений */
+    position: fixed; top: 0; left: 0; /* Без изменений */
+    width: 100%; /* Без изменений */
+    background-color: #e2ded7; /* Без изменений */
+    border-top: 1px solid gray; border-bottom: 1px solid gray; /* Без изменений */
+    color: #333;
+    line-height: 25px;
+    padding: 0 10px;
+}
+
+#des_name {
+    font-weight: bold; /* Без изменений */
+    padding-left: 20px; /* Без изменений */
+    color: #333;
+}
+
+#prices_table {
+    padding: 5px; /* Без изменений */
+    font-size: 12px; /* Без изменений */
+    margin-top: 30px; margin-bottom: 34px; /* Без изменений */
+    z-index: 5; /* Без изменений */
+    color: #333;
+}
+
+/* Таблица add_table */
+table.add_table {
+    border-collapse: collapse; /* Без изменений */
+    text-align:center; /* Без изменений */
+    margin-bottom: 5px; /* Без изменений */
+    color: #333;
+    font-size: inherit;
+}
+table.add_table th {
+    border: 1px solid gray; /* Без изменений */
+    background: #f0f0f0;
+    font-weight: normal;
+}
+table.add_table td {
+    border: 1px solid gray; /* Без изменений */
+    padding: 2px;
+}
+table.add_table td:nth-child(3){ width: 100%; text-align:left; /* Без изменений */ }
+table.add_table td:nth-child(4){ width: 40px; /* Без изменений */ }
+table.add_table td:nth-child(5){ width: 40px; text-align:right; /* Без изменений */ }
+table.add_table input {
+    width: 20px; /* Без изменений */
+    font-family: inherit; font-size: inherit; text-align:inherit; padding: 0; /* Без изменений */
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+/* Категории */
+.category_name {
+    text-decoration: underline; /* Без изменений */
+    color: #333;
+}
+.add_path {
+    width: 20px; height: 20px; /* Без изменений */
+    margin-left: 5px; /* Без изменений */
+    cursor: pointer; /* Без изменений */
+    transition: opacity 0.3s;
+}
+.add_path:hover {
+    opacity: 0.8;
+}
+.search {
+    margin-left: 5px; /* Без изменений */
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 2px;
+}
+
+/* Таблица price_table */
+table.price_table {
+    border-collapse: collapse; /* Без изменений */
+    text-align: center; /* Без изменений */
+    margin-bottom: 5px; /* Без изменений */
+    color: #333;
+    font-size: inherit;
+}
+table.price_table th {
+    border: 1px solid gray; /* Без изменений */
+    cursor: pointer; /* Без изменений */
+    background: #f0f0f0;
+    font-weight: normal;
+    transition: background-color 0.3s;
+}
+table.price_table th:hover {
+    background-color: #ddd;
+}
+table.price_table td {
+    border: 1px solid gray; /* Без изменений */
+    padding: 2px;
+}
+table.price_table td:nth-child(6){ width: 100%; text-align:left; /* Без изменений */ }
+table.price_table td:nth-child(7){ width: 40px; /* Без изменений */ }
+table.price_table td:nth-child(8){ width: 40px; text-align:right; /* Без изменений */ }
+
+table.price_table textarea {
+    width: 100%; /* Без изменений */
+    font-family: inherit; font-size: inherit; padding: 0; /* Без изменений */
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+table.price_table input {
+    width: 90%; /* Без изменений */
+    font-family: inherit; font-size: inherit; text-align:inherit; padding: 0; /* Без изменений */
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 2px;
+}
+
+/* Категории */
+.category {
+    margin: 1px; margin-left: 20px; /* Без изменений */
+    cursor: pointer; /* Без изменений */
+    color: #333;
+}
+table.category_table input {
+    width: 100px; /* Без изменений */
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 2px;
+    font-size: inherit;
+    color: #333;
+}
+.new_category {
+    margin: 1px; margin-left: 20px; /* Без изменений */
+    color: #333;
+}
+new_table, del_row, copy_row, copy_discount_row {
+    cursor: pointer; /* Без изменений */
+}
+
+/* Footer */
+#footer {
+    position: fixed; bottom: 0; left: 0; /* Без изменений */
+    width: 100%; height: 25px; line-height: 20px; /* Без изменений */
+    text-align: center; /* Без изменений */
+    border-top: 1px solid gray; /* Без изменений */
+    background-color: #e2ded7; /* Без изменений */
+    padding: 3px; /* Без изменений */
+    display: none; /* Без изменений */
+    font-size: 12px;
+    color: #333;
+}
+
+#save_button, #export_price, #import_price {
+    position: relative; margin:0 auto; cursor: pointer; color: #000000; /* Без изменений */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #f0f0f0;
+    font-size: 12px;
+    padding: 2px 5px;
+    transition: background-color 0.3s;
+    color: #333;
+}
+#save_button:hover, #export_price:hover, #import_price:hover {
+    background-color: #ddd;
+}
+

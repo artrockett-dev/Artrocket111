@@ -1,0 +1,2139 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+    <meta charset="UTF-8">
+    <title>Add DC Functions</title>
+
+<head>
+
+    <link rel="stylesheet" href="./assets/help.css">
+    <script src="./assets/help.js"></script>
+
+</head>
+
+<body>
+
+    <div class="sj-header">
+
+        <h1 class="sj-header-title">Functions list for dynamic components added by the plugin</h1>
+        <img class="sj-header-logo" src="./assets/help.svg" width="50" height="50" title="Add DC Functions">
+
+    </div>
+
+    <div class="sj-families">
+    
+        
+
+            <div class="sj-family">
+
+                <h2 class="sj-family-title">Text functions</h2>
+
+                
+
+                <div class="sj-function" data-function-name="Occurrence">
+
+                    <button class="sj-expand-function-button" data-function-name="Occurrence">
+                        <h3 class="sj-function-name">Occurrence</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Allows you to obtain the number of occurrences of a character string(s) in a text.</p>
+
+                        <code class="sj-function-signature">OCCURRENCE(text, string)</code>
+                        <button class="sj-copy-function-button" data-function-name="Occurrence">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">text</span> : Text on which the search will be carried out.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">string</span> : Character string to find.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="NoteAddDcFunctions">
+
+                    <button class="sj-expand-function-button" data-function-name="NoteAddDcFunctions">
+                        <h3 class="sj-function-name">NoteAddDcFunctions</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Adds a warning at the end of the component description visible in the dynamic component options panel and in the description of the skp file if you save the component. <br> , WARNING, this component uses non native Sketchup calculation functions !!! <br> , It requires the installation of the sj_AddDCFunctions plugin!</p>
+
+                        <code class="sj-function-signature">NOTEADDDCFUNCTIONS(attributeName)</code>
+                        <button class="sj-copy-function-button" data-function-name="NoteAddDcFunctions">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">attributeName</span> : Name of the attribute that called the function.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+            </div><!-- .sj-family -->
+
+        
+
+            <div class="sj-family">
+
+                <h2 class="sj-family-title">3D text functions</h2>
+
+                
+
+                <div class="sj-function" data-function-name="Create3dText">
+
+                    <button class="sj-expand-function-button" data-function-name="Create3dText">
+                        <h3 class="sj-function-name">Create3dText</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Create an editable 3D text sub-component, and the attributes to configure its editing. <br> , text, line break character, font, alignment, italics, bold, fill, extrusion height, offset ... <br> , and a calculation attribute to recreate the geometry. <br> , <strong> The function must be called by an attribute named txt_ini </strong></p>
+
+                        <code class="sj-function-signature">CREATE3DTEXT(newComponentName, text)</code>
+                        <button class="sj-copy-function-button" data-function-name="Create3dText">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">newComponentName</span> : Name of the text subcomponent that will be created.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">text</span> : The text that will be modeled.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Edit3dText">
+
+                    <button class="sj-expand-function-button" data-function-name="Edit3dText">
+                        <h3 class="sj-function-name">Edit3dText</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Function to edit 3D text.</p>
+
+                        <code class="sj-function-signature">EDIT3DTEXT(text, lineBreak, align, font, bold, italic, height, tolerance, zOffset, filled, extrusion, actualize, xOffset, yOffset)</code>
+                        <button class="sj-copy-function-button" data-function-name="Edit3dText">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">text</span> : The text that will be modeled.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">lineBreak</span> : Replacement character for line breaks.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">align</span> : left = 0, center = 1, right = 2
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">font</span> : Writing font
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">bold</span> : yes = 1, no = 0
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">italic</span> : yes = 1, no = 0
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">height</span> : Character height.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">tolerance</span> : Curve rounding tolerance 0.1 mm
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">zOffset</span> : Offset the text on its Z axis.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">filled</span> : Outline only (no extrusion) = 0, Fill with outline = 1, Fill without outline = 2
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">extrusion</span> : Text extrusion height in centimeters, only if filled > 0
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">actualize</span> : Edit the text if update = 1, otherwise return unedited text
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">xOffset</span> : Offset the text on its X axis.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">yOffset</span> : Offset the text on its Y axis.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="CreateFond3dText">
+
+                    <button class="sj-expand-function-button" data-function-name="CreateFond3dText">
+                        <h3 class="sj-function-name">CreateFond3dText</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Create a background sub component for the 3d text created with Create3dText. <br>Create additional attributes to manage the margins and visibility of the background and its thickness.</p>
+
+                        <code class="sj-function-signature">CREATEFOND3DTEXT()</code>
+                        <button class="sj-copy-function-button" data-function-name="CreateFond3dText">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+            </div><!-- .sj-family -->
+
+        
+
+            <div class="sj-family">
+
+                <h2 class="sj-family-title">Dimension functions</h2>
+
+                
+
+                <div class="sj-function" data-function-name="Volume">
+
+                    <button class="sj-expand-function-button" data-function-name="Volume">
+                        <h3 class="sj-function-name">Volume</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Returns the volume of the solid component, converted and rounded.<br> , If the component is not solid, the value of the "valueIfNotSolid" parameter is returned.</p>
+
+                        <code class="sj-function-signature">VOLUME(unit, valueIfNotSolid, rounded)</code>
+                        <button class="sj-copy-function-button" data-function-name="Volume">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">unit</span> : Possible units are: pc3, m3, dm3, cm3, l, dl, cl, ml, dam3, hm3 and km3.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">valueIfNotSolid</span> : Return value if the volume could not be defined, because the component is not solid. Maybe text or a number.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">rounded</span> : Number of decimal places.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Aire">
+
+                    <button class="sj-expand-function-button" data-function-name="Aire">
+                        <h3 class="sj-function-name">Aire</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Calculation of the area of the component faces.</p>
+
+                        <code class="sj-function-signature">AIRE(unit, rounding)</code>
+                        <button class="sj-copy-function-button" data-function-name="Aire">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">unit</span> : Possible units are: pc2, m2, dm2, cm2, mm2, dam2, hm2 and km2.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">rounding</span> : Number of decimal places.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="ProfilBuilder">
+
+                    <button class="sj-expand-function-button" data-function-name="ProfilBuilder">
+                        <h3 class="sj-function-name">ProfilBuilder</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Calculation of the length of the profil make with Profil Builder plugin.</p>
+
+                        <code class="sj-function-signature">PROFILBUILDER(unit, rounding)</code>
+                        <button class="sj-copy-function-button" data-function-name="ProfilBuilder">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">unit</span> : Possible units are: pc, m, dm, cm, mm, dam, hm and km.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">rounding</span> : Number of decimal places.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+            </div><!-- .sj-family -->
+
+        
+
+            <div class="sj-family">
+
+                <h2 class="sj-family-title">Visibility functions</h2>
+
+                
+
+                <div class="sj-function" data-function-name="SetVisibilityEdges">
+
+                    <button class="sj-expand-function-button" data-function-name="SetVisibilityEdges">
+                        <h3 class="sj-function-name">SetVisibilityEdges</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Allows you to configure the display of edges inside the component (hidden, softened, smooth).</p>
+
+                        <code class="sj-function-signature">SETVISIBILITYEDGES(hidden, soft, smooth)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetVisibilityEdges">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">hidden</span> : yes = 1, no = 0
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">soft</span> : yes = 1, no = 0
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">smooth</span> : yes = 1, no = 0
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="SetHiddenEdges">
+
+                    <button class="sj-expand-function-button" data-function-name="SetHiddenEdges">
+                        <h3 class="sj-function-name">SetHiddenEdges</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Allows you to hide or reveal the ungrouped edges of a component.</p>
+
+                        <code class="sj-function-signature">SETHIDDENEDGES(hidden)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetHiddenEdges">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">hidden</span> : yes = 1, no = 0
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="SetHiddenFaces">
+
+                    <button class="sj-expand-function-button" data-function-name="SetHiddenFaces">
+                        <h3 class="sj-function-name">SetHiddenFaces</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Allows you to hide or reveal the ungrouped faces of a component.</p>
+
+                        <code class="sj-function-signature">SETHIDDENFACES(hidden)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetHiddenFaces">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">hidden</span> : yes = 1, no = 0
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+            </div><!-- .sj-family -->
+
+        
+
+            <div class="sj-family">
+
+                <h2 class="sj-family-title">Layers/Tags functions</h2>
+
+                
+
+                <div class="sj-function" data-function-name="SetLayer">
+
+                    <button class="sj-expand-function-button" data-function-name="SetLayer">
+                        <h3 class="sj-function-name">SetLayer</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Place the instance on the layer passed as a parameter.<br>Copies of a component obtained with the copies attribute are placed by Sketchup on layer0 or without tag, even if the original component is on another layer.<br>This function will force the copies to be placed on the layers of your choice.<br>If the layer / tag does not exist, the function generates it for you!</p>
+
+                        <code class="sj-function-signature">SETLAYER(layerName)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetLayer">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">layerName</span> : Type target layer name or type default to place on Layer0 - no tag
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+            </div><!-- .sj-family -->
+
+        
+
+            <div class="sj-family">
+
+                <h2 class="sj-family-title">Materials functions</h2>
+
+                
+
+                <div class="sj-function" data-function-name="SetMaterial">
+
+                    <button class="sj-expand-function-button" data-function-name="SetMaterial">
+                        <h3 class="sj-function-name">SetMaterial</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Applies the material passed in parameter to the component. The difference with the Material attribute is the possibility of reverting to the default material if the value is set to "default".</p>
+
+                        <code class="sj-function-signature">SETMATERIAL(materialName)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetMaterial">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">materialName</span> : Material name or "default" to return to the default material.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="SetMaterialKelvin">
+
+                    <button class="sj-expand-function-button" data-function-name="SetMaterialKelvin">
+                        <h3 class="sj-function-name">SetMaterialKelvin</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Create and apply the material corresponding to the kelvin temperature passed in parameter.<br>Converted the temperature in RGB value, Thanks to an algorithm.<br>Very useful for lighting scenes.<br>Returns the name of the material created.</p>
+
+                        <code class="sj-function-signature">SETMATERIALKELVIN(temperature)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetMaterialKelvin">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">temperature</span> : Value between 60 and 8000 K
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="SetMaterialFaces">
+
+                    <button class="sj-expand-function-button" data-function-name="SetMaterialFaces">
+                        <h3 class="sj-function-name">SetMaterialFaces</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Used to apply a material to the faces inside the component. <br>Parameters for each side of the face. <br>Useful for Boolean operations.</p>
+
+                        <code class="sj-function-signature">SETMATERIALFACES(frontMaterial, backMaterial)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetMaterialFaces">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">frontMaterial</span> : Front face Material name or "default" to return to the default material.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">backMaterial</span> : Back face Material name or "default" to return to the default material.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="SetMaterialFrontFaces">
+
+                    <button class="sj-expand-function-button" data-function-name="SetMaterialFrontFaces">
+                        <h3 class="sj-function-name">SetMaterialFrontFaces</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Used to apply a material to the front faces inside the component.</p>
+
+                        <code class="sj-function-signature">SETMATERIALFRONTFACES(materialName)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetMaterialFrontFaces">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">materialName</span> : Material name or "default" to return to the default material.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="SetMaterialBackFaces">
+
+                    <button class="sj-expand-function-button" data-function-name="SetMaterialBackFaces">
+                        <h3 class="sj-function-name">SetMaterialBackFaces</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Used to apply a material to the back faces inside the component.</p>
+
+                        <code class="sj-function-signature">SETMATERIALBACKFACES(materialName)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetMaterialBackFaces">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">materialName</span> : Material name or "default" to return to the default material.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="setMaterialFacePlane">
+
+                    <button class="sj-expand-function-button" data-function-name="setMaterialFacePlane">
+                        <h3 class="sj-function-name">setMaterialFacePlane</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Used to apply a material to the faces coplanar with the plane passed as a parameter, inside the component. <br>Settings for each side of the face. Can be useful in carpentry to apply a plating material on a field, or simply respect the grain, the grain and the cross grain of the wood. <br>If no valid plane is defined, the material is applied to all faces. <br>If the material is not found, returns the default material.</p>
+
+                        <code class="sj-function-signature">SETMATERIALFACEPLANE(facePlane, frontMaterial, backMaterial)</code>
+                        <button class="sj-copy-function-button" data-function-name="setMaterialFacePlane">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">facePlane</span> : Plane of the faces XY, i_XY, XZ, i_XZ, YZ, i_YZ. or all
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">frontMaterial</span> : Front face Material name or "default" to return to the default material.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">backMaterial</span> : Back face Material name or "default" to return to the default material.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="SetMaterialEdges">
+
+                    <button class="sj-expand-function-button" data-function-name="SetMaterialEdges">
+                        <h3 class="sj-function-name">SetMaterialEdges</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Allows to apply a material to the segments inside the component! <br> Practical for Boolean operations.</p>
+
+                        <code class="sj-function-signature">SETMATERIALEDGES(materialName)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetMaterialEdges">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">materialName</span> : Material name or "default" to return to the default material.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="ChangeMaterialTexture">
+
+                    <button class="sj-expand-function-button" data-function-name="ChangeMaterialTexture">
+                        <h3 class="sj-function-name">ChangeMaterialTexture</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Allows to change the texture of the target material. Very useful to have different textures for one material.</p>
+
+                        <code class="sj-function-signature">CHANGEMATERIALTEXTURE(materialName, path, texture_file)</code>
+                        <button class="sj-copy-function-button" data-function-name="ChangeMaterialTexture">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">materialName</span> : Material name target
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">path</span> : Path folder that contain textures
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">texture_file</span> : file name with extention
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+            </div><!-- .sj-family -->
+
+        
+
+            <div class="sj-family">
+
+                <h2 class="sj-family-title">Rotation functions</h2>
+
+                
+
+                <div class="sj-function" data-function-name="SetRotation">
+
+                    <button class="sj-expand-function-button" data-function-name="SetRotation">
+                        <h3 class="sj-function-name">SetRotation</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Allows incremental rotation of the component's existing transformation. The rotation takes place around the point of origin of the component targeted by the level attribute.<br> , Useful when called by the OnClic attribute.<br> , Example OnClic : Set("rot_result",SetRotation("z",90,1,1)<br> , Performs on a click, the rotation of the parent component around its Z axis by 90 degrees.</p>
+
+                        <code class="sj-function-signature">SETROTATION(axis, angle, lock, level)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetRotation">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">axis</span> : Axis letter, X, Y or Z.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">angle</span> : Value of the angle of rotation in degrees. Can be positive or negative.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">lock</span> : If lock = 1, the rotation takes place, otherwise it is not performed.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">level</span> : The rotation can be on the component that calls the function level = 0, or on its parent component level = 1, or the grand parent level = 2.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="SetRotationOffSet">
+
+                    <button class="sj-expand-function-button" data-function-name="SetRotationOffSet">
+                        <h3 class="sj-function-name">SetRotationOffSet</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Allows incremental rotation of the component's existing transformation. The rotation takes place around the origin point of the component targeted by the offset attribute. The rotation is performed on the component targeted by the Level attribute. Useful when it is called by the OnClic attribute, OnClic<br>Example: Set ("rot_result", SetRotation ("z", 90,1,1,0)<br>Performs on a click, the rotation of the parent component on its Z axis of 90 degrees with the origin of the component calling the function at the center of rotation).</p>
+
+                        <code class="sj-function-signature">SETROTATIONOFFSET(axis, angle, lock, level, offset)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetRotationOffSet">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">axis</span> : Axis letter, X, Y or Z.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">angle</span> : Value of the angle of rotation in degrees. Can be positive or negative.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">lock</span> : If lock = 1, the rotation takes place, otherwise it is not performed.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">level</span> : The rotation can be on the component that calls the function level = 0, or on its parent component level = 1, or the grand parent level = 2.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">offset</span> : The center of the rotation can be the origin point of the calling component offset = 0, of the parent component offset = 1, or of the grand parent offset = 2. The value of the offset cannot be greater than the value of the level.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="SetAttributRotation">
+
+                    <button class="sj-expand-function-button" data-function-name="SetAttributRotation">
+                        <h3 class="sj-function-name">SetAttributRotation</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Create dynamic attributes to control a rotation when clicking on a child component.<br> , This function must be called from an attribute named "rot_ini".<br> , It creates 5 attributes: rot_x_angle, rot_y_angle, rot_z_angle, rot_view, rot_lock, then erases the formula of rot_ini and returns the message "Attributes created".<br> , If level = 0, the attributes are only created in the component, if level = 1, the attributes are created in the component and the parent component, with a return by formula of the values of the parent in the component.<br> , If level = 2 then ditto but on 3 level.</p>
+
+                        <code class="sj-function-signature">SETATTRIBUTROTATION(level)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetAttributRotation">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">level</span> : 0 the component, 1 the parent, 2 the grandparent.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+            </div><!-- .sj-family -->
+
+        
+
+            <div class="sj-family">
+
+                <h2 class="sj-family-title">Parent/child attribute functions</h2>
+
+                
+
+                <div class="sj-function" data-function-name="ChildrenSumAttribut">
+
+                    <button class="sj-expand-function-button" data-function-name="ChildrenSumAttribut">
+                        <h3 class="sj-function-name">ChildrenSumAttribut</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Realizes the sum of the components / child groups on the attribute passed in parameter. Only child entities with this attribute are summed.</p>
+
+                        <code class="sj-function-signature">CHILDRENSUMATTRIBUT(attribute)</code>
+                        <button class="sj-copy-function-button" data-function-name="ChildrenSumAttribut">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">attribute</span> : Name of the searched attribute.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="ChildrenSumSiAttribut">
+
+                    <button class="sj-expand-function-button" data-function-name="ChildrenSumSiAttribut">
+                        <h3 class="sj-function-name">ChildrenSumSiAttribut</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Sum of the components / child groups on the attribute passed in parameters. For each child entities, if the conditional attribute / value comparison is true then the attribute is summed, otherwise 0.<br> , Example: Sum of the LenX attribute if the material is red.<br> , ChildrenSumSiAttribut ("LenX", "Material", "e", "Red")<br> , Example: Sum of the LenX attribute if the LenZ height greater than 3.<br> , ChildrenSumSiAttribute ("LenX", "LenZ", "s", 3)</p>
+
+                        <code class="sj-function-signature">CHILDRENSUMSIATTRIBUT(attribute, conditionalAttribute, operator, value)</code>
+                        <button class="sj-copy-function-button" data-function-name="ChildrenSumSiAttribut">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">attribute</span> : Name of the attribute that will be summed, if the comparison is true.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">conditionalAttribute</span> : Name of the child attribute on which a comparison will be performed.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">operator</span> : Comparison operator: <strong>e</strong> for equal, <strong>i</strong>for less, <strong>s</strong> for greater and <strong>d</strong> for different. By composition <strong>ie</strong> for less than or equal and <strong>se</strong> for greater or equal.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">value</span> : Comparison value. If it is a text only the operators <strong>e</strong> and <strong>d</strong> are authorized.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="ParentAttribut">
+
+                    <button class="sj-expand-function-button" data-function-name="ParentAttribut">
+                        <h3 class="sj-function-name">ParentAttribut</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Returns the value or the path of a parent attribute according to the chosen mode.<br>It is convenient to replace the parent component name reference so that you can copy the subcomponent to another parent without error in calculations.</p>
+
+                        <code class="sj-function-signature">PARENTATTRIBUT(attribute, mode)</code>
+                        <button class="sj-copy-function-button" data-function-name="ParentAttribut">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">attribute</span> : Name of the searched attribute.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">mode</span> : Two possible modes "path" or "value".
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+            </div><!-- .sj-family -->
+
+        
+
+            <div class="sj-family">
+
+                <h2 class="sj-family-title">Definitions functions</h2>
+
+                
+
+                <div class="sj-function" data-function-name="SetNameDefinition">
+
+                    <button class="sj-expand-function-button" data-function-name="SetNameDefinition">
+                        <h3 class="sj-function-name">SetNameDefinition</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Makes a component instance unique and gives it a new name passed as a parameter.</p>
+
+                        <code class="sj-function-signature">SETNAMEDEFINITION(newName)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetNameDefinition">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">newName</span> : New name for the definition.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="ResetScale">
+
+                    <button class="sj-expand-function-button" data-function-name="ResetScale">
+                        <h3 class="sj-function-name">ResetScale</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Allows you to reset the scale of the instance and return to scale 1:1. Can only be called from an OnClick.</p>
+
+                        <code class="sj-function-signature">RESETSCALE()</code>
+                        <button class="sj-copy-function-button" data-function-name="ResetScale">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Options_from_csv">
+
+                    <button class="sj-expand-function-button" data-function-name="Options_from_csv">
+                        <h3 class="sj-function-name">Options_from_csv</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Create a list of options for the target attribute from the values contained in the CSV file. 1ʳᵉ column Options, 2ᵉ column Values. The file can have the extension .csv or .txt with carriage return. The values can be separated by commas, semicolons, tabs or spip</p>
+
+                        <code class="sj-function-signature">OPTIONS_FROM_CSV(path, index_special_char, attribute_name)</code>
+                        <button class="sj-copy-function-button" data-function-name="Options_from_csv">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">path</span> : Path to file. Local access &quot; C:&#x2F;&#x2F;Folder&#x2F;File.csv &quot; or for network access &quot; &#x5C;&#x5C;Machine&#x5C;&#x5C;Folder&#x5C;&#x5C;File.csv&quot;
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">index_special_char</span> : Index of the special character that separates the values. 0 => comma, 1 => semicolon, 2 => tabulation, => for spip.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">attribute_name</span> : Name of the target attribute that will receive the list of options
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Switch_access_attribute">
+
+                    <button class="sj-expand-function-button" data-function-name="Switch_access_attribute">
+                        <h3 class="sj-function-name">Switch_access_attribute</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Modifies the _access meta-attribute of the conditional attribute. Allows you to modify the appearance of the attribute in the dynamic components option panel.</p>
+
+                        <code class="sj-function-signature">SWITCH_ACCESS_ATTRIBUTE(condition, attribute_name, access_true, access_false)</code>
+                        <button class="sj-copy-function-button" data-function-name="Switch_access_attribute">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">condition</span> : Formula that returns true or false
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">attribute_name</span> : Name of the target attribute, whose access meta-attribute will be modified
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">access_true</span> : Index of the access property if the condition is true. In the list 0 => none, 1 => read only, 2 => entry, 3 => option list
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">access_false</span> : Index of the access property if the condition is false. In the list 0 => none, 1 => read only, 2 => entry, 3 => option list
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Switch_access_attribute_begin">
+
+                    <button class="sj-expand-function-button" data-function-name="Switch_access_attribute_begin">
+                        <h3 class="sj-function-name">Switch_access_attribute_begin</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Modifies the _access meta-attribute of attributes whose name begins with and according to a condition. Allows you to modify the appearance of the attribute in the option panel of dynamic components.</p>
+
+                        <code class="sj-function-signature">SWITCH_ACCESS_ATTRIBUTE_BEGIN(condition, begin_attribute_name, access_true, access_false)</code>
+                        <button class="sj-copy-function-button" data-function-name="Switch_access_attribute_begin">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">condition</span> : Formula that returns true or false
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">begin_attribute_name</span> : Starting characters of the name of the targeted attributes, whose access meta-attributes will be modified
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">access_true</span> : Index of the access property if the condition is true. In the list 0 => none, 1 => read only, 2 => entry, 3 => option list
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">access_false</span> : Index of the access property if the condition is false. In the list 0 => none, 1 => read only, 2 => entry, 3 => option list
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Switch_access_attribute_multi">
+
+                    <button class="sj-expand-function-button" data-function-name="Switch_access_attribute_multi">
+                        <h3 class="sj-function-name">Switch_access_attribute_multi</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Modifies the _access meta-attribute of several attributes according to a common condition. Allows to modify the appearance of the attribute in the option panel of the dynamic components.</p>
+
+                        <code class="sj-function-signature">SWITCH_ACCESS_ATTRIBUTE_MULTI(condition, string_parameter_group)</code>
+                        <button class="sj-copy-function-button" data-function-name="Switch_access_attribute_multi">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">condition</span> : Formula that returns true or false
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">string_parameter_group</span> : Group of 3 parameters, the whole is in quotes. &quot; attribute_name , access_true , access_false &quot;. Each group is separated by a comma. At least one group is expected.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="GetPersistentId">
+
+                    <button class="sj-expand-function-button" data-function-name="GetPersistentId">
+                        <h3 class="sj-function-name">GetPersistentId</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Retrieves the persistent identifier of the instance</p>
+
+                        <code class="sj-function-signature">GETPERSISTENTID()</code>
+                        <button class="sj-copy-function-button" data-function-name="GetPersistentId">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="GetAttribute_FromPersistentId">
+
+                    <button class="sj-expand-function-button" data-function-name="GetAttribute_FromPersistentId">
+                        <h3 class="sj-function-name">GetAttribute_FromPersistentId</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Retrieves the attribute value of a model instance defined by its persistent identifier. Returns a default value, if the attribute is not found.</p>
+
+                        <code class="sj-function-signature">GETATTRIBUTE_FROMPERSISTENTID(id, attribute, default_value)</code>
+                        <button class="sj-copy-function-button" data-function-name="GetAttribute_FromPersistentId">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">id</span> : The persistent identifier of the targeted instance
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">attribute</span> : Name of the attribute sought
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">default_value</span> : Default value, if attribute not found
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+            </div><!-- .sj-family -->
+
+        
+
+            <div class="sj-family">
+
+                <h2 class="sj-family-title">Boolean operations functions</h2>
+
+                
+
+                <div class="sj-function" data-function-name="GetBooleanChildren">
+
+                    <button class="sj-expand-function-button" data-function-name="GetBooleanChildren">
+                        <h3 class="sj-function-name">GetBooleanChildren</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Performs a boolean operation of sub-component volume 1 through subcomponent volume 2. The group, the result of the operation is renamed according to the parameter resultName.</p>
+
+                        <code class="sj-function-signature">GETBOOLEANCHILDREN(lock, operator, resultName, volume1Name, volume2Name, copyVolume1, copyVolume2)</code>
+                        <button class="sj-copy-function-button" data-function-name="GetBooleanChildren">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">lock</span> : If 1 the operation is carried out otherwise frozen.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">operator</span> : Name of the boolean operation in English: union, substract, intersect.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">resultName</span> : Name of the group resulting from the operation.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">volume1Name</span> : Name of group or component definition or instance volume 1.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">volume2Name</span> : Name of group or component definition or instance volume 2.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">copyVolume1</span> : If 1 works on a copy of volume 1, otherwise volume 1 will be destroyed by the operation.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">copyVolume2</span> : If 1 works on a copy of volume 2, otherwise volume 2 will be destroyed by the operation.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+            </div><!-- .sj-family -->
+
+        
+
+            <div class="sj-family">
+
+                <h2 class="sj-family-title">Enscape light functions</h2>
+
+                
+
+                <div class="sj-function" data-function-name="SetEnscapeSpotLight">
+
+                    <button class="sj-expand-function-button" data-function-name="SetEnscapeSpotLight">
+                        <h3 class="sj-function-name">SetEnscapeSpotLight</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Adjusts Enscape light settings for SpotLights.</p>
+
+                        <code class="sj-function-signature">SETENSCAPESPOTLIGHT(angle, power)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetEnscapeSpotLight">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">angle</span> : Value of the opening angle of the apex cone in degrees.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">power</span> : Power of the light source in Candela.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="SetEnscapeDiskLight">
+
+                    <button class="sj-expand-function-button" data-function-name="SetEnscapeDiskLight">
+                        <h3 class="sj-function-name">SetEnscapeDiskLight</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Adjust Enscape light settings for DiskLights.</p>
+
+                        <code class="sj-function-signature">SETENSCAPEDISKLIGHT(radius, power)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetEnscapeDiskLight">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">radius</span> : Disc radius in centimeters.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">power</span> : Power of the luminous surface in Lumen.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="SetEnscapeRectangularLight">
+
+                    <button class="sj-expand-function-button" data-function-name="SetEnscapeRectangularLight">
+                        <h3 class="sj-function-name">SetEnscapeRectangularLight</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Adjust Enscape light settings for RectangularLights.</p>
+
+                        <code class="sj-function-signature">SETENSCAPERECTANGULARLIGHT(width, length, power)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetEnscapeRectangularLight">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">width</span> : Width in centimeters.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">length</span> : Length in centimeters.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">power</span> : Power of the luminous surface in Lumen.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="SetEnscapePointLight">
+
+                    <button class="sj-expand-function-button" data-function-name="SetEnscapePointLight">
+                        <h3 class="sj-function-name">SetEnscapePointLight</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Adjust Enscape light settings for PointLights.</p>
+
+                        <code class="sj-function-signature">SETENSCAPEPOINTLIGHT(radius, power)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetEnscapePointLight">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">radius</span> : Radius of the sphere in centimeters.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">power</span> : Power of the light source in Candela.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="SetEnscapeLinearLight">
+
+                    <button class="sj-expand-function-button" data-function-name="SetEnscapeLinearLight">
+                        <h3 class="sj-function-name">SetEnscapeLinearLight</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Adjust Enscape light settings for LinearLights.</p>
+
+                        <code class="sj-function-signature">SETENSCAPELINEARLIGHT(length, power)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetEnscapeLinearLight">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">length</span> : Length of the tube in centimeters.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">power</span> : Power of the light source in Candela.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="SetEnscapeProxyFileName">
+
+                    <button class="sj-expand-function-button" data-function-name="SetEnscapeProxyFileName">
+                        <h3 class="sj-function-name">SetEnscapeProxyFileName</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Set the skp model file name for an Enscape proxy.</p>
+
+                        <code class="sj-function-signature">SETENSCAPEPROXYFILENAME(path, filename)</code>
+                        <button class="sj-copy-function-button" data-function-name="SetEnscapeProxyFileName">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">path</span> : Length of the tube in centimeters.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">filename</span> : Power of the light source in Candela.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+            </div><!-- .sj-family -->
+
+        
+
+            <div class="sj-family">
+
+                <h2 class="sj-family-title">Array functions</h2>
+
+                
+
+                <div class="sj-function" data-function-name="Array">
+
+                    <button class="sj-expand-function-button" data-function-name="Array">
+                        <h3 class="sj-function-name">Array</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Create an array from the values passed as parameters, separated by commas. The result is stored in an attribute in Array format.</p>
+
+                        <code class="sj-function-signature">ARRAY(name, string)</code>
+                        <button class="sj-copy-function-button" data-function-name="Array">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">name</span> : Name of the new attribute that will contain the array in array format.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">string</span> : Comma separated values text.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Array_from_string">
+
+                    <button class="sj-expand-function-button" data-function-name="Array_from_string">
+                        <h3 class="sj-function-name">Array_from_string</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Converts a text string to an array. The special char serves as the separator. The result is stored in an attribute in Array format.</p>
+
+                        <code class="sj-function-signature">ARRAY_FROM_STRING(string, index_special_char, name)</code>
+                        <button class="sj-copy-function-button" data-function-name="Array_from_string">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">string</span> : String of values separated with a special char
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">index_special_char</span> : Index of the special character. 0 for comma, 1 for semicolon, 2 for tabulation, 3 for spip.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">name</span> : Name of the new attribute that will contain the array in array format.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Array_random_from_string">
+
+                    <button class="sj-expand-function-button" data-function-name="Array_random_from_string">
+                        <h3 class="sj-function-name">Array_random_from_string</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Converts a text string to an array. The special character serves as a separator. The result is stored in an attribute in Array format. The board is randomized.</p>
+
+                        <code class="sj-function-signature">ARRAY_RANDOM_FROM_STRING(string, index_special_char, name)</code>
+                        <button class="sj-copy-function-button" data-function-name="Array_random_from_string">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">string</span> : String of values separated with a special char
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">index_special_char</span> : Index of the special character. 0 for comma, 1 for semicolon, 2 for tabulation, 3 for spip.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">name</span> : Name of the new attribute that will contain the array in array format.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Array_from_csv">
+
+                    <button class="sj-expand-function-button" data-function-name="Array_from_csv">
+                        <h3 class="sj-function-name">Array_from_csv</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Create an array from a CSV file. The result is stored in an attribute in array format.</p>
+
+                        <code class="sj-function-signature">ARRAY_FROM_CSV(path, index_special_char, name)</code>
+                        <button class="sj-copy-function-button" data-function-name="Array_from_csv">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">path</span> : File path
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">index_special_char</span> : Index of the special character. 0 for comma, 1 for semicolon, 2 for tabulation, 3 for spip.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">name</span> : Name of the new attribute that will contain the array in array format.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Array_length">
+
+                    <button class="sj-expand-function-button" data-function-name="Array_length">
+                        <h3 class="sj-function-name">Array_length</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Calculates the length of the array. Returns the number of values contained in the array.</p>
+
+                        <code class="sj-function-signature">ARRAY_LENGTH(array_name)</code>
+                        <button class="sj-copy-function-button" data-function-name="Array_length">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">array_name</span> : Array name attribute.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Array_sum_to_index">
+
+                    <button class="sj-expand-function-button" data-function-name="Array_sum_to_index">
+                        <h3 class="sj-function-name">Array_sum_to_index</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Calculates the cumulative sum of the array up to and including the index value.</p>
+
+                        <code class="sj-function-signature">ARRAY_SUM_TO_INDEX(array_name, index)</code>
+                        <button class="sj-copy-function-button" data-function-name="Array_sum_to_index">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">array_name</span> : Array name attribute.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">index</span> : Index number, be careful the count of values starts at 0.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Array_value">
+
+                    <button class="sj-expand-function-button" data-function-name="Array_value">
+                        <h3 class="sj-function-name">Array_value</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Returns the value of an array corresponding to the index. For nested arrays you can fill in the index of the sub array.</p>
+
+                        <code class="sj-function-signature">ARRAY_VALUE(array_name, index, index2)</code>
+                        <button class="sj-copy-function-button" data-function-name="Array_value">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">array_name</span> : Array name attribute.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">index</span> : Index number, be careful the count of values starts at 0.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">index2</span> : OPTIONAL, second index number to query the value of a nested array. Be careful the numbering starts at 0 !
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Array_value_from_string">
+
+                    <button class="sj-expand-function-button" data-function-name="Array_value_from_string">
+                        <h3 class="sj-function-name">Array_value_from_string</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Returns the value corresponding to the index of a string list delimited by a special char.</p>
+
+                        <code class="sj-function-signature">ARRAY_VALUE_FROM_STRING(string, index_special_char, index)</code>
+                        <button class="sj-copy-function-button" data-function-name="Array_value_from_string">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">string</span> : String of values separated with a special char
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">index_special_char</span> : Index of the special character. 0 for comma, 1 for semicolon, 2 for tabulation, 3 for spip.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">index</span> : Index number, be careful the count of values starts at 0.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Array_Sort_Random">
+
+                    <button class="sj-expand-function-button" data-function-name="Array_Sort_Random">
+                        <h3 class="sj-function-name">Array_Sort_Random</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Returns the randomized array</p>
+
+                        <code class="sj-function-signature">ARRAY_SORT_RANDOM(array_name)</code>
+                        <button class="sj-copy-function-button" data-function-name="Array_Sort_Random">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">array_name</span> : Array name attribute.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Donnut_path">
+
+                    <button class="sj-expand-function-button" data-function-name="Donnut_path">
+                        <h3 class="sj-function-name">Donnut_path</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Create 4 attributes describing the coordinates of each copy of the donut's subcomponents. An array for X, Y coordinates, Z axis rotation and number of copies.</p>
+
+                        <code class="sj-function-signature">DONNUT_PATH(internal_radius, outer_radius , angle, prefix, path)</code>
+                        <button class="sj-copy-function-button" data-function-name="Donnut_path">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">internal_radius</span> : Internal radius
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">outer_radius </span> : Outer radius
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">angle</span> : Angle described by curvature.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">prefix</span> : Prefix of the names of the arrays that will be created.
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">path</span> : The path is composed by the ordered list of the junction direction of the sub-components (1 or -1) separated by commas.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Grid_path">
+
+                    <button class="sj-expand-function-button" data-function-name="Grid_path">
+                        <h3 class="sj-function-name">Grid_path</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Allows you to quickly model a sub-component grid. Returns 2 arrays with column and row number for each copy. As well as the number of copies. Each attribute name created is prefixed by the text passed as a parameter.</p>
+
+                        <code class="sj-function-signature">GRID_PATH(nbr_columns, nbr_rows, prefix)</code>
+                        <button class="sj-copy-function-button" data-function-name="Grid_path">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">nbr_columns</span> : Number of grid columns
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">nbr_rows</span> : Number of grid rows
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">prefix</span> : Prefix of the names of the arrays that will be created.
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+            </div><!-- .sj-family -->
+
+        
+
+            <div class="sj-family">
+
+                <h2 class="sj-family-title">Math suite functions</h2>
+
+                
+
+                <div class="sj-function" data-function-name="Suite_Fibonacci">
+
+                    <button class="sj-expand-function-button" data-function-name="Suite_Fibonacci">
+                        <h3 class="sj-function-name">Suite_Fibonacci</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Return the result of the Fibonacci suite for the index pass in parameter</p>
+
+                        <code class="sj-function-signature">SUITE_FIBONACCI(n)</code>
+                        <button class="sj-copy-function-button" data-function-name="Suite_Fibonacci">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">n</span> : The index of the suite to be calculated
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Suite_Sum">
+
+                    <button class="sj-expand-function-button" data-function-name="Suite_Sum">
+                        <h3 class="sj-function-name">Suite_Sum</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Return the result of the sum  of the integer between 0 and the terme pass in parameter</p>
+
+                        <code class="sj-function-signature">SUITE_SUM(n)</code>
+                        <button class="sj-copy-function-button" data-function-name="Suite_Sum">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">n</span> : The index of the suite to be calculated
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Suite_Factorial">
+
+                    <button class="sj-expand-function-button" data-function-name="Suite_Factorial">
+                        <h3 class="sj-function-name">Suite_Factorial</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">The factorial of an integer is the product of all integers that are less than or equal to the integer.<br>Return the factorial of the index pass in parameter.</p>
+
+                        <code class="sj-function-signature">SUITE_FACTORIAL(n)</code>
+                        <button class="sj-copy-function-button" data-function-name="Suite_Factorial">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">n</span> : The index of the suite to be calculated
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+
+                <div class="sj-function" data-function-name="Suite_Custom">
+
+                    <button class="sj-expand-function-button" data-function-name="Suite_Custom">
+                        <h3 class="sj-function-name">Suite_Custom</h3><span class="sj-down">∨</span><span class="sj-up">∧</span>
+                    </button>
+                    
+                    <div class="sj-function-details">
+
+                        <p class="sj-function-description">Function that allows finding the result of a customizable mathematical function, which involves in its resolution the result of the same function for the previous integer.</p>
+
+                        <code class="sj-function-signature">SUITE_CUSTOM(n, function_f, f0)</code>
+                        <button class="sj-copy-function-button" data-function-name="Suite_Custom">
+                            Copy
+                        </button>
+        
+                        <h4 class="sj-function-parameters">Parameter(s)</h4>
+                        <ul>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">n</span> : The index of the suite to be calculated
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">function_f</span> : The literal calculation of the function f(n) to be evaluated. <br>You will use the symbol <b>n</b> for the value of the term,<br>the symbol <b>fm</b> for the result of f(n-1).<br>Example: (n+5)/(fm-1)
+                            </li>
+                        
+                            <li>
+                                <span class="sj-function-parameter-name">f0</span> : The result for f(0)
+                            </li>
+                        
+                        </ul>
+
+                    </div><!-- .sj-function-details -->
+
+                </div><!-- .sj-function -->
+
+                
+            </div><!-- .sj-family -->
+
+        
+    </div><!-- .sj-families -->
+
+</body>
+
+</html>

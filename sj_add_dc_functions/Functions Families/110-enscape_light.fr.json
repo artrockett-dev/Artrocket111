@@ -1,0 +1,29 @@
+{
+    "Enscape light functions": "Fonctions Enscape light",
+
+    "angle": "angle",
+    "Value of the opening angle of the apex cone in degrees.": "Valeur de l'angle d'ouverture du cône en degrés.",
+    "power": "puissance",
+    "Power of the light source in Candela.": "Puissance de la source lumineuse en Candela.",
+    "Adjusts Enscape light settings for SpotLights.": "Ajuste les paramètres de lumière Enscape pour les SpotLights.",
+    
+    "radius": "rayon",
+    "Disc radius in centimeters.": "Rayon du disque en centimètres.",
+    "Power of the luminous surface in Lumen.": "Puissance de la surface lumineuse en Lumen.",
+    "Adjust Enscape light settings for DiskLights.": "Ajuste les paramètres de lumière Enscape pour les DiskLights.",
+
+    "width": "largeur",
+    "Width in centimeters.": "Largeur en centimètres.",
+    "length": "longueur",
+    "Length in centimeters.": "Longueur en centimètres.",
+    "Adjust Enscape light settings for RectangularLights.": "Ajuste les paramètres de lumière Enscape pour les RectangularLights.",
+
+    "Radius of the sphere in centimeters.": "Rayon de la sphère en centimètres.",
+    "Adjust Enscape light settings for PointLights.": "Ajuste les paramètres de lumière Enscape pour les PointLights.",
+
+    "Length of the tube in centimeters.": "Longueur du tube en centimètres.",
+    "Adjust Enscape light settings for LinearLights.": "Ajuste les paramètres de lumière Enscape pour les LinearLights.",
+    "Error Invalid Path":"Erreur chemin d'accès invalide",
+    "skp file not find":"Fichier skp non trouvé",
+    "Set the skp model file name for an Enscape proxy." :"Définissez le nom du fichier du modèle skp pour un proxy Enscape."
+}

@@ -1,0 +1,17 @@
+frontal=Snow White [3012 SM] AGT_18=White=18.0=m2=AGT_PLASTIC=0
+material	Grup	cod produs.nume	lungime	lățime	cantitate	grosime
+Snow White [3012 SM] AGT	DI#1	V2.3.Фасад_Modern 	97//	398//	1	18.0
+frontal=Snow White [3012 SM] AGT_18.0=White=18.0=m2=AGT_PLASTIC=0
+material	Grup	cod produs.nume	lungime	lățime	cantitate	grosime
+Snow White [3012 SM] AGT	DI#1	V2.3.Фасад_Modern 	746//	395//	1	18.0
+carcass=Natural Halifax Oak [H1180 ST37] _18.0=Natural Halifax Oak [H1180 ST37] _18.0=18.0=m2=EGGER_LDSP=0
+material	Grup	cod produs.nume	lungime	lățime	cantitate	grosime
+Natural Halifax Oak [H1180 ST37] 	DI#1	V2.3.Base	399//	514//	1	18.0
+Natural Halifax Oak [H1180 ST37] 	DI#1	V2.3.Shelf	363//	514//	1	18.0
+Natural Halifax Oak [H1180 ST37] 	DI#1	V2.3.Side_1	763//	514//	1	18.0
+Natural Halifax Oak [H1180 ST37] 	DI#1	V2.3.Side_2	763//	514//	1	18.0
+Natural Halifax Oak [H1180 ST37] 	DI#1	V2.3.Upper bar_1	363//	99//	1	18.0
+Natural Halifax Oak [H1180 ST37] 	DI#1	V2.3.Upper bar_2	363//	99//	1	18.0
+back=White 0110 PE_3.0=White 0110 PE_3.0=3.0=m2=HDF=0
+material	Grup	cod produs.nume	lungime	lățime	cantitate	grosime
+White 0110 PE	DI#1	V2.3.HDF	780	398	1	3.0

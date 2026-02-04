@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="cont/style/styles_SUF.css">
+  <link rel="stylesheet" href="cont/style/styles_component.css">
+  <link rel="stylesheet" href="cont/style/styles_attribute.css">
+  <link rel="stylesheet" href="cont/style/styles_material.css">
+  <link rel="stylesheet" href="cont/style/styles_list.css">
+
+  <style>
+    body.tab-components, body.tab-materials { background-color: #2d2d2d !important; }
+    body.tab-attributes, body.tab-lists    { background-color: #ffffff !important; }
+  </style>
+
+  <script>
+    function setBodyTab(tab){
+      document.body.classList.remove('tab-components','tab-attributes','tab-materials','tab-lists');
+      document.body.classList.add('tab-' + tab);
+    }
+
+    function requestData() {
+      // ask Ruby for each value
+      window.sketchup.get_data("registration_code");
+      window.sketchup.get_data("project_id");
+      window.sketchup.get_data("path_materials");
+      window.sketchup.get_data("size_furniture");
+    }
+
+    function receiveData(key, jsonValue) {
+      const value = JSON.parse(jsonValue);
+      setHidden(key, value, document.getElementById('meta'));
+    }
+
+    document.addEventListener('DOMContentLoaded', requestData);
+
+    function setHidden(id, value, parent = document.body) {
+      let el = document.getElementById(id);
+      if (!el) {
+        el = document.createElement('input');
+        el.type = 'hidden';
+        el.id = id;
+        el.name = id;
+        parent.appendChild(el);
+      }
+      el.value = value ?? '';
+      return el;
+    }
+
+    function getCurrentTab() {
+      if (document.body.classList.contains('tab-components'))  return 'components';
+      if (document.body.classList.contains('tab-attributes'))  return 'attributes';
+      if (document.body.classList.contains('tab-materials'))   return 'materials';
+      if (document.body.classList.contains('tab-lists'))       return 'lists';
+      return 'components';
+    }
+
+    function refreshCurrentTab() {
+      const tab = getCurrentTab();
+
+      switch (tab) {
+        case 'components':
+          if (typeof components_activate === "function") {
+            components_activate();
+          }
+          break;
+        case 'attributes':
+          if (typeof attributes_activate === "function") {
+            attributes_activate();
+          }
+          break;
+        case 'materials':
+          // if (typeof materials_activate === "function") {
+          //   materials_activate();
+          // }
+          break;
+        case 'lists':
+          if (typeof lists_activate === "function") {
+            lists_activate();
+          }
+          break;
+      }
+    }
+
+  </script>
+
+  <script src="cont/jquery.min.js"></script>
+  <script src="cont/component_list.js"></script>
+  <script src="cont/material_list.js"></script>
+  <script src="cont/discount_list.js"></script>
+  <script src="cont/SUF_translate.js"></script>
+  <script src="cont/SUF_main.js"></script>
+  <script src="cont/SUF_component.js"></script>
+  <script src="cont/SUF_attribute.js"></script>
+  <script src="cont/SUF_materials.js"></script>
+  <script src="cont/SUF_lists.js"></script>
+  <script src="cont/load_lang.js"></script>
+
+  <title>SU_Furniture</title>
+</head>
+<body class="tab-components">
+  <form id="meta" style="display:none;"></form>
+  <div id="main_menu">
+    <button class="menu_item" data-name="Components"
+            onclick="components_activate(); setBodyTab('components')">Components</button>
+    <button class="menu_item" data-name="Attributes"
+            onclick="attributes_activate(); setBodyTab('attributes')">Attributes</button>
+    <button class="menu_item" data-name="Materials"
+            onclick="materials_activate(); setBodyTab('materials')">Materials</button>
+    <button class="menu_item" data-name="Lists"
+            onclick="lists_activate(); setBodyTab('lists')">Lists</button>
+  </div>
+
+  <div id="report_done_message"></div>
+  <div id="main"></div>
+
+  <div id="footer">
+    <input type="submit" id="submit_button" value="START" disabled="disabled">
+    <table>
+      <tr>
+        <td><input type="submit" id="copy_button"   value="Copy lists" disabled="disabled"></td>
+        <td><input type="submit" id="transfer_button"   value="Transfer lists" disabled="disabled" style="display: none;"></td>
+      </tr>
+    </table>
+  </div>
+
+  <button id="add_accessories" disabled="disabled">+</button>
+  <button id="add_attribute">+</button>
+  <button id="set_position_att" title="">+</button>
+
+  <label id="auto_refresh" class="auto_refresh_switch" disabled="disabled">
+    <input id="auto_refresh_input" type="checkbox"><span class="slider"></span>
+  </label>
+  <label id="panel_size" class="panel_size_switch" disabled="disabled">
+    <input id="panel_size_input" type="checkbox"><span class="slider"></span>
+  </label>
+</body>
+</html>

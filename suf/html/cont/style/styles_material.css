@@ -1,0 +1,249 @@
+/* ================================================================
+   ГЛАВНЫЕ ОТСТУПЫ (если меняете высоты строк — поправьте цифры)
+   ----------------------------------------------------------------
+   #sections       – 40px  (верхний бар категорий)
+   #frontal_sections – 38px (примерная высота подкатегорий)
+   #vendors-wrap   – 46px (примерная высота брендов)
+   #filter-wrap    – 66px (примерная высота фильтра)
+   ----------------------------------------------------------------
+   Для ровного «склеивания» трёх нижних полос (#frontal_sections,
+   #vendors-wrap, #filter-wrap) убираем внутренние разделительные
+   линии, оставляя одну под фильтром. При необходимости подгоните
+   высоты и top.
+================================================================ */
+
+/* -----------------------------------------------------------------
+   1. Панель категорий материалов (верхний sticky-хедер)
+------------------------------------------------------------------ */
+#sections {
+  position: sticky;
+  top: 36px;                                /* ← единицы обязательны  */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3px 4px;
+  padding: 3.5px 4px;
+  background-color: #2d2d2d;
+  border-bottom: inset 0 -1px 0 rgba(0,0,0,0.1);
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
+  width: 100%;
+  z-index: 8;                               /* подняли над остальными */
+  box-sizing: border-box;
+}
+
+#sections button {
+  flex: 0 0 auto;
+  margin: 2px 4px 2px 0;
+  padding: 3px 6px;
+  font-size: 16px;
+  background: #434343;
+  color: #f5f5f5;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  white-space: normal;
+  transition: background .3s, box-shadow .3s;
+}
+#sections button:hover      { background:#01033E; box-shadow:0 0 5px 1px #F7931E; }
+#sections button.active     { background:#01033E; }
+
+
+/* -----------------------------------------------------------------
+   2. Подкатегории (frontal sections)  — первая полоса «красного» блока
+------------------------------------------------------------------ */
+#frontal_sections {
+  position: sticky;
+  top: 65px;                                /* 40 + фактическая высота #sections */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px 7px;
+  padding: 4px 8px;
+  background:#333;                          /* ← общий фон */
+  border-bottom: none;                      /* ← убрали линию, чтобы «слилось» */
+  width: 100%;
+  z-index: 7;
+  font-family: "Open Sans", Arial, sans-serif;
+  box-sizing: border-box;
+}
+#frontal_sections button{
+  flex:0 0 auto;
+  background:#434343;
+  border:none;
+  cursor:pointer;
+  padding:4px 8px;
+  color:#f5f5f5;
+  font-size:13px;
+  border-radius:3px;
+  transition:background .3s, box-shadow .3s;
+}
+#frontal_sections button:hover  { background:#01033E; box-shadow:0 0 5px 1px #F7931E; }
+#frontal_sections button.active { background:#01033E; }
+
+
+/* -----------------------------------------------------------------
+   3. Бренды-производители материалов — вторая полоса «красного» блока
+------------------------------------------------------------------ */
+#vendors-wrap {
+  position: sticky;
+  top: 119px;                               /* 78 + фактическая высота #frontal_sections */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  padding: 3px 4px;
+  background:#333;                          /* тот же фон */
+  border-bottom: none;                      /* ← убрали разделитель   */
+  width: 100%;
+  z-index: 6;
+  box-sizing: border-box;
+}
+.vendors{
+  flex:0 0 52px;
+  height:56px;
+  background:#434343;
+  color:#f5f5f5;
+  font-size:12px;
+  text-align:center;
+  border:none;
+  border-radius:3px;
+  cursor:pointer;
+  transition:background .3s, box-shadow .3s, flex-basis .3s;
+}
+.vendors:hover  { background:#01033E; box-shadow:0 0 5px 1px #F7931E; }
+.vendors.active { background:#01033E; box-shadow:0 0 5px 1px #F7931E; flex-basis:60px; }
+.vendors:before { content:url('pictures.png'); display:block; }
+
+
+/* -----------------------------------------------------------------
+   4. Фильтры — третья (нижняя) полоса «красного» блока
+------------------------------------------------------------------ */
+#filter-wrap {
+  position: sticky;
+  top: 185px;                               /* 124 + фактическая высота #vendors-wrap */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 9px;
+  background:#333;
+  border-bottom: inset 0 -1px 0 rgba(255,255,255,0.1); /* ← оставляем одну линию */
+  width: 100%;
+  z-index: 5;
+  box-sizing: border-box;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+/* поле «filter» */
+#filter-wrap #filter{
+  width:150px;
+  height:16px;
+  padding:4px 8px;
+  border:none;
+  border-radius:4px;
+  background:#4a4a4a;
+  color:#f5f5f5;
+  font-size:14px;
+  transition:background .3s, box-shadow .3s;
+}
+#filter-wrap #filter:hover{ background:#5a5a5a; box-shadow:0 0 3px 1px #F7931E; }
+
+/* кнопка-пипетка */
+#filter-wrap #select_pick{
+  width:13px;
+  height:13px;
+  padding:5px;
+  background:#4a4a4a;
+  border-radius:4px;
+  cursor:pointer;
+  transition:background .3s, box-shadow .3s;
+}
+#filter-wrap #select_pick:hover{ background:#5a5a5a; box-shadow:0 0 3px 1px #F7931E; }
+
+/* скрыть лишние опции */
+#filter-wrap #standard_mat,
+#filter-wrap #standard_text,
+#filter-wrap #edge_mat,
+#filter-wrap #edge_mat_text,
+#patina_text,
+#patina_select{
+  display:none !important;
+}
+
+
+/* -----------------------------------------------------------------
+   5. Сетка плиток материалов
+------------------------------------------------------------------ */
+#materials-wrap{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+  gap:4px;
+  padding:12px;
+  box-sizing:border-box;
+  width:100%;
+  z-index:3;
+  font-family:"Open Sans", Arial, sans-serif;
+}
+
+/* отступ между изображением и подписью */
+#materials-wrap .materials img,
+#materials-wrap .material_vendors img,
+#materials-wrap .add_material img{ margin-bottom:5px; }
+
+.materials,
+.material_vendors,
+.add_material{
+  width:100%;
+  aspect-ratio:1/1;
+  padding:4px;
+  box-sizing:border-box;
+  position:relative;
+  cursor:pointer;
+  background:#434343;
+  border-radius:6px;
+  border:none;
+  text-align:center;
+  font-size:10px;
+  color:#f5f5f5;
+  transition:background .3s, box-shadow .3s;
+   position: relative;
+  /* вместо overflow: hidden */
+  clip-path: inset(0 round 6px);
+  /* остальные ваши стили, в т.ч. aspect-ratio, padding и т.д. */
+}
+.materials img,
+.material_vendors img,
+.add_material img{ width:100%; height:100%; object-fit:cover; }
+
+.materials:hover,
+.material_vendors:hover,
+.add_material:hover{
+  background:#7B7B7B;
+  color:#f5f5f5;
+  box-shadow:0 0 3px 1px #F7931E;
+}
+.materials.active::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;       /* старт за левой границей */
+  width: 300%;       /* полоса блика */
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0)   0%,
+    rgba(255,255,255,0.4) 50%,
+    rgba(255,255,255,0)   100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 1.2s ease-in-out 1 forwards;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* анимация без изменений */
+@keyframes shine {
+  0%   { left: -150%; }
+  100% { left:  150%; }
+}
+
+/* скрыть кнопку «добавить материал» */
+.add_material{ display:none !important; }

@@ -1,0 +1,19 @@
+body {
+  background-color: #FFFFFF;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: Arial;
+}
+#main { width:  100%; }
+#c1{ width: 20px;}
+#section_preferences { font-size: 14px; border-bottom: 1px solid gray; }
+#section_table { padding: 5px; font-size: 12px;}
+#section_parameter_table { padding: 5px; font-size: 12px; background-color: #e2ded7; border: 1px solid gray; margin-bottom: 30px;}
+#section_parameter_table td { width: 100%;}
+#section_parameter_table tr { height: 30px;}
+#section_parameter_table input { font-size: small; width: 152px; text-align: right;}
+#section_parameter_table select { width: 160px;}
+#section_footer { position : fixed; bottom: 0; left: 0; width: 100%; height: 25px; line-height: 20px; text-align: center; border-top: 1px solid gray; background-color: #e2ded7; padding: 3px;}
+#section_submit_button { position: relative;  margin:0 auto; color: #000000; }
+#section_submit_button:hover {  cursor: pointer; }

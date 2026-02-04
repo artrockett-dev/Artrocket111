@@ -1,0 +1,33 @@
+/* Copyright (c) 2025 Artiom Gurduz
+   SPDX-License-Identifier: LicenseRef-Proprietary
+   Ownership remains with the author. Internal use by ART ROCKET is permitted. */
+/* тёмный компактный прогресс без скроллов */
+html, body { height: 100%; overflow: hidden; }
+* { box-sizing: border-box; }
+
+body{
+  margin:0; background:#2d2d2d; color:#f5f5f5;
+  font-family: Segoe UI, Arial, sans-serif;
+}
+
+/* шапка с логотипом — левый край, немного воздуха */
+.header{
+  height: 30px; padding: 6px 10px 2px;
+  display:flex; align-items:center; justify-content:flex-start;
+  background:#1f1f1f; border-bottom:1px solid #353535;
+}
+.header .logo{ height:18px; width:auto; object-fit:contain; display:block; }
+
+.wrap{ padding:12px; }
+.lbl{ margin:2px 0 10px 0; font-size:13px; color:#eaeaea; }
+
+.bar{
+  position:relative; width:100%; height:14px;
+  background:#1f1f1f; border:1px solid #444; border-radius:7px;
+  overflow:hidden; box-shadow:inset 0 1px 3px rgba(0,0,0,.6);
+}
+.fill{
+  position:absolute; left:0; top:0; height:100%; width:0%;
+  background:#F7931E; transition:width .18s ease;
+}
+.pct{ font-size:12px; color:#c9c9c9; margin-top:8px; text-align:right; }

@@ -1,0 +1,22 @@
+{
+    "Boolean operations functions": "Fonctions opérations booléennes",
+
+    "lock": "verrou",
+    "If 1 the operation is carried out otherwise frozen.": "Si 1 l'opération est réalisée sinon gelée.",
+    "operator": "operateur",
+    "Name of the boolean operation in English: union, substract, intersect.": "Nom de l'opération booléenne en anglais <strong>union</strong>, <strong>substract</strong>, <strong>intersect</strong>.",
+    "resultName": "nomResultat",
+    "Name of the group resulting from the operation.": "Nom du groupe résultat de l'opération.",
+    "volume1Name": "nomVolume1",
+    "Name of group or component definition or instance volume 1.": "Nom du groupe ou de la définition du composant ou de l'instance volume 1.",
+    "volume2Name": "nomVolume2",
+    "Name of group or component definition or instance volume 2.": "Nom du groupe ou de la définition du composant ou de l'instance volume 2.",
+    "copyVolume1": "copierVolume1",
+    "If 1 works on a copy of volume 1, otherwise volume 1 will be destroyed by the operation.": "Si 1 travaille sur une copie du volume 1, sinon le volume 1 sera détruit par l'opération.",
+    "copyVolume2": "copierVolume2",
+    "If 1 works on a copy of volume 2, otherwise volume 2 will be destroyed by the operation.": "Si 1 travaille sur une copie du volume 2, sinon le volume 2 sera détruit par l'opération.",
+    "Performs a boolean operation of sub-component volume 1 through subcomponent volume 2. The group, the result of the operation is renamed according to the parameter resultName.": "Réalise une opération booléenne du sous-composant volume 1 par le sous-composant volume 2. Le groupe, le résultat de l'opération est renommé selon le paramètre nomResultat.",
+    "Frozen operation": "Opération gélée",
+    "Volume 1 not existing": "Volume 1 non existant",
+    "Volume 2 not existing": "Volume 2 non existant"
+}

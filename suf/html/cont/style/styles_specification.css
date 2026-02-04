@@ -1,0 +1,428 @@
+body {
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 1px 5px; /* Без изменений */
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: "Open Sans", Arial, sans-serif; /* Обновление шрифта */
+}
+
+/* Прелоадер */
+#p_prldr {
+    position: fixed;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background: #ffffff;
+    z-index: 30;
+}
+
+/* Стиль текста при загрузке */
+.contpre small {
+    font-size:20px; /* Без изменений */
+}
+.contpre {
+    width: 250px; height: 100px; /* Без изменений */
+    position: absolute; left: 50%; top: 48%;
+    margin-left:-125px; margin-top:-75px; /* Без изменений */
+    font-size:40px; /* Без изменений */
+    letter-spacing:-2px; 
+    text-align:center; line-height:35px; /* Без изменений */
+    color: #333; /* Более нейтральный цвет */
+}
+
+/* Иконка при загрузке */
+#p_prldr .svg_anm {
+    position: absolute;
+    width: 41px; height: 41px; /* Без изменений */
+    background-size:41px;
+    margin: 16px 0 0 -16px; /* Без изменений */
+}
+
+/* Основной контейнер */
+#main {
+    width: 100%; /* Без изменений */
+}
+
+/* Блоки со спецификациями */
+#specifications_table {
+    position: relative; height: 540px; /* Без изменений */
+    background: #fff;
+    border-radius: 3px; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#tech_table {
+    position: relative; height: 540px; /* Без изменений */
+    display: none;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+div.vertical-line {
+    border-left: 1px solid #ccc; /* Более светлая граница */
+    height: 477px; position: absolute; left: 50%; top: 62px; /* Без изменений */
+}
+
+/* Таблица спецификаций */
+#specification_table {
+    width: 100%; font-size: 9px; /* Без изменений */
+    padding: 0px; /* Без изменений */
+    border-collapse: collapse;
+    background: #fff;
+}
+
+#specification_table td {
+    width: 100%; /* Без изменений */
+    padding: 2px; /* небольшой отступ, без изменения в функциональности */
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+#specification_table input {
+    text-align: right; /* Без изменений */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 2px;
+    font-size: 9px; /* Без изменений */
+}
+#count_edit {
+    width: 50px; /* Без изменений */
+}
+#specification_table select {
+    width: 110px; /* Без изменений */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 9px; /* Без изменений */
+    padding: 2px;
+    background: #fff;
+}
+
+/* Лого и иконки */
+#logo_table {
+    width: 150px; top: 0px; left: 0px; position: absolute; /* Без изменений */
+}
+
+#setup {
+    width: 20px; top: 26px; left: 170px; position: absolute; cursor: pointer; /* Без изменений */
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+#setup:hover {
+    opacity: 1;
+}
+#update {
+    width: 19px; top: 26px; left: 200px; position: absolute; cursor: pointer; /* Без изменений */
+    opacity: 0.8; transition: opacity 0.3s;
+}
+#update:hover {
+    opacity: 1;
+}
+#google_sheets {
+    width: 22px; top: 26px; left: 230px; position: absolute; cursor: pointer; /* Без изменений */
+    opacity: 0.8; transition: opacity 0.3s;
+}
+#google_sheets:hover {
+    opacity: 1;
+}
+#excel {
+    width: 20px; top: 26px; left: 260px; position: absolute; cursor: pointer; /* Без изменений */
+    opacity: 0.8; transition: opacity 0.3s;
+}
+#excel:hover {
+    opacity: 1;
+}
+#export_spec {
+    width: 20px; top: 26px; left: 290px; position: absolute; cursor: pointer; /* Без изменений */
+    opacity: 0.8; transition: opacity 0.3s;
+}
+#export_spec:hover {
+    opacity: 1;
+}
+#contract_checkbox {
+    width: 18px; top: 28px; left: 320px; position: absolute; cursor: pointer; /* Без изменений */
+    opacity: 0.8; transition: opacity 0.3s;
+}
+#contract_checkbox:hover {
+    opacity: 1;
+}
+#dollar {
+    font-size:12px; top: 22px; left: 350px; position: absolute; /* Без изменений */
+    color: #333;
+    opacity: 0.8; transition: opacity 0.3s;
+}
+#dollar:hover {
+    opacity: 1;
+}
+
+/* Header Table */
+.header_table {
+    font-size: 11px; top: 0px; right: 0px; position: absolute; margin-left: 160px; /* Без изменений */
+    color: #333;
+}
+.header_table td:nth-child(1){
+    width: 100%; text-align: right; /* Без изменений */
+}
+.header_table td:nth-child(2){
+    width: 86px; /* Без изменений */
+}
+.header_table td:nth-child(3){
+    width: 100px; /* Без изменений */
+}
+
+/* Таблицы скидок */
+#discount_table {
+    display: none; width: 100px; padding: 1px 1px; border-collapse: collapse; margin-right: -15px; /* Без изменений */
+    font-size: 9px; /* Без изменений */
+    background: #fafafa;
+}
+#discount_table td {
+    padding: 1px 5px; text-align: right; border: 1px solid #808080; /* Без изменений */
+    color: #333;
+}
+
+#total_with_discount_table {
+    width: 100px; padding: 1px 1px; border-collapse: collapse; /* Без изменений */
+    font-size: 9px; /* Без изменений */
+    background: #fafafa;
+}
+#total_with_discount_table td {
+    padding: 1px 5px; text-align: right; border: 1px solid #808080; /* Без изменений */
+    color: #333;
+}
+
+/* Основные таблицы спецификаций */
+.spec_table {
+    width: 50%; padding: 0px; border-top: 1px solid gray; top: 62px; position: absolute; /* Без изменений */
+    font-size: 9px; /* Без изменений */
+    background: #fff;
+    border-collapse: collapse;
+}
+.spec_table th {
+    font-size: 11px; /* Без изменений */
+    background: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+    color: #333;
+    padding: 2px;
+}
+.spec_table td {
+    width: 50%; vertical-align: top; /* Без изменений */
+    border-bottom: 1px solid #eee;
+    color: #333;
+    padding: 2px;
+}
+
+/* Таблица тех. данных */
+.tech_table {
+    width: 100%; padding: 0px; border-top: 1px solid gray; top: 62px; position: absolute; /* Без изменений */
+    font-size: 11px; /* Без изменений */
+    background: #fff;
+    border-collapse: collapse;
+}
+.tech_table th {
+    font-size: 11px; /* Без изменений */
+    background: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+    color: #333;
+    padding: 2px;
+}
+.tech_table td {
+    vertical-align: middle; font-size: 11px; /* Без изменений */
+    border-bottom: 1px solid #eee;
+    color: #333;
+    padding: 2px;
+}
+.tech_table td:nth-child(1) { width: 20px; /* Без изменений */ }
+.tech_table td:nth-child(2) { width: 100%; /* Без изменений */ }
+.tech_table td:nth-child(3) { width: 20px; text-align: right; /* Без изменений */ }
+
+/* Спецификационные таблицы */
+#spec1_table {
+    left: 0px; /* Без изменений */
+}
+#spec1_table td {
+    vertical-align: middle; /* Без изменений */
+    border-bottom: 1px solid #eee;
+    color: #333;
+    padding: 2px;
+}
+#spec1_table td:nth-child(1){ width: 20px; } /* Без изменений */
+#spec1_table td:nth-child(2){ width: 100%; } /* Без изменений */
+#spec1_table td:nth-child(3){ text-align: right; } /* Без изменений */
+#spec1_table td:nth-child(4){ text-align: right; } /* Без изменений */
+#spec1_table td:nth-child(5){ text-align: right; } /* Без изменений */
+#spec1_table td:nth-child(6){ text-align: right; } /* Без изменений */
+#spec1_table td:nth-child(7){ text-align: right; } /* Без изменений */
+#spec1_table td:nth-child(8){ text-align: right; } /* Без изменений */
+
+#spec2_table {
+    right: 0px; /* Без изменений */
+}
+#spec2_table td {
+    vertical-align: middle; /* Без изменений */
+    border-bottom: 1px solid #eee;
+    color: #333;
+    padding: 2px;
+}
+#spec2_table td:nth-child(1){ width: 20px; } /* Без изменений */
+#spec2_table td:nth-child(2){ width: 100%; } /* Без изменений */
+#spec2_table td:nth-child(n+3){ text-align: right; } /* Без изменений */
+
+/* Инфо о клиенте */
+#client_info_table {
+    font-size: 10px; width: 50%; position: absolute; bottom:0px; left: 0px; /* Без изменений */
+    border-top: 1px solid gray; border-left: 1px solid gray; border-bottom: 1px solid gray; /* Без изменений */
+    background: #fff;
+    color: #333;
+    padding: 2px; /* Добавили небольшой отступ внутри, не изменяя расположение */
+}
+
+#production_time_table {
+    font-size: 10px; width: 50%; position: absolute; bottom: 0px; right: -1px; display: block; /* Без изменений */
+    background: #fff;
+    color: #333;
+    padding: 2px;
+    border-top: none; /* Сохранено как в оригинале (не указано явно, но оставляем как есть) */
+}
+
+#total_cost_table {
+    font-size: 10px; width: 50%; position: absolute; bottom: 0px; right: -1px; /* Без изменений */
+    border-top: 1px solid gray; border-right: 1px solid gray; border-bottom: 1px solid gray; /* Без изменений */
+    display: block;
+    background: #fff;
+    color: #333;
+    border-left: none; /* Не меняем логику, просто не было указано, оставляем как есть */
+    padding: 2px;
+}
+#total_cost_table td:nth-child(1){ text-align: left; width: 100%; /* Без изменений */ }
+#total_cost_table td:nth-child(2){ text-align: right; width: 80px; /* Без изменений */ }
+
+#total_net_cost_table {
+    font-size: 10px; width: 50%; position: absolute; bottom:0px; right: -1px; /* Без изменений */
+    border-top: 1px solid gray; border-right: 1px solid gray; border-bottom: 1px solid gray; /* Без изменений */
+    display: none;
+    background: #fff;
+    color: #333;
+    padding: 2px;
+}
+#total_net_cost_table td:nth-child(2){ text-align: right; width: 80px; /* Без изменений */ }
+
+/* Кнопка отправки */
+#submit_button {
+    position: relative; margin: 0 auto; color: #000000; /* Без изменений */
+    background: #F7931E; 
+    border: none; 
+    padding: 3px; /* Без изменений */
+    cursor: pointer;
+    font-size: 9px; /* Без изменений */
+    color: #fff; /* Текст на кнопке белый для контраста */
+    transition: background 0.3s;
+    border-radius: 3px;
+}
+#submit_button:hover {
+    background: #F7931E;
+}
+
+/* Настройки и скидки */
+#setup_table {
+    margin-top: 20px; width: 500px; border: 1px solid gray; padding: 3px 5px; font-size: 12px; /* Без изменений */
+    background: #fff;
+    border-radius: 3px;
+}
+#setup_table input {
+    width: 100%; /* Без изменений */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 2px; /* Не меняем логику, небольшой padding не должен сломать JS логику */
+}
+
+#discounts_table {
+    width: 500px; border: 1px solid gray; padding: 3px 5px; font-size: 12px; /* Без изменений */
+    background: #fff;
+    border-radius: 3px;
+}
+#discounts_table input {
+    width: 100%; /* Без изменений */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 2px;
+}
+
+/* Попап */
+#popUp {
+    top: 12%; left: 50%; height: 340px; position: fixed; width: 500px; /* Без изменений */
+    border-radius: 3px; background-color: #FFFFFF; margin-left: -260px; margin-top: -300px; display: none; opacity: 0; padding: 10px; z-index: 6; /* Без изменений */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+#popUp #close {
+    cursor: pointer; position: absolute; width: 25px; height: 20px; top: 10px; right: 10px; display: block; /* Без изменений */
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+#popUp #close:hover {
+    opacity: 1;
+}
+
+#overlay {
+    z-index: 4; background-color: #010; position: fixed; opacity: 0.7; width: 100%; height: 100%; display: none; top: 0; left: 0; /* Без изменений */
+}
+
+/* Кнопки снизу */
+#save {
+    cursor: pointer; position: absolute; bottom: 5px; left: 220px; /* Без изменений */
+    background: #F7931E;
+    color: #fff;
+    border: none;
+    padding: 2px 5px; /* Оставляем примерно как было (не было задано, значит без изменений в смысле логики) */
+    border-radius: 3px;
+    font-size: 9px; /* Без изменений */
+    transition: background 0.3s;
+}
+#save:hover {
+    background: #F7931E;
+}
+#discount {
+    cursor: pointer; position: absolute; bottom: 5px; background-color: #FFFFFF; border: 0px; left: 10px; width: 20px; height: 20px; border: 1px solid #DCDCDC; /* Без изменений */
+    border-radius: 3px;
+    transition: background 0.3s;
+}
+#discount:hover {
+    background-color: #f0f0f0;
+}
+#net_cost {
+    cursor: pointer; position: absolute; bottom: 5px; background-color: #FFFFFF; border: 0px; right: 10px; width: 20px; height: 20px; /* Без изменений */
+    border: 1px solid #DCDCDC;
+    border-radius: 3px;
+    transition: background 0.3s;
+}
+#net_cost:hover {
+    background-color: #f5f5f5;
+}
+
+/* Футер */
+#footer {
+    position: fixed; bottom: 0; left: 0; width: 100%; height: 25px; line-height: 20px; text-align: center; border-top: 1px solid gray; background-color: #e2ded7; padding: 3px; /* Без изменений */
+    font-size: 9px; /* Без изменений */
+    color: #555;
+}
+
+.footer_button {
+    cursor: pointer; color: #000000; display: inline-block; /* Без изменений */
+    transition: color 0.3s;
+}
+.footer_button:hover {
+    color: #F7931E;
+}
+
+#show_spec_button {
+    display: none; /* Без изменений */
+}
+.currency-switch{
+  font-size: 12px;
+  padding: 2px 4px;
+  margin-left: 4px;
+}
+.currency-switch          { padding:2px 4px; }
+.currency-rate-input      { padding:2px 4px; text-align:right; }
+
+

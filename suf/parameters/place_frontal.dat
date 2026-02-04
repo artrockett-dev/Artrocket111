@@ -1,0 +1,11 @@
+auto<=>auto;3;3;0;1.5;1.5;1
+auto<=>
+auto<=>
+auto<=>
+Ширина фасадов=frontal_width=1=SELECT=&1^Ширина модуля&2^Ширина ниши&3^Фиксированная
+Фиксированная ширина (мм)=frontal_width_input=2000=INPUT
+Положение по ширине=hor_position=1=SELECT=&1^Слева&2^Справа
+Высота фасадов=frontal_height=1=SELECT=&1^Высота модуля&2^Высота ниши&3^Фиксированная
+Фиксированная высота (мм)=frontal_height_input=1600=INPUT
+Положение по высоте=ver_position=1=SELECT=&1^Снизу&2^Сверху
+Толщина фасадов=frontal_thickness=16=INPUT

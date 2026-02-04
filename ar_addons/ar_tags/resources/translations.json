@@ -1,0 +1,98 @@
+{
+   "Скрыть все": {
+     "ru": "    ",
+     "en": "    ",
+     "ro": "    "
+   },
+    "Компоненты": {
+      "en": "Components",
+      "ro": "Componente",
+      "ru": "Компоненты"
+    },
+    "Спецификация": {
+      "en": "Specification",
+      "ro": "Specificație",
+      "ru": "Спецификация"
+    },
+    "1_Фасад": {
+      "en": "Facade",
+      "ro": "Fațadă",
+      "ru": "Фасад"
+    },
+    "2_Освещение": {
+      "en": "Lighting",
+      "ro": "Iluminat",
+      "ru": "Освещение"
+    },
+    "3_Декор": {
+      "en": "Decor",
+      "ro": "Decor",
+      "ru": "Декор"
+    },
+    "4_Столешница": {
+      "en": "Worktop",
+      "ro": "Blat",
+      "ru": "Столешница"
+    },
+    "5_Техника": {
+      "en": "Appliances",
+      "ro": "Electrocasnice",
+      "ru": "Техника"
+    },
+    "0_Данные_Размеры": {
+      "en": "Modules - Sizes",
+      "ro": "Module - Dimensiuni",
+      "ru": "Модули - Размеры"
+    },
+    "1_Фасад_открывание": {
+      "en": "Facade - Opening",
+      "ro": "Fațadă - Deschidere",
+      "ru": "Фасад - Открывание"
+    },
+    "2_Данные_Фасад": {
+      "en": "Facade - Material",
+      "ro": "Fațadă - Material",
+      "ru": "Фасад - Материал"
+    },
+    "3_Данные_Корпус": {
+      "en": "Body - Material",
+      "ro": "Carcasă - Material",
+      "ru": "Корпус - Материал"
+    },
+    "4_Данные_Наполнение": {
+      "en": "Modules - Filling",
+      "ro": "Module - Umplere",
+      "ru": "Модули - Наполнение"
+    },
+    "5_Данные_Детали": {
+      "en": "Parts - Constructor",
+      "ro": "Constructor - Piese",
+      "ru": "Конструктор - Детали"
+    },
+    "0_Ценовое предложение": {
+      "en": "Price - Offer",
+      "ro": "Preț - Ofertă ",
+      "ru": "Ценовое - Предложение"
+    },
+    "Управление Тегами": {
+      "en": "AR-TAGS 1.0",
+      "ro": "AR-TAGS 1.0",
+      "ru": "AR-TAGS 1.0"
+    },
+    "Список Тегов (Слоёв)": {
+      "en": " ",
+      "ro": " ",
+      "ru": " "
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+

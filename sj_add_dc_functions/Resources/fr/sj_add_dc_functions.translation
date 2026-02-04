@@ -1,0 +1,15 @@
+///////////////////////////////////////
+// Add DC Functions plugin for SketchUp.
+//
+// Translation language: Français
+// Translation date: 2021-12-17
+///////////////////////////////////////
+
+"Add additional calculation functions for dynamic component formulas."="Ajouter des fonctions de calcul supplémentaires pour les formules des composants dynamiques.";
+"Functions list"="Liste des fonctions";
+" Access it via Plugins "=" Accédez-y via Menu Extensions ";
+", or toollbar "=", ou barre d'outils ";
+"Displays a dialog box with the list of functions added by the plugin."="Affiche une boite de dialogue avec la liste des fonctions ajoutées par le plugin.";
+"Functions list for dynamic components added by the plugin"="Liste des fonctions pour les composants dynamiques ajoutées par le plugin";
+"Copy"="Copier";
+"Parameter(s)"="Paramètre(s)";
